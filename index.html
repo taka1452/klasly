@@ -462,83 +462,135 @@
     font-size: 17px;
   }
 
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
   .pricing-card {
     background: white;
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 48px 40px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    padding: 32px 24px;
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    border-color: var(--sage);
+    box-shadow: 0 8px 40px rgba(74,103,65,0.15);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sage);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
   }
 
   .price-amount {
     font-family: 'Instrument Serif', serif;
-    font-size: 72px;
+    font-size: 52px;
     line-height: 1;
-    color: var(--sage);
+    color: var(--ink);
     letter-spacing: -2px;
   }
 
+  .price-amount.highlight { color: var(--sage); }
+
   .price-period {
-    font-size: 16px;
+    font-size: 13px;
     color: var(--muted);
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .price-features {
     list-style: none;
-    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 36px;
-    padding: 28px 0;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 20px 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
 
   .price-features li {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 15px;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
   }
 
   .price-features li::before {
     content: '✓';
-    width: 22px; height: 22px;
+    width: 16px; height: 16px;
     background: var(--sage-pale);
     color: var(--sage);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     flex-shrink: 0;
+    margin-top: 2px;
   }
 
   .pricing-cta {
     display: block;
     background: var(--sage);
     color: white;
-    padding: 16px;
+    padding: 12px;
     border-radius: 100px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     text-decoration: none;
+    text-align: center;
     transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(74,103,65,0.25);
   }
 
-  .pricing-cta:hover {
-    background: var(--sage-light);
-    transform: translateY(-1px);
+  .pricing-cta:hover { background: var(--sage-light); transform: translateY(-1px); }
+
+  .pricing-cta.ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--ink);
   }
+
+  .pricing-cta.ghost:hover { background: var(--sage-pale); border-color: var(--sage); }
 
   .pricing-note {
-    margin-top: 16px;
-    font-size: 13px;
+    margin-top: 12px;
+    font-size: 12px;
     color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-cards { grid-template-columns: 1fr; }
   }
 
   /* FINAL CTA */
@@ -741,39 +793,13 @@
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <p class="section-label">Pricing</p>
-    <h2>Simple, honest pricing.</h2>
-    <p class="pricing-sub">One plan. Everything included. No hidden fees.</p>
-    <div class="pricing-card">
-      <div class="price-amount">$29</div>
-      <div class="price-period">per month</div>
-      <ul class="price-features">
-        <li>Up to 50 members</li>
-        <li>Unlimited classes & instructors</li>
-        <li>Online booking for members</li>
-        <li>Automatic billing via Stripe</li>
-        <li>3 user roles (Owner / Instructor / Member)</li>
-        <li>Email support</li>
-      </ul>
-      <a href="#" class="pricing-cta">Start Free 14-Day Trial</a>
-      <p class="pricing-note">No credit card required &nbsp;·&nbsp; Cancel anytime</p>
-    </div>
-  </div>
-</section>
+  <div style="max-width:960px;margin:0 auto;">
+    <p class="section-label" style="text-align:center;">Pricing</p>
+    <h2 style="text-align:center;font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;margin-bottom:12px;">Simple, honest pricing.</h2>
+    <p style="text-align:center;color:var(--muted);font-size:17px;margin-bottom:48px;">Start free. Upgrade when you're ready.</p>
+    <div class="pricing-cards">
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <h2>Your studio deserves software that <em>fits.</em></h2>
-  <p>Stop paying for features you don't need. Start running your studio the way you actually teach — with simplicity and intention.</p>
-  <a href="#pricing" class="btn-primary">Get Started Free →</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <a href="#" class="logo">Studio<span>flow</span></a>
-  <p>© 2025 Studioflow. Built for small studios.</p>
-</footer>
-
-</body>
-</html>
+      <!-- FREE -->
+      <div class="pricing-card">
+        <div class="plan-name">Free</div>
+        <div class="price-amoun
