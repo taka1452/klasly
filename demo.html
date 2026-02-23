@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klasly – Live Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f1410;
+  --surface: #161d17;
+  --surface2: #1e2820;
+  --border: #2a3a2c;
+  --sage: #6db87a;
+  --sage-dim: #3d6b45;
+  --sage-pale: #1a2e1d;
+  --text: #e8ede9;
+  --text-muted: #7a9480;
+  --text-dim: #4a6050;
+  --warm: #e8b87a;
+  --red: #e87a7a;
+  --blue: #7ab8e8;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* LAYOUT */
+.app {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+  grid-column: 1 / -1;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  color: var(--text);
+}
+.logo span { color: var(--sage); }
+
+.demo-badge {
+  background: var(--sage-pale);
+  border: 1px solid var(--sage-dim);
+  color: var(--sage);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 32px; height: 32px;
+  background: var(--sage-dim);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sage);
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-section {
+  padding: 0 12px;
+  margin-bottom: 8px;
+}
+
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 8px 12px 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 400;
+  transition: all 0.15s;
+  margin: 0 8px;
+}
+
+.nav-item:hover { background: var(--surface2); color: var(--text); }
+.nav-item.active { background: var(--sage-pale); color: var(--sage); font-weight: 500; }
+
+.nav-icon { font-size: 15px; width: 20px; text-align: center; }
+
+.nav-badge {
+  margin-left: auto;
+  background: var(--sage-dim);
+  color: var(--sage);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 100px;
+}
+
+/* MAIN */
+.main {
+  background: var(--bg);
+  overflow-y: auto;
+  padding: 28px 32px;
+}
+
+.page { display: none; animation: fadeIn 0.2s ease; }
+.page.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* PAGE HEADER */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.page-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.btn-primary { background: var(--sage); color: var(--bg); }
+.btn-primary:hover { background: #7ecf8c; }
+.btn-ghost { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
+.btn-ghost:hover { color: var(--text); border-color: var(--text-dim); }
+
+/* STAT CARDS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+.stat-value { font-family: 'Instrument Serif', serif; font-size: 32px; color: var(--text); letter-spacing: -1px; line-height: 1; }
+.stat-change { font-size: 12px; margin-top: 6px; }
+.stat-change.up { color: var(--sage); }
+.stat-change.down { color: var(--red); }
+.stat-change.neutral { color: var(--text-muted); }
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.card-action { font-size: 12px; color: var(--sage); cursor: pointer; }
+.card-action:hover { text-decoration: underline; }
+
+/* TABLE */
+.table { width: 100%; border-collapse: collapse; }
+.table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(42,58,44,0.5);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.table tr:last-child td { border-bottom: none; }
+.table tr:hover td { background: var(--surface2); cursor: pointer; }
+.table .name { color: var(--text); font-weight: 500; }
+
+/* BADGE */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-green { background: rgba(109,184,122,0.15); color: var(--sage); }
+.badge-yellow { background: rgba(232,184,122,0.15); color: var(--warm); }
+.badge-red { background: rgba(232,122,122,0.15); color: var(--red); }
+.badge-blue { background: rgba(122,184,232,0.15); color: var(--blue); }
+.badge-dim { background: var(--surface2); color: var(--text-dim); }
+
+/* CLASS CARDS */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+}
+
+.class-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.class-card:hover { border-color: var(--sage-dim); background: var(--sage-pale); }
+.class-card.booked { border-color: var(--sage-dim); }
+.class-card.booked::after {
+  content: '✓ Booked';
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--sage);
+  color: var(--bg);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+}
+
+.class-time { font-size: 12px; color: var(--text-dim); margin-bottom: 6px; }
+.class-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.class-instructor { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+.class-spots {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.spots-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.spots-fill {
+  height: 100%;
+  background: var(--sage);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.spots-fill.full { background: var(--red); }
+.spots-fill.almost { background: var(--warm); }
+
+/* GRID 2COL */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* TODAY CLASSES */
+.today-class {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(42,58,44,0.5);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.today-class:last-child { border-bottom: none; }
+.today-class:hover { background: var(--surface2); }
+
+.class-time-block {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+  min-width: 64px;
+}
+.class-time-block .hour { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1; }
+.class-time-block .ampm { font-size: 10px; color: var(--text-dim); }
+
+.class-info { flex: 1; }
+.class-info .name { font-size: 14px; font-weight: 500; color: var(--text); }
+.class-info .meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.class-attendance {
+  text-align: right;
+}
+.attendance-num { font-size: 18px; font-weight: 600; color: var(--text); }
+.attendance-total { font-size: 12px; color: var(--text-dim); }
+
+/* MEMBER DETAIL MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  width: 420px;
+  max-width: 90vw;
+  animation: fadeIn 0.2s ease;
+}
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.modal-close { font-size: 20px; cursor: pointer; color: var(--text-muted); line-height: 1; }
+.modal-close:hover { color: var(--text); }
+.modal-avatar {
+  width: 56px; height: 56px;
+  background: var(--sage-dim);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 16px;
+}
+.modal-name { font-family: 'Instrument Serif', serif; font-size: 22px; margin-bottom: 4px; }
+.modal-plan { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.modal-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.modal-stat { background: var(--surface2); border-radius: 8px; padding: 12px; text-align: center; }
+.modal-stat .val { font-size: 20px; font-weight: 600; color: var(--sage); }
+.modal-stat .lbl { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.modal-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.modal-row:last-child { border-bottom: none; }
+.modal-row .key { color: var(--text-muted); }
+.modal-row .val { color: var(--text); font-weight: 500; }
+
+/* PAYMENT ROW */
+.payment-amount { font-weight: 600; }
+.payment-amount.paid { color: var(--sage); }
+.payment-amount.pending { color: var(--warm); }
+.payment-amount.overdue { color: var(--red); }
+
+/* SEARCH */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+.search-bar input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  width: 100%;
+}
+.search-bar input::placeholder { color: var(--text-dim); }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--sage);
+  color: var(--bg);
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* BOOKING DAY TABS */
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.day-tab {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.day-tab.active { background: var(--sage-pale); border-color: var(--sage-dim); color: var(--sage); font-weight: 500; }
+.day-tab:hover:not(.active) { color: var(--text); }
+
+@media (max-width: 768px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .class-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="logo">Klas<span>ly</span></span>
+      <span class="demo-badge">Live Demo</span>
+    </div>
+    <div class="topbar-right">
+      <span style="font-size:13px;color:var(--text-muted);">Sunrise Yoga Studio</span>
+      <div class="avatar">S</div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-label">Menu</div>
+    <div class="nav-item active" onclick="showPage('dashboard')">
+      <span class="nav-icon">⬡</span> Dashboard
+    </div>
+    <div class="nav-item" onclick="showPage('members')">
+      <span class="nav-icon">👥</span> Members
+      <span class="nav-badge">42</span>
+    </div>
+    <div class="nav-item" onclick="showPage('booking')">
+      <span class="nav-icon">📅</span> Book a Class
+    </div>
+    <div class="nav-item" onclick="showPage('payments')">
+      <span class="nav-icon">💳</span> Payments
+      <span class="nav-badge" style="background:rgba(232,122,122,0.2);color:var(--red);">3</span>
+    </div>
+    <div style="margin-top:auto;padding:16px 20px;border-top:1px solid var(--border);">
+      <div style="font-size:12px;color:var(--text-dim);">Owner</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">Sarah Mitchell</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page active">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Good morning, Sarah ☀️</div>
+          <div class="page-sub">Monday, Feb 23 · 4 classes scheduled today</div>
+        </div>
+        <button class="btn btn-primary" onclick="showToast('Class added!')">+ Add Class</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Active Members</div>
+          <div class="stat-value">42</div>
+          <div class="stat-change up">↑ +3 this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Classes Today</div>
+          <div class="stat-value">4</div>
+          <div class="stat-change neutral">28 total bookings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Monthly Revenue</div>
+          <div class="stat-value">$1,840</div>
+          <div class="stat-change up">↑ +12% vs last month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Unpaid</div>
+          <div class="stat-value" style="color:var(--red);">3</div>
+          <div class="stat-change down">$285 outstanding</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Today's Classes</span>
+            <span class="card-action" onclick="showPage('booking')">View all →</span>
+          </div>
+          <div class="today-class" onclick="showToast('8 members checked in')">
+            <div class="class-time-block"><div class="hour">7:00</div><div class="ampm">AM</div></div>
+            <div class="class-info">
+              <div class="name">Morning Flow Yoga</div>
+              <div class="meta">Emma Chen · Studio A</div>
+            </div>
+            <div class="class-attendance">
+              <div class="attendance-num">8</div>
+              <div class="attendance-total">/ 12</div>
+            </div>
+          </div>
+          <div class="today-class" onclick="showToast('Class is full – waitlist active')">
+            <div class="class-time-block"><div class="hour">9:30</div><div class="ampm">AM</div></div>
+            <div class="class-info">
+              <div class="name">Power Vinyasa</div>
+              <div class="meta">Marcus Lee · Studio B</div>
+            </div>
+            <div class="class-attendance">
+              <div class="attendance-num" style="color:var(--red);">12</div>
+              <div class="attendance-total">/ 12 🔥</div>
+            </div>
+          </div>
+          <div class="today-class">
+            <div class="class-time-block"><div class="hour">12:00</div><div class="ampm">PM</div></div>
+            <div class="class-info">
+              <div class="name">Lunchtime Stretch</div>
+              <div class="meta">Emma Chen · Studio A</div>
+            </div>
+            <div class="class-attendance">
+              <div class="attendance-num">5</div>
+              <div class="attendance-total">/ 15</div>
+            </div>
+          </div>
+          <div class="today-class">
+            <div class="class-time-block"><div class="hour">6:00</div><div class="ampm">PM</div></div>
+            <div class="class-info">
+              <div class="name">Evening Yin Yoga</div>
+              <div class="meta">Priya Patel · Studio A</div>
+            </div>
+            <div class="class-attendance">
+              <div class="attendance-num">10</div>
+              <div class="attendance-total">/ 16</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Recent Activity</span>
+          </div>
+          <div style="padding:4px 0;">
+            <div class="today-class">
+              <div style="width:36px;height:36px;background:var(--sage-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--sage);">JL</div>
+              <div class="class-info">
+                <div class="name">Jessica Lin joined</div>
+                <div class="meta">Monthly Unlimited · 2 min ago</div>
+              </div>
+              <span class="badge badge-green">New</span>
+            </div>
+            <div class="today-class">
+              <div style="width:36px;height:36px;background:rgba(232,184,122,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--warm);">TK</div>
+              <div class="class-info">
+                <div class="name">Tom Kim – payment due</div>
+                <div class="meta">$95 overdue · 1 day ago</div>
+              </div>
+              <span class="badge badge-yellow">Due</span>
+            </div>
+            <div class="today-class">
+              <div style="width:36px;height:36px;background:rgba(122,184,232,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--blue);">AS</div>
+              <div class="class-info">
+                <div class="name">Anna Schmidt booked</div>
+                <div class="meta">Power Vinyasa · 6PM slot</div>
+              </div>
+              <span class="badge badge-blue">Booked</span>
+            </div>
+            <div class="today-class">
+              <div style="width:36px;height:36px;background:var(--sage-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--sage);">MR</div>
+              <div class="class-info">
+                <div class="name">Maya Rodriguez paid</div>
+                <div class="meta">10-class pass · $150</div>
+              </div>
+              <span class="badge badge-green">Paid</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEMBERS -->
+    <div id="page-members" class="page">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Members</div>
+          <div class="page-sub">42 active members</div>
+        </div>
+        <button class="btn btn-primary" onclick="showToast('Member added!')">+ Add Member</button>
+      </div>
+      <div class="search-bar">
+        <span style="color:var(--text-dim);">🔍</span>
+        <input type="text" placeholder="Search members..." oninput="filterMembers(this.value)">
+      </div>
+      <div class="card">
+        <table class="table" id="members-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Plan</th>
+              <th>Credits</th>
+              <th>Status</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody id="members-tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BOOKING -->
+    <div id="page-booking" class="page">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Book a Class</div>
+          <div class="page-sub">Choose a class to reserve your spot</div>
+        </div>
+      </div>
+      <div class="day-tabs">
+        <div class="day-tab active" onclick="selectDay(this,'Mon')">Mon 23</div>
+        <div class="day-tab" onclick="selectDay(this,'Tue')">Tue 24</div>
+        <div class="day-tab" onclick="selectDay(this,'Wed')">Wed 25</div>
+        <div class="day-tab" onclick="selectDay(this,'Thu')">Thu 26</div>
+        <div class="day-tab" onclick="selectDay(this,'Fri')">Fri 27</div>
+      </div>
+      <div class="class-grid" id="class-grid">
+      </div>
+    </div>
+
+    <!-- PAYMENTS -->
+    <div id="page-payments" class="page">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Payments</div>
+          <div class="page-sub">February 2025 · $1,840 collected</div>
+        </div>
+        <button class="btn btn-ghost" onclick="showToast('Export ready!')">↓ Export CSV</button>
+      </div>
+      <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="stat-card">
+          <div class="stat-label">Collected</div>
+          <div class="stat-value" style="color:var(--sage);">$1,840</div>
+          <div class="stat-change up">19 payments</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending</div>
+          <div class="stat-value" style="color:var(--warm);">$190</div>
+          <div class="stat-change neutral">2 members</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Overdue</div>
+          <div class="stat-value" style="color:var(--red);">$95</div>
+          <div class="stat-change down">1 member · 8 days late</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">All Transactions</span>
+          <span class="card-action" onclick="showToast('Reminder sent!')">Send reminders</span>
+        </div>
+        <table class="table">
+          <thead>
+            <tr><th>Member</th><th>Plan / Item</th><th>Amount</th><th>Status</th><th>Date</th></tr>
+          </thead>
+          <tbody>
+            <tr onclick="showToast('Receipt sent to jessica@email.com')"><td class="name">Jessica Lin</td><td>Monthly Unlimited</td><td class="payment-amount paid">+$120</td><td><span class="badge badge-green">Paid</span></td><td>Feb 23</td></tr>
+            <tr onclick="showToast('Receipt sent!')"><td class="name">Maya Rodriguez</td><td>10-class pass</td><td class="payment-amount paid">+$150</td><td><span class="badge badge-green">Paid</span></td><td>Feb 22</td></tr>
+            <tr onclick="showToast('Receipt sent!')"><td class="name">Anna Schmidt</td><td>Monthly Unlimited</td><td class="payment-amount paid">+$120</td><td><span class="badge badge-green">Paid</span></td><td>Feb 20</td></tr>
+            <tr onclick="showToast('Reminder sent to david@email.com')"><td class="name">David Park</td><td>Monthly Unlimited</td><td class="payment-amount pending">$120</td><td><span class="badge badge-yellow">Pending</span></td><td>Feb 18</td></tr>
+            <tr onclick="showToast('Overdue notice sent to tom@email.com')"><td class="name">Tom Kim</td><td>10-class pass</td><td class="payment-amount overdue">$95</td><td><span class="badge badge-red">Overdue</span></td><td>Feb 14</td></tr>
+            <tr onclick="showToast('Receipt sent!')"><td class="name">Priya Sharma</td><td>Drop-in class</td><td class="payment-amount paid">+$20</td><td><span class="badge badge-green">Paid</span></td><td>Feb 19</td></tr>
+            <tr onclick="showToast('Receipt sent!')"><td class="name">Carlos Mendez</td><td>Monthly Unlimited</td><td class="payment-amount paid">+$120</td><td><span class="badge badge-green">Paid</span></td><td>Feb 17</td></tr>
+            <tr onclick="showToast('Reminder sent!')"><td class="name">Lisa Thompson</td><td>5-class pass</td><td class="payment-amount pending">$70</td><td><span class="badge badge-yellow">Pending</span></td><td>Feb 16</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MEMBER MODAL -->
+<div class="modal-overlay" id="member-modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <span style="font-size:13px;font-weight:600;color:var(--text-muted);">Member Profile</span>
+      <span class="modal-close" onclick="document.getElementById('member-modal').classList.remove('open')">×</span>
+    </div>
+    <div class="modal-avatar" id="modal-avatar">JL</div>
+    <div class="modal-name" id="modal-name">Jessica Lin</div>
+    <div class="modal-plan" id="modal-plan">Monthly Unlimited · Active</div>
+    <div class="modal-stats">
+      <div class="modal-stat"><div class="val" id="modal-classes">24</div><div class="lbl">Classes</div></div>
+      <div class="modal-stat"><div class="val" id="modal-credits">∞</div><div class="lbl">Credits</div></div>
+      <div class="modal-stat"><div class="val" id="modal-months">3</div><div class="lbl">Months</div></div>
+    </div>
+    <div class="modal-row"><span class="key">Email</span><span class="val" id="modal-email">jessica@email.com</span></div>
+    <div class="modal-row"><span class="key">Next billing</span><span class="val">Mar 1 · $120</span></div>
+    <div class="modal-row"><span class="key">Last class</span><span class="val">Today, 7:00 AM</span></div>
+    <div style="display:flex;gap:10px;margin-top:20px;">
+      <button class="btn btn-primary" style="flex:1;" onclick="showToast('Message sent!');closeModalDirect()">Send Message</button>
+      <button class="btn btn-ghost" onclick="showToast('Plan updated!');closeModalDirect()">Edit Plan</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const members = [
+  { name: 'Jessica Lin', plan: 'Monthly Unlimited', credits: '∞', status: 'active', joined: 'Nov 2024', classes: 24, months: 3, email: 'jessica@email.com', initials: 'JL' },
+  { name: 'Maya Rodriguez', plan: '10-class pass', credits: '6', status: 'active', joined: 'Jan 2025', classes: 4, months: 1, email: 'maya@email.com', initials: 'MR' },
+  { name: 'Anna Schmidt', plan: 'Monthly Unlimited', credits: '∞', status: 'active', joined: 'Oct 2024', classes: 31, months: 4, email: 'anna@email.com', initials: 'AS' },
+  { name: 'David Park', plan: 'Monthly Unlimited', credits: '∞', status: 'pending', joined: 'Feb 2025', classes: 8, months: 1, email: 'david@email.com', initials: 'DP' },
+  { name: 'Tom Kim', plan: '10-class pass', credits: '3', status: 'overdue', joined: 'Dec 2024', classes: 7, months: 2, email: 'tom@email.com', initials: 'TK' },
+  { name: 'Priya Sharma', plan: 'Drop-in', credits: '0', status: 'active', joined: 'Feb 2025', classes: 2, months: 1, email: 'priya@email.com', initials: 'PS' },
+  { name: 'Carlos Mendez', plan: 'Monthly Unlimited', credits: '∞', status: 'active', joined: 'Sep 2024', classes: 45, months: 5, email: 'carlos@email.com', initials: 'CM' },
+  { name: 'Lisa Thompson', plan: '5-class pass', credits: '2', status: 'pending', joined: 'Jan 2025', classes: 3, months: 1, email: 'lisa@email.com', initials: 'LT' },
+  { name: 'Yuki Tanaka', plan: 'Monthly Unlimited', credits: '∞', status: 'active', joined: 'Aug 2024', classes: 52, months: 6, email: 'yuki@email.com', initials: 'YT' },
+  { name: 'Rachel Green', plan: '10-class pass', credits: '8', status: 'active', joined: 'Feb 2025', classes: 2, months: 1, email: 'rachel@email.com', initials: 'RG' },
+];
+
+const classes = {
+  Mon: [
+    { time: '7:00 AM', name: 'Morning Flow Yoga', instructor: 'Emma Chen', booked: 8, capacity: 12, booked_by_me: false },
+    { time: '9:30 AM', name: 'Power Vinyasa', instructor: 'Marcus Lee', booked: 12, capacity: 12, booked_by_me: true },
+    { time: '12:00 PM', name: 'Lunchtime Stretch', instructor: 'Emma Chen', booked: 5, capacity: 15, booked_by_me: false },
+    { time: '6:00 PM', name: 'Evening Yin Yoga', instructor: 'Priya Patel', booked: 10, capacity: 16, booked_by_me: false },
+  ],
+  Tue: [
+    { time: '6:30 AM', name: 'Sunrise Meditation', instructor: 'Priya Patel', booked: 6, capacity: 20, booked_by_me: false },
+    { time: '10:00 AM', name: 'Hatha Basics', instructor: 'Emma Chen', booked: 9, capacity: 12, booked_by_me: true },
+    { time: '7:00 PM', name: 'Restorative Yoga', instructor: 'Marcus Lee', booked: 11, capacity: 14, booked_by_me: false },
+  ],
+  Wed: [
+    { time: '7:00 AM', name: 'Morning Flow Yoga', instructor: 'Emma Chen', booked: 7, capacity: 12, booked_by_me: false },
+    { time: '9:30 AM', name: 'Core & Balance', instructor: 'Marcus Lee', booked: 10, capacity: 12, booked_by_me: false },
+    { time: '5:30 PM', name: 'Gentle Yoga', instructor: 'Priya Patel', booked: 4, capacity: 16, booked_by_me: false },
+    { time: '7:00 PM', name: 'Advanced Flow', instructor: 'Emma Chen', booked: 8, capacity: 10, booked_by_me: false },
+  ],
+  Thu: [
+    { time: '8:00 AM', name: 'Breathwork & Yoga', instructor: 'Priya Patel', booked: 5, capacity: 15, booked_by_me: false },
+    { time: '12:00 PM', name: 'Lunchtime Stretch', instructor: 'Marcus Lee', booked: 6, capacity: 15, booked_by_me: false },
+    { time: '6:00 PM', name: 'Power Vinyasa', instructor: 'Emma Chen', booked: 11, capacity: 12, booked_by_me: false },
+  ],
+  Fri: [
+    { time: '7:00 AM', name: 'Morning Flow Yoga', instructor: 'Emma Chen', booked: 9, capacity: 12, booked_by_me: false },
+    { time: '9:00 AM', name: 'Weekend Prep Flow', instructor: 'Priya Patel', booked: 7, capacity: 14, booked_by_me: false },
+    { time: '5:00 PM', name: 'Friday Unwind', instructor: 'Marcus Lee', booked: 12, capacity: 16, booked_by_me: false },
+  ],
+};
+
+let currentDay = 'Mon';
+
+function renderMembers(list) {
+  const tbody = document.getElementById('members-tbody');
+  const statusMap = { active: ['badge-green','Active'], pending: ['badge-yellow','Pending'], overdue: ['badge-red','Overdue'] };
+  tbody.innerHTML = list.map((m, i) => {
+    const [cls, lbl] = statusMap[m.status];
+    return `<tr onclick="openMember(${i})">
+      <td class="name">${m.name}</td>
+      <td>${m.plan}</td>
+      <td>${m.credits}</td>
+      <td><span class="badge ${cls}">${lbl}</span></td>
+      <td>${m.joined}</td>
+    </tr>`;
+  }).join('');
+}
+
+function filterMembers(q) {
+  const filtered = members.filter(m => m.name.toLowerCase().includes(q.toLowerCase()));
+  renderMembers(filtered);
+}
+
+function openMember(i) {
+  const m = members[i];
+  document.getElementById('modal-avatar').textContent = m.initials;
+  document.getElementById('modal-name').textContent = m.name;
+  document.getElementById('modal-plan').textContent = m.plan + ' · ' + (m.status === 'active' ? 'Active' : m.status.charAt(0).toUpperCase() + m.status.slice(1));
+  document.getElementById('modal-classes').textContent = m.classes;
+  document.getElementById('modal-credits').textContent = m.credits;
+  document.getElementById('modal-months').textContent = m.months;
+  document.getElementById('modal-email').textContent = m.email;
+  document.getElementById('member-modal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'member-modal') document.getElementById('member-modal').classList.remove('open');
+}
+function closeModalDirect() {
+  document.getElementById('member-modal').classList.remove('open');
+}
+
+function renderClasses(day) {
+  const grid = document.getElementById('class-grid');
+  grid.innerHTML = classes[day].map((c, i) => {
+    const pct = Math.round((c.booked / c.capacity) * 100);
+    const fillCls = pct >= 100 ? 'full' : pct >= 80 ? 'almost' : '';
+    const full = c.booked >= c.capacity;
+    return `<div class="class-card ${c.booked_by_me ? 'booked' : ''}" onclick="toggleBook(${i},'${day}')">
+      <div class="class-time">${c.time}</div>
+      <div class="class-name">${c.name}</div>
+      <div class="class-instructor">${c.instructor}</div>
+      <div class="class-spots">
+        <span style="color:var(--text-muted)">${c.booked}/${c.capacity} spots</span>
+        ${full && !c.booked_by_me ? '<span class="badge badge-yellow">Waitlist</span>' : ''}
+      </div>
+      <div class="spots-bar"><div class="spots-fill ${fillCls}" style="width:${Math.min(pct,100)}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function toggleBook(i, day) {
+  const c = classes[day][i];
+  if (c.booked_by_me) {
+    c.booked_by_me = false;
+    c.booked--;
+    showToast('Booking cancelled');
+  } else {
+    c.booked_by_me = true;
+    if (c.booked < c.capacity) c.booked++;
+    showToast('Booked! See you at ' + c.time + ' 🧘');
+  }
+  renderClasses(day);
+}
+
+function selectDay(el, day) {
+  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  currentDay = day;
+  renderClasses(day);
+}
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// init
+renderMembers(members);
+renderClasses('Mon');
+</script>
+</body>
+</html>
