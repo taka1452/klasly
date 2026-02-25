@@ -8,7 +8,7 @@
 <meta name="keywords" content="yoga studio management software, small studio booking software, fitness studio membership software, studio scheduling app">
 <meta property="og:title" content="Studioflow – Built for Small Studios, Not Enterprise Gyms">
 <meta property="og:description" content="Simple member management, class scheduling, and payments for boutique fitness and yoga studios.">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -392,13 +392,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
     margin-bottom: 20px;
+    background: var(--sage-pale);
   }
-
-  .role-card:nth-child(1) .role-avatar { background: var(--sage-pale); }
-  .role-card:nth-child(2) .role-avatar { background: var(--warm-light); }
-  .role-card:nth-child(3) .role-avatar { background: #e8edf5; }
 
   .role-name {
     font-size: 13px;
@@ -770,7 +766,7 @@
   <h2>The right access for everyone in your studio.</h2>
   <div class="roles-grid">
     <div class="role-card">
-      <div class="role-avatar">👤</div>
+      <div class="role-avatar"><i data-lucide="user" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
       <div class="role-name">Role</div>
       <div class="role-title">Owner</div>
       <ul class="role-list">
@@ -781,7 +777,7 @@
       </ul>
     </div>
     <div class="role-card">
-      <div class="role-avatar">🧘</div>
+      <div class="role-avatar"><i data-lucide="activity" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
       <div class="role-name">Role</div>
       <div class="role-title">Instructor</div>
       <ul class="role-list">
@@ -792,7 +788,7 @@
       </ul>
     </div>
     <div class="role-card">
-      <div class="role-avatar">⭐</div>
+      <div class="role-avatar"><i data-lucide="star" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
       <div class="role-name">Role</div>
       <div class="role-title">Member</div>
       <ul class="role-list">
