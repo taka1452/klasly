@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studioflow – Simple Studio Management Software for Small Fitness & Yoga Studios</title>
-<meta name="description" content="Studioflow is simple studio management software built for small yoga and fitness studios. Manage members, class schedules, and payments — without the complexity of enterprise tools.">
+<title>Klasly – Simple Studio Management Software for Small Fitness & Yoga Studios</title>
+<meta name="description" content="Klasly is simple studio management software built for small yoga and fitness studios. Manage members, class schedules, and payments — without the complexity of enterprise tools.">
 <meta name="keywords" content="yoga studio management software, small studio booking software, fitness studio membership software, studio scheduling app">
-<meta property="og:title" content="Studioflow – Built for Small Studios, Not Enterprise Gyms">
+<meta property="og:title" content="Klasly – Built for Small Studios, Not Enterprise Gyms">
 <meta property="og:description" content="Simple member management, class scheduling, and payments for boutique fitness and yoga studios.">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -441,29 +441,16 @@
   }
 
   .pricing-inner {
-    max-width: 560px;
+    max-width: 720px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .pricing h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-  }
-
-  .pricing-sub {
-    color: var(--muted);
-    margin-bottom: 48px;
-    font-size: 17px;
-  }
-
   .pricing-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 900px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 720px;
     margin: 0 auto;
   }
 
@@ -471,8 +458,9 @@
     background: white;
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 32px 24px;
+    padding: 36px 28px;
     position: relative;
+    text-align: center;
   }
 
   .pricing-card.featured {
@@ -518,6 +506,17 @@
   .price-period {
     font-size: 13px;
     color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .price-save {
+    display: inline-block;
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
     margin-bottom: 20px;
   }
 
@@ -530,6 +529,7 @@
     padding: 20px 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    text-align: left;
   }
 
   .price-features li {
@@ -628,6 +628,19 @@
 
   footer .logo { font-size: 18px; }
 
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .footer-links a:hover { color: var(--ink); }
+
   footer p {
     font-size: 13px;
     color: var(--muted);
@@ -642,6 +655,7 @@
     .pricing { padding: 64px 24px; }
     .features-grid, .roles-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-links { flex-direction: column; gap: 8px; align-items: center; }
   }
 </style>
 </head>
@@ -650,7 +664,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">Klas<span>ly</span></a>
-  <a href="#pricing" class="nav-cta">Start Free Trial</a>
+  <a href="#pricing" class="nav-cta">Start Free 30-Day Trial</a>
 </nav>
 
 <!-- HERO -->
@@ -664,10 +678,10 @@
       Simple member management, class scheduling, and payments — designed for boutique yoga and fitness studios with real instructors and real members.
     </p>
     <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">Start Free 14-Day Trial</a>
+      <a href="#pricing" class="btn-primary">Start Free 30-Day Trial</a>
       <a href="demo.html" class="btn-ghost">Try Live Demo →</a>
     </div>
-    <p class="hero-note">No credit card required &nbsp;·&nbsp; Set up in 5 minutes &nbsp;·&nbsp; Cancel anytime</p>
+    <p class="hero-note">30 days free &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; No charge until your trial ends</p>
   </div>
 </section>
 
@@ -801,7 +815,7 @@
   </div>
 </section>
 
-<!-- PRICING TRANSPARENCY -->
+<!-- PRICING & TRANSPARENCY -->
 <section style="padding:96px 48px;background:var(--ink);color:white;">
   <div style="max-width:1100px;margin:0 auto;">
     <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:20px;">Pricing & Transparency</p>
@@ -810,18 +824,18 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
         <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><i data-lucide="banknote" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div style="font-size:18px;font-weight:600;margin-bottom:10px;">$19/month.<br>That's it.</div>
-        <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Mindbody starts at $159/month. That's the price of lunch — once a month — for a tool that actually fits your studio.</p>
+        <div style="font-size:18px;font-weight:600;margin-bottom:10px;">One plan. $190/year.<br>That's it.</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Mindbody starts at $159/month. Klasly Pro is $190/year — less than $16/month. All features, no tiers, no upsells.</p>
       </div>
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
         <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><i data-lucide="receipt" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div style="font-size:18px;font-weight:600;margin-bottom:10px;">Stripe cost + 0.5%.<br>Nothing hidden.</div>
-        <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">No setup fees. No marketing fees. No long-term contracts. Revenue goes directly to your bank account via Stripe Connect — we never touch your money.</p>
+        <div style="font-size:18px;font-weight:600;margin-bottom:10px;">Stripe fees only.<br>Nothing hidden.</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">No setup fees. No marketing fees. No long-term contracts. Revenue goes directly to your bank account via Stripe — we never touch your money.</p>
       </div>
       <div style="background:rgba(109,184,122,0.08);border:1px solid rgba(109,184,122,0.2);border-radius:16px;padding:32px;">
         <div style="width:44px;height:44px;background:rgba(109,184,122,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><i data-lucide="shield-check" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div style="font-size:18px;font-weight:600;margin-bottom:10px;color:var(--sage-light);">"The money you earn<br>belongs to you."</div>
-        <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">No complex fee structures. No surprise charges. Cancel anytime, no questions asked.</p>
+        <div style="font-size:18px;font-weight:600;margin-bottom:10px;color:var(--sage-light);">30-day free trial.<br>Cancel anytime.</div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Try every feature free for 30 days. No charge until your trial ends. No surprise bills. No questions asked if you leave.</p>
       </div>
     </div>
   </div>
@@ -877,8 +891,8 @@
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
         <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="credit-card" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
         <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Stripe Connect — Direct Payouts</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Revenue flows directly from your members to your bank account. Klasly is never in the middle of your money.</p>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Stripe-Powered Payments</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Revenue flows directly from your members to your bank account. Automatic billing, class passes, and drop-in payments — all handled.</p>
         </div>
       </div>
       <div style="background:rgba(109,184,122,0.08);border:1px solid rgba(109,184,122,0.2);border-radius:16px;padding:32px;display:flex;gap:20px;">
@@ -894,57 +908,51 @@
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-  <div style="max-width:960px;margin:0 auto;">
+  <div style="max-width:720px;margin:0 auto;">
     <p class="section-label" style="text-align:center;">Pricing</p>
-    <h2 style="text-align:center;font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;margin-bottom:12px;">Simple, honest pricing.</h2>
-    <p style="text-align:center;color:var(--muted);font-size:17px;margin-bottom:48px;">Start free. Upgrade when you're ready.</p>
+    <h2 style="text-align:center;font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;margin-bottom:12px;">One plan. Everything included.</h2>
+    <p style="text-align:center;color:var(--muted);font-size:17px;margin-bottom:48px;">No tiers. No upsells. No hidden fees. Just one plan with every feature.</p>
     <div class="pricing-cards">
 
-      <!-- FREE -->
-      <div class="pricing-card">
-        <div class="plan-name">Free</div>
-        <div class="price-amount highlight">$0</div>
-        <div class="price-period">forever</div>
-        <ul class="price-features">
-          <li>Up to 10 members</li>
-          <li>Class scheduling & booking</li>
-          <li>3 user roles</li>
-          <li>Manual payment tracking</li>
-        </ul>
-        <a href="#" class="pricing-cta ghost">Get Started Free</a>
-        <p class="pricing-note">No credit card required</p>
-      </div>
-
-      <!-- STUDIO -->
+      <!-- YEARLY (FEATURED) -->
       <div class="pricing-card featured">
-        <div class="plan-badge">Most Popular</div>
-        <div class="plan-name">Studio</div>
-        <div class="price-amount highlight">$19</div>
-        <div class="price-period">per month</div>
-        <ul class="price-features">
-          <li>Up to 50 members</li>
-          <li>Everything in Free</li>
-          <li>Automatic billing via Stripe</li>
-          <li>Waitlist management</li>
-          <li>Email support</li>
-        </ul>
-        <a href="#" class="pricing-cta">Start Free 14-Day Trial</a>
-        <p class="pricing-note">No credit card required &nbsp;·&nbsp; Cancel anytime</p>
-      </div>
-
-      <!-- GROW -->
-      <div class="pricing-card">
-        <div class="plan-name">Grow</div>
-        <div class="price-amount">$39</div>
-        <div class="price-period">per month</div>
+        <div class="plan-badge">Best Value — Save $38/year</div>
+        <div class="plan-name">Pro · Yearly</div>
+        <div class="price-amount highlight">$190</div>
+        <div class="price-period">per year</div>
+        <div class="price-save">$15.83/month · 2 months free</div>
         <ul class="price-features">
           <li>Unlimited members</li>
-          <li>Everything in Studio</li>
-          <li>Multiple instructors</li>
-          <li>Priority support</li>
+          <li>Unlimited classes & instructors</li>
+          <li>Online booking & waitlist</li>
+          <li>Automatic billing via Stripe</li>
+          <li>Member & instructor portals</li>
+          <li>Email notifications</li>
+          <li>CSV export & data portability</li>
+          <li>Cancel anytime · 14-day refund on first purchase</li>
         </ul>
-        <a href="#" class="pricing-cta ghost">Start Free 14-Day Trial</a>
-        <p class="pricing-note">No credit card required &nbsp;·&nbsp; Cancel anytime</p>
+        <a href="https://app.klasly.app/signup" class="pricing-cta">Start Free 30-Day Trial</a>
+        <p class="pricing-note">Card required · You won't be charged during the trial</p>
+      </div>
+
+      <!-- MONTHLY -->
+      <div class="pricing-card">
+        <div class="plan-name">Pro · Monthly</div>
+        <div class="price-amount">$19</div>
+        <div class="price-period">per month</div>
+        <div style="height:26px;margin-bottom:20px;"></div>
+        <ul class="price-features">
+          <li>Unlimited members</li>
+          <li>Unlimited classes & instructors</li>
+          <li>Online booking & waitlist</li>
+          <li>Automatic billing via Stripe</li>
+          <li>Member & instructor portals</li>
+          <li>Email notifications</li>
+          <li>CSV export & data portability</li>
+          <li>Cancel anytime · No long-term commitment</li>
+        </ul>
+        <a href="https://app.klasly.app/signup" class="pricing-cta ghost">Start Free 30-Day Trial</a>
+        <p class="pricing-note">Card required · You won't be charged during the trial</p>
       </div>
 
     </div>
@@ -955,13 +963,19 @@
 <section class="final-cta">
   <h2>Your studio deserves software that <em>fits.</em></h2>
   <p>Stop paying for features you don't need. Start running your studio the way you actually teach — with simplicity and intention.</p>
-  <a href="#pricing" class="btn-primary">Get Started Free →</a>
+  <a href="https://app.klasly.app/signup" class="btn-primary">Start Free 30-Day Trial →</a>
+  <p style="margin-top:16px;font-size:13px;color:var(--muted);">Card required · No charge until your trial ends</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <a href="#" class="logo">Klas<span>ly</span></a>
-  <p>© 2025 Klasly. Built for small studios.</p>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="mailto:support@klasly.app">Contact</a>
+  </div>
+  <p>© 2026 Klasly. Built for small studios.</p>
 </footer>
 
 </body>
