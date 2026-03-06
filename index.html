@@ -586,10 +586,6 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
-    .pricing-cards { grid-template-columns: 1fr; }
-  }
-
   /* FINAL CTA */
   .final-cta {
     padding: 120px 48px;
@@ -646,16 +642,136 @@
     color: var(--muted);
   }
 
-  /* RESPONSIVE */
+  /* ── NAV RIGHT GROUP ── */
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+
+  .nav-demo-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: white;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .nav-demo-link:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+    background: var(--sage-pale);
+  }
+
+  /* ── DEMO BUTTON (hero) ── */
+  .btn-demo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 13px 24px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: white;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-demo:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+    background: var(--sage-pale);
+  }
+
+  /* ── DEMO STRIP ── */
+  .demo-strip {
+    background: var(--ink);
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .demo-strip-inner { max-width: 600px; margin: 0 auto; }
+
+  .btn-demo-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--sage);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 24px rgba(74,103,65,0.4);
+  }
+  .btn-demo-strip:hover {
+    background: var(--sage-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 32px rgba(74,103,65,0.5);
+  }
+
+  /* ── RESPONSIVE SECTION HELPERS ── */
+  .section-full      { padding: 96px 48px; }
+  .section-dark-full { padding: 96px 48px; }
+  .rg-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .rg-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .story-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 44px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .fee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  /* ── MOBILE ── */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
-    .hero { padding: 100px 24px 60px; }
-    .pain, .roles, .final-cta { padding: 64px 24px; }
-    .features { padding: 64px 24px; }
-    .pricing { padding: 64px 24px; }
-    .features-grid, .roles-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
+    /* Nav */
+    nav { padding: 14px 20px; }
+    .nav-demo-link { display: none; }
+    nav .nav-cta { font-size: 13px; padding: 8px 14px; }
+
+    /* Hero */
+    .hero { padding: 88px 20px 56px; }
+    .hero-sub { font-size: 16px; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+    .btn-primary { text-align: center; }
+    .btn-demo { justify-content: center; }
+    .btn-ghost { justify-content: center; }
+
+    /* Core sections */
+    .pain       { padding: 60px 20px; }
+    .roles      { padding: 60px 20px; }
+    .final-cta  { padding: 72px 20px; }
+    .features   { padding: 60px 20px; }
+    .pricing    { padding: 60px 20px; }
+    .demo-strip { padding: 60px 20px; }
+
+    /* Grids */
+    .features-grid    { grid-template-columns: 1fr; gap: 16px; }
+    .roles-grid       { grid-template-columns: 1fr; gap: 16px; }
+    .pricing-cards    { grid-template-columns: 1fr; }
+
+    /* Inline-styled sections */
+    .section-full,
+    .section-dark-full { padding: 60px 20px; }
+    .rg-2, .rg-3       { grid-template-columns: 1fr; }
+    .story-card         { padding: 28px 24px; }
+    .fee-grid           { grid-template-columns: 1fr; }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
     .footer-links { flex-direction: column; gap: 8px; align-items: center; }
+  }
+
+  /* ── VERY SMALL PHONES ── */
+  @media (max-width: 390px) {
+    .hero-badge { font-size: 12px; padding: 5px 12px; }
+    .price-amount { font-size: 44px; }
   }
 </style>
 </head>
@@ -664,7 +780,10 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">Klas<span>ly</span></a>
-  <a href="#pricing" class="nav-cta">Start Free 30-Day Trial</a>
+  <div class="nav-right">
+    <a href="demo.html" class="nav-demo-link">▶ Live Demo</a>
+    <a href="#pricing" class="nav-cta">Start Free Trial</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -679,7 +798,7 @@
     </p>
     <div class="hero-actions">
       <a href="https://app.klasly.app/signup" class="btn-primary">Start Free 30-Day Trial</a>
-      <a href="#features" class="btn-ghost">See what's included →</a>
+      <a href="demo.html" class="btn-demo">▶ Live Demo</a>
     </div>
     <p class="hero-note">30 days free &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; No charge until your trial ends</p>
   </div>
@@ -761,6 +880,17 @@
   </div>
 </section>
 
+<!-- DEMO STRIP -->
+<section class="demo-strip">
+  <div class="demo-strip-inner">
+    <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:16px;">No signup required</p>
+    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,44px);color:white;letter-spacing:-1px;line-height:1.15;margin-bottom:16px;">Try the full app —<br><em style="font-style:italic;color:var(--sage-light);">right now.</em></h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:16px;margin-bottom:36px;line-height:1.75;">Click through every screen. Browse members, check bookings, view payments. See exactly what your studio will look like on day one — before signing up for anything.</p>
+    <a href="demo.html" class="btn-demo-strip">Open Live Demo →</a>
+    <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.3);">No account · No credit card · Just the app</p>
+  </div>
+</section>
+
 <!-- ROLES -->
 <section class="roles">
   <p class="section-label">Who sees what</p>
@@ -804,12 +934,12 @@
 
 
 <!-- RADICAL SIMPLICITY -->
-<section style="padding:96px 48px;background:var(--paper);">
+<section class="section-full" style="background:var(--paper);">
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label">Radical Simplicity</p>
     <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:640px;">Stop paying $200/month<br>for features you <em style="font-style:italic;color:var(--sage);">never use.</em></h2>
     <p style="color:var(--muted);font-size:17px;max-width:560px;margin-bottom:56px;">Klasly does less — intentionally. Just the tools you actually need to run your studio, without the bloat.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="rg-3">
       <div style="background:white;border:1px solid var(--border);border-radius:16px;padding:32px;">
         <div style="width:48px;height:48px;background:var(--sage-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><i data-lucide="smartphone" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
         <div style="font-size:17px;font-weight:600;margin-bottom:10px;">Book in 3 clicks</div>
@@ -830,12 +960,12 @@
 </section>
 
 <!-- AUTOMATING ESSENTIALS -->
-<section style="padding:96px 48px;background:var(--ink);color:white;">
+<section class="section-dark-full" style="background:var(--ink);color:white;">
   <div style="max-width:1100px;margin:0 auto;">
     <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:20px;">Automating the Essentials</p>
     <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:680px;">Simple — but not a <em style="font-style:italic;color:var(--sage-light);">toy.</em></h2>
     <p style="color:rgba(255,255,255,0.45);font-size:17px;max-width:560px;margin-bottom:56px;">Everything a real small studio needs to operate safely and professionally — fully automated.</p>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+    <div class="rg-2">
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
         <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="file-check" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
         <div>
@@ -869,12 +999,12 @@
 </section>
 
 <!-- FOUNDER STORY -->
-<section style="padding:96px 48px;background:var(--paper);">
+<section class="section-full" style="background:var(--paper);">
   <div style="max-width:760px;margin:0 auto;">
     <p class="section-label">Why we built this</p>
     <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;line-height:1.15;margin-bottom:48px;color:var(--ink);">A tool should make your life<br><em style="font-style:italic;color:var(--sage);">smaller, not bigger.</em></h2>
 
-    <div style="background:white;border:1px solid var(--border);border-radius:20px;padding:44px 48px;position:relative;overflow:hidden;">
+    <div class="story-card">
       <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(74,103,65,0.06) 0%,transparent 70%);pointer-events:none;"></div>
 
       <div style="font-family:'Instrument Serif',serif;font-size:clamp(18px,2.5vw,26px);line-height:1.6;color:var(--ink);margin-bottom:32px;">
@@ -953,7 +1083,7 @@
 
     <!-- Fee explanation -->
     <div style="margin-top:32px;background:white;border:1px solid var(--border);border-radius:16px;padding:28px 32px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div class="fee-grid">
         <div>
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
             <div style="width:36px;height:36px;background:var(--sage-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="percent" style="width:16px;height:16px;color:#4a6741;stroke-width:1.5;"></i></div>
