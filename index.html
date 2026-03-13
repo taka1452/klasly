@@ -687,6 +687,19 @@
     background: var(--sage-pale);
   }
 
+  .nav-login-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 8px 14px;
+    white-space: nowrap;
+    transition: color 0.18s;
+  }
+  .nav-login-link:hover {
+    color: var(--sage);
+  }
+
   /* ── DEMO BUTTON (hero) ── */
   .btn-demo {
     display: inline-flex;
@@ -1042,6 +1055,7 @@
 <nav>
   <a href="#" class="logo">Klas<span>ly</span></a>
   <div class="nav-right">
+    <a href="https://app.klasly.app/login" class="nav-login-link">Log In</a>
     <a href="demo.html" class="nav-demo-link">▶ Live Demo</a>
     <a href="#pricing" class="nav-cta">Start Free Trial</a>
   </div>
