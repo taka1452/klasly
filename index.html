@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klasly – The Best Mindbody Alternative for Small Yoga & Fitness Studios | $19/mo</title>
-<meta name="description" content="Tired of Mindbody's $129+/month price tag? Klasly is the simple, affordable studio management software for small yoga and fitness studios. Manage members, schedule classes, collect payments. Start free for 30 days.">
-<meta name="keywords" content="mindbody alternative, yoga studio management software, fitness studio software, small studio booking app, studio scheduling software, yoga studio membership software">
+<title>Klasly – Studio Management Software for Yoga, Fitness & Shared Studios | $19/mo</title>
+<meta name="description" content="The all-in-one studio management platform for $19/mo. Member management, scheduling, payments, retreats, shared studio tools & more. The affordable Mindbody alternative with features competitors charge extra for. 30-day free trial.">
+<meta name="keywords" content="mindbody alternative, yoga studio management software, fitness studio software, small studio booking app, studio scheduling software, shared studio management, retreat booking software, studio pass, collective studio">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://klasly.app/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230074c5'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>K</text></svg>">
@@ -25,13 +25,13 @@
   gtag('js', new Date());
   gtag('config', 'G-9GJSR0FN74');
 </script>
-<meta property="og:title" content="Klasly – The Mindbody Alternative Built for Small Studios">
-<meta property="og:description" content="$19/month instead of $129+. Simple member management, class scheduling, and payments for boutique yoga and fitness studios. 30-day free trial.">
+<meta property="og:title" content="Klasly – All-in-One Studio Management for $19/mo">
+<meta property="og:description" content="Members, scheduling, payments, retreats, shared studio tools — everything you need for $19/mo. The platform small studios actually want. 30-day free trial.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://klasly.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Klasly – Simple Studio Software for Yoga & Fitness Studios">
-<meta name="twitter:description" content="The affordable Mindbody alternative. $19/mo, 30-day free trial, no contracts.">
+<meta name="twitter:title" content="Klasly – All-in-One Studio Management for $19/mo">
+<meta name="twitter:description" content="Members, scheduling, payments, retreats, shared studio tools — everything you need for $19/mo. The platform small studios actually want. 30-day free trial.">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -332,7 +332,7 @@
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 16px;
   }
 
   .feature-card {
@@ -399,7 +399,7 @@
 
   .roles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
   }
 
@@ -873,6 +873,142 @@
   .mockup-badge-blue  { background: #dbeafe; color: #2563eb; }
   .mockup-badge-amber { background: #fef3c7; color: #d97706; }
 
+  /* ── COLLECTIVE MODE ── */
+  .collective-section {
+    padding: 96px 48px;
+    background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 100%);
+    color: white;
+  }
+  .collective-inner { max-width: 1100px; margin: 0 auto; }
+  .collective-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 20px;
+  }
+  .collective-section h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: white;
+  }
+  .collective-section h2 em { font-style: italic; color: var(--sage-light); }
+  .collective-section .collective-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 17px;
+    max-width: 640px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+  .collective-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .collective-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 32px;
+    transition: background 0.2s;
+  }
+  .collective-card:hover { background: rgba(255,255,255,0.08); }
+  .collective-card-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(122,158,111,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .collective-card-icon i { color: var(--sage-light); }
+  .collective-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: white;
+  }
+  .collective-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  /* ── ADVANCED FEATURES ── */
+  .adv-features {
+    padding: 96px 48px;
+    background: white;
+  }
+  .adv-inner { max-width: 1100px; margin: 0 auto; }
+  .adv-features .section-label { color: var(--sage); }
+  .adv-features h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .adv-features h2 em { font-style: italic; color: var(--sage); }
+  .adv-features .adv-desc {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 640px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .adv-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    background: white;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .adv-card:hover { background: var(--sage-pale); border-color: rgba(74,103,65,0.2); }
+  .adv-card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--sage-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .adv-card-icon i { color: var(--sage); }
+  .adv-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .adv-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .adv-tag {
+    display: inline-block;
+    font-size: 11px;
+    background: var(--sage-pale);
+    color: var(--sage);
+    padding: 3px 8px;
+    border-radius: 100px;
+    margin-top: 10px;
+  }
+
   /* ── MINDBODY ALT & COMPARISON ── */
   .alt-section { padding: 96px 48px; background: white; }
   .alt-inner { max-width: 1100px; margin: 0 auto; }
@@ -909,7 +1045,9 @@
     color: var(--sage);
     text-align: center;
   }
-  table.comparison thead th:nth-child(3) { color: var(--muted); text-align: center; }
+  table.comparison thead th:nth-child(3),
+  table.comparison thead th:nth-child(4),
+  table.comparison thead th:nth-child(5) { color: var(--muted); text-align: center; }
 
   table.comparison tbody tr { background: white; }
   table.comparison tbody tr:nth-child(even) { background: #fafaf9; }
@@ -927,7 +1065,9 @@
     font-weight: 600;
     background: rgba(74,103,65,0.03);
   }
-  table.comparison tbody td:nth-child(3) { text-align: center; color: var(--muted); }
+  table.comparison tbody td:nth-child(3),
+  table.comparison tbody td:nth-child(4),
+  table.comparison tbody td:nth-child(5) { text-align: center; color: var(--muted); }
 
   .cmp-yes { color: var(--sage) !important; }
   .cmp-no  { color: #dc2626 !important; }
@@ -1008,11 +1148,15 @@
     .features   { padding: 60px 20px; }
     .pricing    { padding: 60px 20px; }
     .demo-strip { padding: 60px 20px; }
+    .collective-section,
+    .adv-features { padding: 60px 20px; }
 
     /* Grids */
     .features-grid    { grid-template-columns: 1fr; gap: 16px; }
-    .roles-grid       { grid-template-columns: 1fr; gap: 16px; }
+    .roles-grid       { grid-template-columns: 1fr !important; gap: 16px; }
     .pricing-cards    { grid-template-columns: 1fr; }
+    .collective-grid  { grid-template-columns: 1fr; }
+    .adv-grid         { grid-template-columns: 1fr; }
 
     /* Inline-styled sections */
     .section-full,
@@ -1069,10 +1213,10 @@
 
     <!-- LEFT: copy -->
     <div class="hero-content">
-      <div class="hero-badge">Built for small studios · Not enterprise gyms</div>
-      <h1>Stop running your studio on<br><em>spreadsheets and group texts.</em></h1>
+      <div class="hero-badge">All-in-one studio platform · $19/month</div>
+      <h1>Everything your studio needs.<br><em>Nothing it doesn't.</em></h1>
       <p class="hero-sub">
-        Simple member management, class scheduling, and payments — designed for boutique yoga and fitness studios with real instructors and real members.
+        Members, scheduling, payments, retreats, shared studio tools, waivers, messaging, analytics — all for $19/mo. The platform small studios actually want.
       </p>
       <div class="hero-actions">
         <a href="https://app.klasly.app/signup" class="btn-primary">Start Free 30-Day Trial</a>
@@ -1177,17 +1321,24 @@
       </div>
     </div>
     <div class="pain-item">
-      <div class="pain-icon"><i data-lucide="help-circle" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
+      <div class="pain-icon"><i data-lucide="users" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
       <div class="pain-text">
-        <strong>"How many classes do I have left?"</strong>
-        <span>Members ask constantly. You have to dig through a spreadsheet to answer.</span>
+        <strong>Instructors sharing your space need their own setup</strong>
+        <span>Shared studios struggle with separate schedules and revenue tracking — no single view.</span>
+      </div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-icon"><i data-lucide="calendar-x" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
+      <div class="pain-text">
+        <strong>Retreats and workshops are managed in a separate spreadsheet</strong>
+        <span>Multi-day events, installment payments, room options — all manual and error-prone.</span>
       </div>
     </div>
     <div class="pain-item">
       <div class="pain-icon"><i data-lucide="building-2" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
       <div class="pain-text">
-        <strong>Existing tools are built for large gyms</strong>
-        <span>Mindbody costs $129+/month and has 200 features you'll never touch.</span>
+        <strong>Existing tools cost $129+/month and still charge extra for basics</strong>
+        <span>Waivers, SOAP notes, custom forms — often add-ons you pay more for.</span>
       </div>
     </div>
   </div>
@@ -1196,8 +1347,8 @@
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="features-inner">
-    <p class="section-label">What's included</p>
-    <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
+    <p class="section-label">Core Platform</p>
+    <h2>Everything a studio needs.<br><em>Built in from day one.</em></h2>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-num">01</div>
@@ -1207,6 +1358,7 @@
           <span class="feature-tag">Profiles</span>
           <span class="feature-tag">Class credits</span>
           <span class="feature-tag">Plan history</span>
+          <span class="feature-tag">Payment status</span>
         </div>
       </div>
       <div class="feature-card">
@@ -1217,6 +1369,7 @@
           <span class="feature-tag">Online booking</span>
           <span class="feature-tag">Capacity limits</span>
           <span class="feature-tag">Waitlist</span>
+          <span class="feature-tag">Attendance</span>
         </div>
       </div>
       <div class="feature-card">
@@ -1227,6 +1380,37 @@
           <span class="feature-tag">Auto billing</span>
           <span class="feature-tag">Class passes</span>
           <span class="feature-tag">Drop-ins</span>
+          <span class="feature-tag">Stripe</span>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <div class="feature-title">In-App Messaging</div>
+        <p class="feature-desc">Owner-to-member chat built in. Keep conversations in one place instead of scattered across texts and email.</p>
+        <div class="feature-tags">
+          <span class="feature-tag">Owner↔Member chat</span>
+          <span class="feature-tag">Read receipts</span>
+          <span class="feature-tag">Email alerts</span>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">05</div>
+        <div class="feature-title">Email Notifications</div>
+        <p class="feature-desc">Automated emails for bookings, waivers, and reminders. Members stay informed; you stay hands-off.</p>
+        <div class="feature-tags">
+          <span class="feature-tag">Booking alerts</span>
+          <span class="feature-tag">Waiver requests</span>
+          <span class="feature-tag">Reminders</span>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">06</div>
+        <div class="feature-title">Dashboard & Analytics</div>
+        <p class="feature-desc">Revenue stats, class rankings, and UTM tracking. See what's working without digging through spreadsheets.</p>
+        <div class="feature-tags">
+          <span class="feature-tag">Revenue stats</span>
+          <span class="feature-tag">Class rankings</span>
+          <span class="feature-tag">UTM tracking</span>
         </div>
       </div>
     </div>
@@ -1244,20 +1428,119 @@
   </div>
 </section>
 
+<!-- COLLECTIVE MODE -->
+<section class="collective-section" id="collective">
+  <div class="collective-inner">
+    <p class="collective-badge">Only on Klasly — no competitor has this</p>
+    <h2>Collective Mode.<br><em>Built for shared studios.</em></h2>
+    <p class="collective-desc">Multiple instructors run their own classes, pricing, and Stripe — with studio fee automatically deducted. One platform, one calendar, no double-booking.</p>
+    <div class="collective-grid">
+      <div class="collective-card">
+        <div class="collective-card-icon"><i data-lucide="user-check" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Instructor Independence</h3>
+        <p>Each instructor sets their own class names, prices, and schedule. Payments go directly to their Stripe — you just collect the studio fee.</p>
+      </div>
+      <div class="collective-card">
+        <div class="collective-card-icon"><i data-lucide="calendar-check" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Self-Scheduling</h3>
+        <p>Instructors see real-time room availability and book slots themselves. No double-booking, no back-and-forth.</p>
+      </div>
+      <div class="collective-card">
+        <div class="collective-card-icon"><i data-lucide="door-open" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Room Management</h3>
+        <p>Define multiple rooms. Each room has its own calendar and capacity. Book by room, track by room.</p>
+      </div>
+      <div class="collective-card">
+        <div class="collective-card-icon"><i data-lucide="layers" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Tier-Based Memberships</h3>
+        <p>Set monthly studio usage tiers (e.g. 5 hrs, 15 hrs, unlimited). Usage is tracked in 15-minute increments — automatically.</p>
+      </div>
+      <div class="collective-card">
+        <div class="collective-card-icon"><i data-lucide="ticket" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Studio Pass</h3>
+        <p>Members buy a monthly pass and can book any instructor's class. Revenue is split by attendance — auto-allocated. Owner can approve payouts or switch to fully automatic.</p>
+      </div>
+      <div class="collective-card">
+        <div class="collective-card-icon"><i data-lucide="shield" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Manager Role</h3>
+        <p>Grant Owner-like access without billing control. Multiple managers can manage members, instructors, and schedules — you keep payment settings to yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANCED FEATURES -->
+<section class="adv-features" id="advanced">
+  <div class="adv-inner">
+    <p class="section-label">Powerful features, built in</p>
+    <h2>Features competitors charge <em>extra for.</em></h2>
+    <p class="adv-desc">Turn on only what you need from Settings. Every feature below is included in your $19/month — no add-ons, no upsells.</p>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="file-signature" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Digital Waivers</h3>
+        <p>Custom templates, bulk send, minor waivers supported.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="mountain" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Retreats & Events</h3>
+        <p>Installment payments, room options, guest booking.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="clipboard-list" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>SOAP Notes</h3>
+        <p>4-field format, confidential mode.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="video" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Online & Hybrid Classes</h3>
+        <p>Zoom/Meet integration, hybrid mode.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="form-input" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Custom Forms</h3>
+        <p>Form builder, response management.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="globe" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Website Widget</h3>
+        <p>iframe/JS embed, WordPress-ready.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="user-cog" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Private Sessions</h3>
+        <p>Per-session toggle, room-aware.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="smartphone" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>Mobile App (PWA)</h3>
+        <p>iOS, Android, desktop — no app store required.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-card-icon"><i data-lucide="bar-chart-2" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+        <h3>UTM & Analytics</h3>
+        <p>Traffic sources, UTM tracking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MINDBODY ALTERNATIVE + COMPARISON -->
 <section class="alt-section" id="vs-mindbody">
   <div class="alt-inner">
-    <p class="section-label">Mindbody Alternative</p>
-    <h2>The best Mindbody alternative<br>for <em>small studios.</em></h2>
-    <p style="color:var(--muted);font-size:17px;max-width:640px;margin-bottom:8px;">Mindbody is a powerful platform — built for franchise gym chains. If you're running a boutique yoga, Pilates, or fitness studio, you're paying for 80% of features you'll never use. Klasly does exactly what small studios need and nothing more.</p>
+    <p class="section-label">Why Klasly</p>
+    <h2>See how Klasly compares to <em>the alternatives.</em></h2>
+    <p style="color:var(--muted);font-size:17px;max-width:640px;margin-bottom:8px;">Mindbody ($129+), Momence ($99+), Vagaro ($30+) — see what's included at each price. Klasly includes features others charge extra for.</p>
 
     <div class="comparison-table-wrap">
       <table class="comparison">
         <thead>
           <tr>
-            <th style="width:40%;">Feature</th>
+            <th style="width:28%;">Feature</th>
             <th>Klasly</th>
             <th>Mindbody</th>
+            <th>Momence</th>
+            <th>Vagaro</th>
           </tr>
         </thead>
         <tbody>
@@ -1265,51 +1548,90 @@
             <td>Starting price</td>
             <td class="cmp-yes">$19/month</td>
             <td class="cmp-no">$129+/month</td>
+            <td class="cmp-neutral">$99+/month</td>
+            <td class="cmp-neutral">$30+/month</td>
           </tr>
           <tr>
-            <td>Setup time</td>
-            <td class="cmp-yes">Same day</td>
-            <td class="cmp-neutral">Days to weeks</td>
-          </tr>
-          <tr>
-            <td>Long-term contract required</td>
-            <td class="cmp-yes">No — cancel anytime</td>
-            <td class="cmp-no">Annual contract</td>
-          </tr>
-          <tr>
-            <td>Class scheduling & online booking</td>
+            <td>Member management</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-yes">✓ Included</td>
             <td class="cmp-yes">✓ Included</td>
             <td class="cmp-yes">✓ Included</td>
           </tr>
           <tr>
-            <td>Auto billing & memberships</td>
+            <td>Scheduling & booking</td>
             <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-neutral">Add-on fee</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-yes">✓ Included</td>
           </tr>
           <tr>
-            <td>Digital liability waivers</td>
+            <td>Payments & billing</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-yes">✓ Included</td>
+          </tr>
+          <tr>
+            <td>Collective Mode</td>
+            <td class="cmp-yes">✓ Yes</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+          </tr>
+          <tr>
+            <td>Retreat & event booking</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-neutral">Limited</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+          </tr>
+          <tr>
+            <td>Studio Pass + auto revenue split</td>
+            <td class="cmp-yes">✓ Yes</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+          </tr>
+          <tr>
+            <td>Installment payments</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-neutral">Extra fee</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+          </tr>
+          <tr>
+            <td>Custom forms</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-neutral">Extra fee</td>
+            <td class="cmp-neutral">Limited</td>
+            <td class="cmp-no">✗ No</td>
+          </tr>
+          <tr>
+            <td>SOAP Notes</td>
+            <td class="cmp-yes">✓ Included</td>
+            <td class="cmp-neutral">Extra fee</td>
+            <td class="cmp-no">✗ No</td>
+            <td class="cmp-no">✗ No</td>
+          </tr>
+          <tr>
+            <td>Digital waivers</td>
             <td class="cmp-yes">✓ Included</td>
             <td class="cmp-neutral">Extra / add-on</td>
-          </tr>
-          <tr>
-            <td>Instructor portal</td>
             <td class="cmp-yes">✓ Included</td>
             <td class="cmp-yes">✓ Included</td>
           </tr>
           <tr>
-            <td>Members must download an app</td>
-            <td class="cmp-yes">No — browser-based</td>
-            <td class="cmp-no">App download required</td>
-          </tr>
-          <tr>
-            <td>Built for small owner-operated studios</td>
-            <td class="cmp-yes">✓ Yes</td>
-            <td class="cmp-no">Built for large gyms</td>
+            <td>No app download for members</td>
+            <td class="cmp-yes">✓ Browser-based</td>
+            <td class="cmp-no">App required</td>
+            <td class="cmp-neutral">Optional</td>
+            <td class="cmp-neutral">Optional</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:16px;font-size:12px;color:var(--muted);text-align:center;">Prices based on publicly available information. Mindbody pricing varies by plan and region.</p>
+    <p style="margin-top:16px;font-size:12px;color:var(--muted);text-align:center;">Prices based on publicly available information. Competitor pricing varies by plan and region.</p>
   </div>
 </section>
 
@@ -1324,9 +1646,21 @@
       <div class="role-title">Owner</div>
       <ul class="role-list">
         <li>Full member & payment overview</li>
-        <li>Manage all instructors</li>
-        <li>View revenue & unpaid memberships</li>
-        <li>Configure plans and class types</li>
+        <li>Manage instructors & managers</li>
+        <li>Revenue analytics & unpaid alerts</li>
+        <li>Configure billing plans & features</li>
+        <li>Studio Pass payout approval</li>
+      </ul>
+    </div>
+    <div class="role-card">
+      <div class="role-avatar"><i data-lucide="shield" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
+      <div class="role-name">Role</div>
+      <div class="role-title">Manager</div>
+      <ul class="role-list">
+        <li>Everything the Owner can do</li>
+        <li>Except billing & payment config</li>
+        <li>Manage members & instructors</li>
+        <li>Multiple managers supported</li>
       </ul>
     </div>
     <div class="role-card">
@@ -1334,10 +1668,10 @@
       <div class="role-name">Role</div>
       <div class="role-title">Instructor</div>
       <ul class="role-list">
-        <li>View their own class schedule</li>
-        <li>See today's roster and attendance</li>
-        <li>Mark attendance after class</li>
-        <li>No access to billing or other classes</li>
+        <li>Own class schedule & attendance</li>
+        <li>Self-scheduling (Collective Mode)</li>
+        <li>SOAP Notes for their clients</li>
+        <li>Own Stripe payouts (Collective)</li>
       </ul>
     </div>
     <div class="role-card">
@@ -1346,21 +1680,21 @@
       <div class="role-title">Member</div>
       <ul class="role-list">
         <li>Book and cancel classes online</li>
-        <li>Check remaining class credits</li>
-        <li>View their own payment history</li>
-        <li>No access to other members' data</li>
+        <li>Check remaining credits</li>
+        <li>View payment history</li>
+        <li>In-app messaging with studio</li>
       </ul>
     </div>
   </div>
 </section>
 
 
-<!-- RADICAL SIMPLICITY -->
+<!-- WHY STUDIOS SWITCH -->
 <section class="section-full" style="background:var(--paper);">
   <div style="max-width:1100px;margin:0 auto;">
-    <p class="section-label">Radical Simplicity</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:640px;">Stop paying $200/month<br>for features you <em style="font-style:italic;color:var(--sage);">never use.</em></h2>
-    <p style="color:var(--muted);font-size:17px;max-width:560px;margin-bottom:56px;">Klasly does less — intentionally. Just the tools you actually need to run your studio, without the bloat.</p>
+    <p class="section-label">Why studios switch</p>
+    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:640px;">More features. Lower price.<br><em style="font-style:italic;color:var(--sage);">Zero add-on fees.</em></h2>
+    <p style="color:var(--muted);font-size:17px;max-width:560px;margin-bottom:56px;">Waivers, SOAP notes, retreat booking, custom forms — everything is included in $19/month. No tiers. No upsells. No surprises.</p>
     <div class="rg-3">
       <div style="background:white;border:1px solid var(--border);border-radius:16px;padding:32px;">
         <div style="width:48px;height:48px;background:var(--sage-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><i data-lucide="smartphone" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
@@ -1385,35 +1719,35 @@
 <section class="section-dark-full" style="background:var(--ink);color:white;">
   <div style="max-width:1100px;margin:0 auto;">
     <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:20px;">Automating the Essentials</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:680px;">Simple — but not a <em style="font-style:italic;color:var(--sage-light);">toy.</em></h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:17px;max-width:560px;margin-bottom:56px;">Everything a real small studio needs to operate safely and professionally — fully automated.</p>
+    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:680px;">Set it up once.<br><em style="font-style:italic;color:var(--sage-light);">Let it run.</em></h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:17px;max-width:560px;margin-bottom:56px;">Billing, waitlists, waivers, notifications, revenue splits — the things that eat your time are fully automated.</p>
     <div class="rg-2">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="file-check" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Digital Liability Waivers</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Members sign a digital waiver at booking — automatically. Protect your studio from legal risk without the paperwork.</p>
-        </div>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="bell" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Waitlist Auto-Promotion</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">When a spot opens up, the next person on the waitlist is automatically notified and booked. Zero revenue lost to cancellations.</p>
-        </div>
-      </div>
       <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
         <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="credit-card" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
         <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Online Payments</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Automatic billing for monthly memberships, class passes, and drop-in payments — all handled for you.</p>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Auto Billing & Payments</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Monthly auto-charge, class credits consumed automatically, unpaid alerts so you never chase.</p>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
+        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="users" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
+        <div>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Waitlist Auto-Promotion</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Spot opens → next on waitlist is notified and auto-booked. No manual promotion.</p>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
+        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="pie-chart" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
+        <div>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Revenue Auto-Split</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Studio Pass revenue split by attendance — auto-allocated. Fees deducted. Owner approval or fully automatic.</p>
         </div>
       </div>
       <div style="background:rgba(109,184,122,0.08);border:1px solid rgba(109,184,122,0.2);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="check-circle" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
+        <div style="width:44px;height:44px;background:rgba(109,184,122,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="bell" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
         <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;color:var(--sage-light);">"All the infrastructure a<br>solo studio needs."</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Waivers, waitlists, and auto-billing. The non-negotiables — handled.</p>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;color:var(--sage-light);">Smart Notifications</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Booking confirmations, cancellation notices, waiver requests, trial reminders — sent automatically.</p>
         </div>
       </div>
     </div>
@@ -1468,14 +1802,17 @@
         <div class="price-period">per year <span style="font-size:13px;font-weight:400;color:var(--muted);">+ 0.5% per transaction</span></div>
         <div class="price-save">$15.83/month · 2 months free</div>
         <ul class="price-features">
-          <li>Unlimited members</li>
-          <li>Unlimited classes & instructors</li>
-          <li>Online booking & waitlist</li>
-          <li>Automatic billing</li>
-          <li>Member & instructor portals</li>
-          <li>Email notifications</li>
-          <li>CSV export & data portability</li>
-          <li>Cancel anytime · 14-day refund on first purchase</li>
+          <li>Unlimited members, classes & instructors</li>
+          <li>Online booking, waitlist & attendance</li>
+          <li>Auto billing, class passes & drop-ins</li>
+          <li>In-app messaging & email notifications</li>
+          <li>Digital waivers (incl. minor waivers)</li>
+          <li>Collective Mode & room management</li>
+          <li>Retreat booking & installment payments</li>
+          <li>Studio Pass with auto revenue split</li>
+          <li>SOAP Notes, custom forms, analytics</li>
+          <li>Online/hybrid classes, website widget</li>
+          <li>Cancel anytime · (Yearly: 14-day refund / Monthly: No long-term commitment)</li>
         </ul>
         <a href="https://app.klasly.app/signup" class="pricing-cta">Start Free 30-Day Trial</a>
         <p class="pricing-note">Card required · You won't be charged during the trial</p>
@@ -1488,14 +1825,17 @@
         <div class="price-period">per month <span style="font-size:13px;font-weight:400;color:var(--muted);">+ 0.5% per transaction</span></div>
         <div style="height:26px;margin-bottom:20px;"></div>
         <ul class="price-features">
-          <li>Unlimited members</li>
-          <li>Unlimited classes & instructors</li>
-          <li>Online booking & waitlist</li>
-          <li>Automatic billing</li>
-          <li>Member & instructor portals</li>
-          <li>Email notifications</li>
-          <li>CSV export & data portability</li>
-          <li>Cancel anytime · No long-term commitment</li>
+          <li>Unlimited members, classes & instructors</li>
+          <li>Online booking, waitlist & attendance</li>
+          <li>Auto billing, class passes & drop-ins</li>
+          <li>In-app messaging & email notifications</li>
+          <li>Digital waivers (incl. minor waivers)</li>
+          <li>Collective Mode & room management</li>
+          <li>Retreat booking & installment payments</li>
+          <li>Studio Pass with auto revenue split</li>
+          <li>SOAP Notes, custom forms, analytics</li>
+          <li>Online/hybrid classes, website widget</li>
+          <li>Cancel anytime · (Yearly: 14-day refund / Monthly: No long-term commitment)</li>
         </ul>
         <a href="https://app.klasly.app/signup" class="pricing-cta ghost">Start Free 30-Day Trial</a>
         <p class="pricing-note">Card required · You won't be charged during the trial</p>
@@ -1538,7 +1878,7 @@
           What is the best Mindbody alternative for small studios?
           <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">Klasly is purpose-built for small boutique yoga, Pilates, and fitness studios. Unlike Mindbody — which targets large gym chains and franchises — Klasly gives you just what you need: member management, class scheduling, online booking, and automated payments. At $19/month instead of $129+, it's the straightforward choice for owner-operated studios.</div>
+        <div class="faq-a">Klasly is purpose-built for small boutique yoga, Pilates, and fitness studios. Mindbody targets large gym chains at $129+/month; Momence and Vagaro start at $99+ and $30+ but often charge extra for waivers, SOAP notes, and custom forms. Klasly gives you member management, scheduling, payments, retreats, Collective Mode, and more — all included at $19/month.</div>
       </div>
 
       <div class="faq-item">
@@ -1546,7 +1886,7 @@
           How much does Klasly cost?
           <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">Klasly costs $19/month (or $190/year — equivalent to 2 months free). Both plans include unlimited members, unlimited classes, online booking, auto billing, member portals, and digital waivers. There's also a 0.5% fee on member payments processed through Klasly. Your 30-day free trial starts immediately — no charge until the trial ends.</div>
+        <div class="faq-a">Klasly costs $19/month (or $190/year — 2 months free). Competitors like Mindbody ($129+), Momence ($99+), and Vagaro ($30+) often add fees for waivers, SOAP notes, and custom forms. Klasly includes everything in one price. There's a 0.5% fee on member payments. Your 30-day free trial starts immediately — no charge until the trial ends.</div>
       </div>
 
       <div class="faq-item">
@@ -1578,7 +1918,7 @@
           Do I need to sign a long-term contract?
           <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">No. Monthly plans cancel anytime with no penalty. Yearly plans include a 14-day refund window on your first purchase. No long-term contracts, no cancellation fees, no surprises.</div>
+        <div class="faq-a">No. Monthly plans cancel anytime with no penalty. Yearly plans include a 14-day refund window on your first purchase. Unlike Mindbody's typical annual contracts, Klasly has no long-term commitment, no cancellation fees, no surprises.</div>
       </div>
 
       <div class="faq-item">
@@ -1586,7 +1926,31 @@
           Can members book classes without downloading an app?
           <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">Yes. Members book classes directly from their phone or desktop browser — no app download required. They log in with their email, see the schedule, and book in a few taps. Less friction means more completed bookings.</div>
+        <div class="faq-a">Yes. Members book directly from their phone or desktop browser — no app download required. Mindbody often requires an app; Klasly is fully browser-based. Less friction means more completed bookings.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          What is Collective Mode?
+          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Collective Mode is built for shared studios where multiple instructors run their own classes, pricing, and Stripe payouts. Instructors self-schedule into rooms, see real-time availability, and avoid double-booking. Studio fee is automatically deducted. Studio Pass lets members book any instructor's class with revenue split by attendance. No competitor (Mindbody, Momence, Vagaro) offers this in one platform.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          Can I manage retreats and workshops?
+          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Yes. Klasly supports multi-day retreats and workshops with room options, installment payments (e.g. 3-pay), custom cancellation policies, guest booking, and custom forms. Mindbody has limited event tools; Momence and Vagaro don't offer the same depth. All included in your $19/month.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          What is Studio Pass?
+          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Studio Pass is a monthly membership that lets members book any instructor's class in Collective Mode. Revenue is split automatically by attendance — who taught which class, who showed up. You can start with owner approval for each payout, then switch to fully automatic. No other platform offers this built-in.</div>
       </div>
 
     </div>
@@ -1595,8 +1959,8 @@
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <h2>Your studio deserves software that <em>fits.</em></h2>
-  <p>Stop paying for features you don't need. Start running your studio the way you actually teach — with simplicity and intention.</p>
+  <h2>Everything your studio needs.<br><em>$19/month.</em></h2>
+  <p>Members, scheduling, payments, retreats, shared studio tools, waivers, messaging, analytics — all included. No add-ons. No tiers. Just one price.</p>
   <a href="https://app.klasly.app/signup" class="btn-primary">Start Free 30-Day Trial →</a>
   <p style="margin-top:16px;font-size:13px;color:var(--muted);">Card required · No charge until your trial ends</p>
 </section>
@@ -1637,7 +2001,7 @@ function toggleFaq(btn) {
       "name": "What is the best Mindbody alternative for small studios?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Klasly is purpose-built for small boutique yoga, Pilates, and fitness studios. Unlike Mindbody — which targets large gym chains and franchises — Klasly gives you just what you need: member management, class scheduling, online booking, and automated payments. At $19/month instead of $129+, it's the straightforward choice for owner-operated studios."
+        "text": "Klasly is purpose-built for small boutique yoga, Pilates, and fitness studios. Mindbody targets large gym chains at $129+/month; Momence and Vagaro start at $99+ and $30+ but often charge extra for waivers, SOAP notes, and custom forms. Klasly gives you member management, scheduling, payments, retreats, Collective Mode, and more — all included at $19/month."
       }
     },
     {
@@ -1645,7 +2009,7 @@ function toggleFaq(btn) {
       "name": "How much does Klasly cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Klasly costs $19/month (or $190/year — equivalent to 2 months free). Both plans include unlimited members, unlimited classes, online booking, auto billing, member portals, and digital waivers. There's also a 0.5% fee on member payments processed through Klasly. Your 30-day free trial starts immediately — no charge until the trial ends."
+        "text": "Klasly costs $19/month (or $190/year — 2 months free). Competitors like Mindbody ($129+), Momence ($99+), and Vagaro ($30+) often add fees for waivers, SOAP notes, and custom forms. Klasly includes everything in one price. There's a 0.5% fee on member payments. Your 30-day free trial starts immediately — no charge until the trial ends."
       }
     },
     {
@@ -1677,7 +2041,7 @@ function toggleFaq(btn) {
       "name": "Do I need to sign a long-term contract?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Monthly plans cancel anytime with no penalty. Yearly plans include a 14-day refund window on your first purchase. No long-term contracts, no cancellation fees, no surprises."
+        "text": "No. Monthly plans cancel anytime with no penalty. Yearly plans include a 14-day refund window on your first purchase. Unlike Mindbody's typical annual contracts, Klasly has no long-term commitment, no cancellation fees, no surprises."
       }
     },
     {
@@ -1685,7 +2049,31 @@ function toggleFaq(btn) {
       "name": "Can members book classes without downloading an app?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Members book classes directly from their phone or desktop browser — no app download required. They log in with their email, see the schedule, and book in a few taps. Less friction means more completed bookings."
+        "text": "Yes. Members book directly from their phone or desktop browser — no app download required. Mindbody often requires an app; Klasly is fully browser-based. Less friction means more completed bookings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Collective Mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Collective Mode is built for shared studios where multiple instructors run their own classes, pricing, and Stripe payouts. Instructors self-schedule into rooms, see real-time availability, and avoid double-booking. Studio fee is automatically deducted. Studio Pass lets members book any instructor's class with revenue split by attendance. No competitor (Mindbody, Momence, Vagaro) offers this in one platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I manage retreats and workshops?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Klasly supports multi-day retreats and workshops with room options, installment payments (e.g. 3-pay), custom cancellation policies, guest booking, and custom forms. Mindbody has limited event tools; Momence and Vagaro don't offer the same depth. All included in your $19/month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Studio Pass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Studio Pass is a monthly membership that lets members book any instructor's class in Collective Mode. Revenue is split automatically by attendance — who taught which class, who showed up. You can start with owner approval for each payout, then switch to fully automatic. No other platform offers this built-in."
       }
     }
   ]
