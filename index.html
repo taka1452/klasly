@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klasly – Studio Management Software for Yoga, Fitness & Shared Studios | $19/mo</title>
-<meta name="description" content="The all-in-one studio management platform for $19/mo. Member management, scheduling, payments, retreats, shared studio tools & more. The affordable Mindbody alternative with features competitors charge extra for. 30-day free trial.">
-<meta name="keywords" content="mindbody alternative, yoga studio management software, fitness studio software, small studio booking app, studio scheduling software, shared studio management, retreat booking software, studio pass, collective studio">
+<title>Klasly — Studio Management Software for $19/month | Mindbody Alternative</title>
+<meta name="description" content="Affordable studio management software for yoga, pilates, dance, and fitness studios. Booking, payments, attendance, messaging, waivers — all for $19/month. The Mindbody alternative built for small studios.">
+<meta name="keywords" content="studio management software, yoga studio software, mindbody alternative, fitness studio booking, pilates studio management, affordable studio software">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://klasly.app/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230074c5'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>K</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230074D4'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>K</text></svg>">
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -25,2058 +25,1303 @@
   gtag('js', new Date());
   gtag('config', 'G-9GJSR0FN74');
 </script>
-<meta property="og:title" content="Klasly – All-in-One Studio Management for $19/mo">
-<meta property="og:description" content="Members, scheduling, payments, retreats, shared studio tools — everything you need for $19/mo. The platform small studios actually want. 30-day free trial.">
-<meta property="og:type" content="website">
+<meta property="og:title" content="Klasly — Studio Management Software for $19/month">
+<meta property="og:description" content="Booking, payments, attendance, messaging, waivers. Everything your small studio needs for $19/month.">
 <meta property="og:url" content="https://klasly.app/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://klasly.app/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Klasly – All-in-One Studio Management for $19/mo">
-<meta name="twitter:description" content="Members, scheduling, payments, retreats, shared studio tools — everything you need for $19/mo. The platform small studios actually want. 30-day free trial.">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<meta name="twitter:title" content="Klasly — Studio Management Software for $19/month">
+<meta name="twitter:description" content="Booking, payments, attendance, messaging, waivers. Everything your small studio needs for $19/month.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Klasly",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "19",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2027-12-31"
+  },
+  "description": "Studio management software for yoga, pilates, dance, and fitness studios. Booking, payments, attendance, messaging, and waivers for $19/month.",
+  "url": "https://klasly.app"
+}
+</script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --ink: #0f0e0d;
-    --paper: #f5f2ee;
-    --sage: #4a6741;
-    --sage-light: #7a9e6f;
-    --sage-pale: #e8f0e5;
-    --warm: #c8a882;
-    --warm-light: #f0e6d8;
-    --muted: #7a7570;
-    --border: #ddd8d0;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 48px;
-    background: rgba(245,242,238,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .logo {
-    font-family: 'Instrument Serif', serif;
-    font-size: 22px;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
-
-  .logo span { color: var(--sage); }
-
-  nav a.nav-cta {
-    background: var(--sage);
-    color: white;
-    padding: 10px 22px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  nav a.nav-cta:hover { background: var(--sage-light); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 48px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(74,103,65,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,168,130,0.12) 0%, transparent 60%);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 48px 48px;
-    opacity: 0.4;
-  }
-
-  .hero-content {
-    position: relative;
-    max-width: 680px;
-    animation: fadeUp 0.8s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--sage-pale);
-    color: var(--sage);
-    border: 1px solid rgba(74,103,65,0.2);
-    padding: 6px 14px;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 32px;
-    animation: fadeUp 0.8s 0.1s ease both;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--sage);
-    border-radius: 50%;
-  }
-
-  h1 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-    color: var(--ink);
-    margin-bottom: 24px;
-    animation: fadeUp 0.8s 0.15s ease both;
-  }
-
-  h1 em {
-    font-style: italic;
-    color: var(--sage);
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 40px;
-    font-weight: 300;
-    animation: fadeUp 0.8s 0.2s ease both;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    animation: fadeUp 0.8s 0.25s ease both;
-  }
-
-  .btn-primary {
-    background: var(--sage);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(74,103,65,0.25);
-  }
-
-  .btn-primary:hover {
-    background: var(--sage-light);
-    box-shadow: 0 6px 28px rgba(74,103,65,0.35);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    color: var(--ink);
-    font-size: 15px;
-    text-decoration: none;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .btn-ghost:hover { opacity: 1; }
-
-  .hero-note {
-    margin-top: 20px;
-    font-size: 13px;
-    color: var(--muted);
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-
-  /* PAIN */
-  .pain {
-    padding: 96px 48px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 20px;
-  }
-
-  .pain h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px;
-    line-height: 1.15;
-    margin-bottom: 48px;
-    color: var(--ink);
-  }
-
-  .pain-list {
-    display: grid;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    background: white;
-  }
-
-  .pain-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 24px 28px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-  }
-
-  .pain-item:last-child { border-bottom: none; }
-  .pain-item:hover { background: var(--sage-pale); }
-
-  .pain-icon {
-    width: 36px; height: 36px;
-    background: var(--warm-light);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .pain-text strong {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 4px;
-    font-size: 15px;
-  }
-
-  .pain-text span {
-    font-size: 14px;
-    color: var(--muted);
-  }
-
-  /* FEATURES */
-  .features {
-    padding: 96px 48px;
-    background: var(--ink);
-    color: white;
-  }
-
-  .features-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .features .section-label { color: var(--sage-light); }
-
-  .features h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    letter-spacing: -1px;
-    line-height: 1.1;
-    margin-bottom: 64px;
-    color: white;
-    max-width: 600px;
-  }
-
-  .features h2 em {
-    font-style: italic;
-    color: var(--sage-light);
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .feature-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 36px 32px;
-    transition: background 0.2s;
-  }
-
-  .feature-card:hover { background: rgba(255,255,255,0.07); }
-
-  .feature-num {
-    font-family: 'Instrument Serif', serif;
-    font-size: 48px;
-    color: rgba(255,255,255,0.1);
-    line-height: 1;
-    margin-bottom: 24px;
-  }
-
-  .feature-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: white;
-  }
-
-  .feature-desc {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-  }
-
-  .feature-tags {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .feature-tag {
-    font-size: 12px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
-    padding: 4px 10px;
-    border-radius: 100px;
-  }
-
-  /* ROLES */
-  .roles {
-    padding: 96px 48px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .roles h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px;
-    line-height: 1.15;
-    margin-bottom: 48px;
-  }
-
-  .roles-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-
-  .role-card {
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 28px;
-    background: white;
-  }
-
-  .role-avatar {
-    width: 48px; height: 48px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    background: var(--sage-pale);
-  }
-
-  .role-name {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-
-  .role-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 22px;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .role-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .role-list li {
-    font-size: 14px;
-    color: var(--muted);
-    padding-left: 16px;
-    position: relative;
-  }
-
-  .role-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--sage);
-    font-size: 12px;
-  }
-
-  /* PRICING */
-  .pricing {
-    padding: 96px 48px;
-    background: var(--warm-light);
-  }
-
-  .pricing-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .pricing-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  .pricing-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 36px 28px;
-    position: relative;
-    text-align: center;
-  }
-
-  .pricing-card.featured {
-    border-color: var(--sage);
-    box-shadow: 0 8px 40px rgba(74,103,65,0.15);
-  }
-
-  .plan-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--sage);
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 100px;
-    white-space: nowrap;
-  }
-
-  .plan-name {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-
-  .price-amount {
-    font-family: 'Instrument Serif', serif;
-    font-size: 52px;
-    line-height: 1;
-    color: var(--ink);
-    letter-spacing: -2px;
-  }
-
-  .price-amount.highlight { color: var(--sage); }
-
-  .price-period {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-
-  .price-save {
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --brand: #0074D4;
+  --brand-dark: #005FAD;
+  --brand-light: #E8F4FD;
+  --brand-glow: rgba(0, 116, 212, 0.15);
+  --dark: #0F172A;
+  --gray-900: #1E293B;
+  --gray-700: #334155;
+  --gray-500: #64748B;
+  --gray-300: #CBD5E1;
+  --gray-100: #F1F5F9;
+  --white: #FFFFFF;
+  --green: #10B981;
+  --red: #EF4444;
+  --orange: #F59E0B;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ── Skip Link (a11y) ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--brand);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+/* Hero only: immediate fade-up on load */
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.fade-up-d1 { animation-delay: 0.1s; }
+.fade-up-d2 { animation-delay: 0.2s; }
+.fade-up-d3 { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .fade-up { opacity: 1; transform: none; animation: none; transition: none; }
+}
+
+/* ── Navigation ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: 14px;
+  color: var(--gray-700);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--brand); }
+.nav-cta {
+  background: var(--brand);
+  color: var(--white) !important;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+}
+.nav-ghost {
+  border: 1.5px solid var(--gray-300);
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gray-700) !important;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-ghost:hover {
+  border-color: var(--brand);
+  color: var(--brand) !important;
+}
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* Mobile menu overlay */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 3rem;
+  gap: 1.5rem;
+  z-index: 999;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.nav-mobile a:hover { color: var(--brand); }
+.nav-mobile .nav-cta {
+  padding: 12px 32px;
+  font-size: 1rem;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 160px 2rem 96px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--brand-light) 0%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+.text-brand { color: var(--brand); }
+.hero-desc {
+  font-size: 1.2rem;
+  color: var(--gray-500);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: inline-block;
+  background: var(--brand);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 24px rgba(0,116,212,0.3);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.hero-cta:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,116,212,0.4);
+}
+.hero-sub {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+/* ── Social Proof Bar ── */
+.social-proof {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.social-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+.social-proof-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--brand);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── App Mockup / Demo ── */
+.demo-section {
+  padding: 64px 2rem 96px;
+  text-align: center;
+  background: var(--white);
+}
+.demo-section p {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+.app-mockup {
+  max-width: 560px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.10), 0 4px 20px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-3deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+.app-mockup:hover { transform: perspective(1000px) rotateY(-1deg) rotateX(1deg); }
+.mockup-chrome {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.mockup-dot { width: 9px; height: 9px; border-radius: 50%; }
+.mockup-url {
+  flex: 1;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: 10px;
+  color: #94a3b8;
+  margin-left: 6px;
+  font-family: 'Plus Jakarta Sans', monospace;
+}
+.mockup-body { display: flex; height: 340px; }
+.mockup-sidebar {
+  width: 52px;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 5px;
+}
+.mockup-sidebar-logo {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+.mockup-nav-item {
+  width: 34px; height: 30px;
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.mockup-nav-item.active { background: var(--brand-light); }
+.mockup-nav-dot { width: 18px; height: 3px; border-radius: 2px; background: #e2e8f0; }
+.mockup-nav-dot.active { background: var(--brand); }
+.mockup-main {
+  flex: 1;
+  background: #f8fafc;
+  padding: 14px;
+  overflow: hidden;
+}
+.mockup-page-title {
+  font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 10px;
+}
+.mockup-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px;
+}
+.mockup-stat {
+  background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px;
+}
+.mockup-stat-val { font-size: 16px; font-weight: 700; color: #0f172a; line-height: 1; margin-bottom: 2px; }
+.mockup-stat-label { font-size: 7.5px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.4px; }
+.mockup-section-title {
+  font-size: 8px; font-weight: 600; color: #64748b; text-transform: uppercase;
+  letter-spacing: 0.5px; margin-bottom: 6px;
+}
+.mockup-rows { display: flex; flex-direction: column; gap: 5px; }
+.mockup-row {
+  background: white; border: 1px solid #e2e8f0; border-radius: 7px;
+  padding: 8px 10px; display: flex; align-items: center; gap: 8px;
+}
+.mockup-row-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.mockup-row-info { flex: 1; min-width: 0; }
+.mockup-row-name { font-size: 9.5px; font-weight: 600; color: #0f172a; line-height: 1; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mockup-row-sub { font-size: 8px; color: #94a3b8; }
+.mockup-row-badge { font-size: 7px; padding: 2px 7px; border-radius: 100px; font-weight: 600; white-space: nowrap; }
+.mockup-badge-green { background: #dcfce7; color: #16a34a; }
+.mockup-badge-blue  { background: #dbeafe; color: #2563eb; }
+.mockup-badge-amber { background: #fef3c7; color: #d97706; }
+
+/* ── Sections ── */
+.section {
+  padding: 96px 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.section h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+.section-sub {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* ── Feature Cards ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.feature-card:hover {
+  border-color: var(--brand);
+  box-shadow: 0 8px 32px rgba(0,116,212,0.08);
+  transform: translateY(-4px);
+}
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--brand-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--brand);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+}
+
+/* ── Collective / Dark Section ── */
+.collective {
+  background: var(--dark);
+  padding: 96px 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.collective::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,116,212,0.2), transparent 70%);
+  pointer-events: none;
+}
+.collective-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.badge {
+  display: inline-block;
+  background: rgba(96,165,250,0.15);
+  color: #60A5FA;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  margin-bottom: 1rem;
+}
+.collective .section-label { color: #60A5FA; }
+.collective h2 {
+  color: var(--white);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+  max-width: 700px;
+}
+.collective .section-sub {
+  color: var(--gray-300);
+  max-width: 700px;
+}
+.collective-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.collective-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+.collective-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(96,165,250,0.3);
+}
+.collective-card .feature-icon {
+  background: rgba(96,165,250,0.15);
+}
+.collective-card .feature-icon svg {
+  stroke: #60A5FA;
+}
+.collective-card h3 {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.collective-card p {
+  color: var(--gray-300);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ── Comparison Table ── */
+.compare-section {
+  background: var(--gray-100);
+  padding: 96px 2rem;
+}
+.compare-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.compare-table {
+  width: 100%;
+  min-width: 700px;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border-collapse: collapse;
+}
+.compare-table th,
+.compare-table td {
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.compare-table th {
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+.compare-table th:first-child,
+.compare-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+.compare-table th.klasly-col {
+  background: var(--brand);
+  color: var(--white);
+}
+.compare-table td.klasly-col {
+  background: var(--brand-light);
+  font-weight: 600;
+}
+.check { color: var(--green); font-weight: 700; }
+.cross { color: var(--red); font-weight: 700; }
+.limited { color: var(--orange); font-weight: 600; font-size: 0.8rem; }
+
+/* Mobile: comparison cards */
+.compare-cards { display: none; }
+.compare-card-item {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.compare-card-item h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+}
+.compare-card-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.compare-card-row:last-child { border-bottom: none; }
+.compare-card-row span:first-child { color: var(--gray-500); }
+.compare-card-row span:last-child { font-weight: 600; }
+
+/* ── Additional Features ── */
+.additional-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+.additional-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--gray-100);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+.additional-item svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--brand);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ── Pricing ── */
+.pricing-section {
+  padding: 96px 2rem;
+  text-align: center;
+}
+.pricing-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.pricing-card {
+  max-width: 480px;
+  margin: 0 auto;
+  border: 2px solid var(--brand);
+  border-radius: 24px;
+  padding: 3rem;
+  background: var(--white);
+  box-shadow: 0 8px 40px rgba(0,116,212,0.1);
+}
+.pricing-amount {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1;
+}
+.pricing-period {
+  font-size: 1.25rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+.pricing-fee {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.pricing-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.pricing-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--gray-700);
+}
+.pricing-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-cta {
+  display: block;
+  width: 100%;
+  background: var(--brand);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.pricing-cta:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+}
+
+/* ── Founder ── */
+.founder-section {
+  background: var(--gray-100);
+  padding: 96px 2rem;
+  text-align: center;
+}
+.founder-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.founder-quote {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--dark);
+}
+.founder-name {
+  font-weight: 700;
+  color: var(--brand);
+  font-size: 1.1rem;
+}
+.founder-role {
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+}
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.founder-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: center;
+}
+.founder-card .feature-icon {
+  margin: 0 auto 1rem;
+}
+.founder-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.founder-card p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ── Final CTA ── */
+.final-cta {
+  padding: 96px 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--white) 0%, var(--brand-light) 100%);
+}
+.final-cta h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.final-cta p {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--dark);
+  color: var(--gray-300);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer-links a {
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-inner { gap: 1rem; }
+  .nav-mobile-cta {
     display: inline-block;
-    background: var(--sage-pale);
-    color: var(--sage);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-  }
-
-  .price-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 24px;
-    padding: 20px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: left;
-  }
-
-  .price-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .price-features li::before {
-    content: '✓';
-    width: 16px; height: 16px;
-    background: var(--sage-pale);
-    color: var(--sage);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .pricing-cta {
-    display: block;
-    background: var(--sage);
-    color: white;
-    padding: 12px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.2s;
-  }
-
-  .pricing-cta:hover { background: var(--sage-light); transform: translateY(-1px); }
-
-  .pricing-cta.ghost {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--ink);
-  }
-
-  .pricing-cta.ghost:hover { background: var(--sage-pale); border-color: var(--sage); }
-
-  .pricing-note {
-    margin-top: 12px;
-    font-size: 12px;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  /* FINAL CTA */
-  .final-cta {
-    padding: 120px 48px;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .final-cta h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(36px, 5vw, 60px);
-    letter-spacing: -1.5px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-
-  .final-cta h2 em {
-    font-style: italic;
-    color: var(--sage);
-  }
-
-  .final-cta p {
-    color: var(--muted);
-    font-size: 17px;
-    margin-bottom: 40px;
-  }
-
-  /* FOOTER */
-  footer {
-    padding: 32px 48px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  footer .logo { font-size: 18px; }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .footer-links a:hover { color: var(--ink); }
-
-  footer p {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  /* ── NAV RIGHT GROUP ── */
-  .nav-right { display: flex; align-items: center; gap: 10px; }
-
-  .nav-demo-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    text-decoration: none;
+    background: var(--brand);
+    color: var(--white);
+    border-radius: 8px;
     padding: 8px 18px;
-    border-radius: 100px;
-    border: 1.5px solid var(--border);
-    background: white;
-    transition: all 0.18s;
-    white-space: nowrap;
-  }
-  .nav-demo-link:hover {
-    border-color: var(--sage);
-    color: var(--sage);
-    background: var(--sage-pale);
-  }
-
-  .nav-login-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    text-decoration: none;
-    padding: 8px 14px;
-    white-space: nowrap;
-    transition: color 0.18s;
-  }
-  .nav-login-link:hover {
-    color: var(--sage);
-  }
-
-  /* ── DEMO BUTTON (hero) ── */
-  .btn-demo {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--ink);
-    font-size: 15px;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 13px 24px;
-    border-radius: 100px;
-    border: 1.5px solid var(--border);
-    background: white;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .btn-demo:hover {
-    border-color: var(--sage);
-    color: var(--sage);
-    background: var(--sage-pale);
-  }
-
-  /* ── DEMO STRIP ── */
-  .demo-strip {
-    background: var(--ink);
-    padding: 80px 48px;
-    text-align: center;
-  }
-  .demo-strip-inner { max-width: 600px; margin: 0 auto; }
-
-  .btn-demo-strip {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--sage);
-    color: white;
-    padding: 14px 32px;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 4px 24px rgba(74,103,65,0.4);
-  }
-  .btn-demo-strip:hover {
-    background: var(--sage-light);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 32px rgba(74,103,65,0.5);
-  }
-
-  /* ── RESPONSIVE SECTION HELPERS ── */
-  .section-full      { padding: 96px 48px; }
-  .section-dark-full { padding: 96px 48px; }
-  .rg-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .rg-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .story-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 44px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-  .fee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-  /* ── HERO 2-COLUMN LAYOUT ── */
-  .hero-layout {
-    position: relative;
-    width: 100%;
-    max-width: 1160px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
-  }
-
-  /* APP MOCKUP */
-  .app-mockup {
-    background: white;
-    border-radius: 14px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.13), 0 4px 20px rgba(0,0,0,0.07);
-    overflow: hidden;
-    animation: fadeUp 0.8s 0.35s ease both;
-    transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
-    transition: transform 0.4s ease;
-  }
-  .app-mockup:hover { transform: perspective(1000px) rotateY(-1deg) rotateX(1deg); }
-
-  .mockup-chrome {
-    background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 9px 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .mockup-dot { width: 9px; height: 9px; border-radius: 50%; }
-  .mockup-url {
-    flex: 1;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 5px;
-    padding: 3px 10px;
-    font-size: 10px;
-    color: #94a3b8;
-    margin-left: 6px;
-    font-family: monospace;
-  }
-
-  .mockup-body { display: flex; height: 320px; }
-
-  .mockup-sidebar {
-    width: 52px;
-    background: white;
-    border-right: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-    gap: 5px;
-  }
-  .mockup-sidebar-logo {
-    font-size: 12px;
-    font-weight: 800;
-    color: #0074c5;
-    margin-bottom: 10px;
-    font-family: serif;
-  }
-  .mockup-nav-item {
-    width: 34px; height: 30px;
-    border-radius: 7px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .mockup-nav-item.active { background: #eff8ff; }
-  .mockup-nav-dot { width: 18px; height: 3px; border-radius: 2px; background: #e2e8f0; }
-  .mockup-nav-dot.active { background: #0074c5; }
-
-  .mockup-main {
-    flex: 1;
-    background: #f8fafc;
-    padding: 12px;
-    overflow: hidden;
-  }
-  .mockup-page-title {
-    font-size: 11px; font-weight: 700; color: #0f172a; margin-bottom: 9px;
-  }
-  .mockup-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 9px;
-  }
-  .mockup-stat {
-    background: white; border: 1px solid #e2e8f0; border-radius: 7px; padding: 7px 8px;
-  }
-  .mockup-stat-val { font-size: 15px; font-weight: 700; color: #0f172a; line-height: 1; margin-bottom: 2px; }
-  .mockup-stat-label { font-size: 7px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.4px; }
-  .mockup-section-title {
-    font-size: 8px; font-weight: 600; color: #64748b; text-transform: uppercase;
-    letter-spacing: 0.5px; margin-bottom: 5px;
-  }
-  .mockup-rows { display: flex; flex-direction: column; gap: 4px; }
-  .mockup-row {
-    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
-    padding: 7px 9px; display: flex; align-items: center; gap: 7px;
-  }
-  .mockup-row-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .mockup-row-info { flex: 1; min-width: 0; }
-  .mockup-row-name { font-size: 9px; font-weight: 600; color: #0f172a; line-height: 1; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .mockup-row-sub { font-size: 8px; color: #94a3b8; }
-  .mockup-row-badge { font-size: 7px; padding: 2px 6px; border-radius: 100px; font-weight: 600; white-space: nowrap; }
-  .mockup-badge-green { background: #dcfce7; color: #16a34a; }
-  .mockup-badge-blue  { background: #dbeafe; color: #2563eb; }
-  .mockup-badge-amber { background: #fef3c7; color: #d97706; }
-
-  /* ── COLLECTIVE MODE ── */
-  .collective-section {
-    padding: 96px 48px;
-    background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 100%);
-    color: white;
-  }
-  .collective-inner { max-width: 1100px; margin: 0 auto; }
-  .collective-badge {
-    display: inline-block;
-    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 20px;
-  }
-  .collective-section h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px;
-    line-height: 1.15;
-    margin-bottom: 16px;
-    color: white;
-  }
-  .collective-section h2 em { font-style: italic; color: var(--sage-light); }
-  .collective-section .collective-desc {
-    color: rgba(255,255,255,0.6);
-    font-size: 17px;
-    max-width: 640px;
-    margin-bottom: 48px;
-    line-height: 1.7;
-  }
-  .collective-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  .collective-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 28px 32px;
-    transition: background 0.2s;
-  }
-  .collective-card:hover { background: rgba(255,255,255,0.08); }
-  .collective-card-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(122,158,111,0.2);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-  .collective-card-icon i { color: var(--sage-light); }
-  .collective-card h3 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: white;
-  }
-  .collective-card p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.7;
-  }
-
-  /* ── ADVANCED FEATURES ── */
-  .adv-features {
-    padding: 96px 48px;
-    background: white;
-  }
-  .adv-inner { max-width: 1100px; margin: 0 auto; }
-  .adv-features .section-label { color: var(--sage); }
-  .adv-features h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px;
-    line-height: 1.15;
-    margin-bottom: 16px;
-    color: var(--ink);
-  }
-  .adv-features h2 em { font-style: italic; color: var(--sage); }
-  .adv-features .adv-desc {
-    color: var(--muted);
-    font-size: 17px;
-    max-width: 640px;
-    margin-bottom: 48px;
-    line-height: 1.7;
-  }
-  .adv-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .adv-card {
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 24px;
-    background: white;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .adv-card:hover { background: var(--sage-pale); border-color: rgba(74,103,65,0.2); }
-  .adv-card-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--sage-pale);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-  .adv-card-icon i { color: var(--sage); }
-  .adv-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--ink);
-  }
-  .adv-card p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-  .adv-tag {
-    display: inline-block;
-    font-size: 11px;
-    background: var(--sage-pale);
-    color: var(--sage);
-    padding: 3px 8px;
-    border-radius: 100px;
-    margin-top: 10px;
-  }
-
-  /* ── MINDBODY ALT & COMPARISON ── */
-  .alt-section { padding: 96px 48px; background: white; }
-  .alt-inner { max-width: 1100px; margin: 0 auto; }
-
-  .alt-section h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px; line-height: 1.15;
-    margin-bottom: 16px;
-  }
-  .alt-section h2 em { font-style: italic; color: var(--sage); }
-
-  .comparison-table-wrap {
-    overflow-x: auto;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    margin-top: 48px;
-  }
-  table.comparison {
-    width: 100%;
-    border-collapse: collapse;
     font-size: 14px;
   }
-  table.comparison thead th {
-    padding: 16px 24px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--border);
-    background: white;
-  }
-  table.comparison thead th:nth-child(2) {
-    background: var(--sage-pale);
-    color: var(--sage);
-    text-align: center;
-  }
-  table.comparison thead th:nth-child(3),
-  table.comparison thead th:nth-child(4),
-  table.comparison thead th:nth-child(5) { color: var(--muted); text-align: center; }
-
-  table.comparison tbody tr { background: white; }
-  table.comparison tbody tr:nth-child(even) { background: #fafaf9; }
-  table.comparison tbody tr:nth-child(even) td:nth-child(2) { background: rgba(74,103,65,0.05); }
-
-  table.comparison tbody td {
-    padding: 14px 24px;
-    border-bottom: 1px solid var(--border);
-    color: var(--ink);
-    vertical-align: middle;
-  }
-  table.comparison tbody tr:last-child td { border-bottom: none; }
-  table.comparison tbody td:nth-child(2) {
-    text-align: center;
-    font-weight: 600;
-    background: rgba(74,103,65,0.03);
-  }
-  table.comparison tbody td:nth-child(3),
-  table.comparison tbody td:nth-child(4),
-  table.comparison tbody td:nth-child(5) { text-align: center; color: var(--muted); }
-
-  .cmp-yes { color: var(--sage) !important; }
-  .cmp-no  { color: #dc2626 !important; }
-  .cmp-neutral { color: var(--muted) !important; }
-
-  /* ── FAQ ── */
-  .faq-section { padding: 96px 48px; background: var(--paper); }
-  .faq-inner { max-width: 760px; margin: 0 auto; }
-
-  .faq-list {
-    display: flex; flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    background: white;
-  }
-  .faq-item { border-bottom: 1px solid var(--border); }
-  .faq-item:last-child { border-bottom: none; }
-
-  .faq-q {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 20px 24px;
-    text-align: left;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--ink);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    transition: background 0.15s;
-  }
-  .faq-q:hover { background: var(--sage-pale); }
-  .faq-q[aria-expanded="true"] { background: var(--sage-pale); color: var(--sage); }
-
-  .faq-chevron {
-    width: 18px; height: 18px;
-    flex-shrink: 0;
-    transition: transform 0.2s;
-    color: var(--muted);
-  }
-  .faq-q[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); color: var(--sage); }
-
-  .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.8;
-    padding: 0 24px;
-  }
-  .faq-a.open { max-height: 300px; padding: 0 24px 20px; }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    /* Nav */
-    nav { padding: 14px 20px; }
-    .nav-demo-link { display: none; }
-    nav .nav-cta { font-size: 13px; padding: 8px 14px; }
-
-    /* Hero */
-    .hero { padding: 88px 20px 56px; }
-    .hero-sub { font-size: 16px; }
-    .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
-    .btn-primary { text-align: center; }
-    .btn-demo { justify-content: center; }
-    .btn-ghost { justify-content: center; }
-
-    /* Core sections */
-    .pain       { padding: 60px 20px; }
-    .roles      { padding: 60px 20px; }
-    .final-cta  { padding: 72px 20px; }
-    .features   { padding: 60px 20px; }
-    .pricing    { padding: 60px 20px; }
-    .demo-strip { padding: 60px 20px; }
-    .collective-section,
-    .adv-features { padding: 60px 20px; }
-
-    /* Grids */
-    .features-grid    { grid-template-columns: 1fr; gap: 16px; }
-    .roles-grid       { grid-template-columns: 1fr !important; gap: 16px; }
-    .pricing-cards    { grid-template-columns: 1fr; }
-    .collective-grid  { grid-template-columns: 1fr; }
-    .adv-grid         { grid-template-columns: 1fr; }
-
-    /* Inline-styled sections */
-    .section-full,
-    .section-dark-full { padding: 60px 20px; }
-    .rg-2, .rg-3       { grid-template-columns: 1fr; }
-    .story-card         { padding: 28px 24px; }
-    .fee-grid           { grid-template-columns: 1fr; }
-
-    /* Hero 2-column → single column on mobile */
-    .hero-layout { grid-template-columns: 1fr; gap: 0; }
-    .app-mockup { display: none; } /* hide mockup on mobile to save space */
-
-    /* Mindbody alt section */
-    .alt-section { padding: 60px 20px; }
-    .comparison-table-wrap { border-radius: 10px; margin-top: 32px; }
-    table.comparison thead th,
-    table.comparison tbody td { padding: 10px 14px; font-size: 13px; }
-
-    /* FAQ */
-    .faq-section { padding: 60px 20px; }
-    .faq-q { font-size: 14px; padding: 16px 20px; }
-    .faq-a { font-size: 13px; }
-    .faq-a.open { padding: 0 20px 16px; }
-
-    /* Footer */
-    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
-    .footer-links { flex-direction: column; gap: 8px; align-items: center; }
-  }
-
-  /* ── VERY SMALL PHONES ── */
-  @media (max-width: 390px) {
-    .hero-badge { font-size: 12px; padding: 5px 12px; }
-    .price-amount { font-size: 44px; }
-  }
+  .hero { padding: 120px 1.5rem 64px; }
+  .hero h1 { font-size: 2rem; letter-spacing: -0.5px; }
+  .hero-desc { font-size: 1rem; }
+  .hero-cta { padding: 14px 32px; font-size: 1rem; }
+  .social-proof { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+  .demo-section { padding: 32px 1.5rem 64px; }
+  .app-mockup { transform: none; }
+  .app-mockup:hover { transform: none; }
+  .section { padding: 64px 1.5rem; }
+  .features-grid { grid-template-columns: 1fr; }
+  .collective { padding: 64px 1.5rem; }
+  .collective-grid { grid-template-columns: 1fr; }
+  .compare-section { padding: 64px 1.5rem; }
+  .table-wrapper { display: none; }
+  .compare-cards { display: block; }
+  .additional-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-section { padding: 64px 1.5rem; }
+  .pricing-card { padding: 2rem; }
+  .pricing-amount { font-size: 3rem; }
+  .founder-section { padding: 64px 1.5rem; }
+  .founder-quote { font-size: 1.1rem; }
+  .founder-grid { grid-template-columns: 1fr; }
+  .final-cta { padding: 64px 1.5rem; }
+  .footer-links { gap: 1.25rem; }
+}
+@media (max-width: 480px) {
+  .additional-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo">Klas<span>ly</span></a>
-  <div class="nav-right">
-    <a href="https://app.klasly.app/login" class="nav-login-link">Log In</a>
-    <a href="demo.html" class="nav-demo-link">▶ Live Demo</a>
-    <a href="#pricing" class="nav-cta">Start Free Trial</a>
+<!-- Skip Link -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ══════════ 1. Navigation ══════════ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Klasly</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#collective">Shared Studios</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#compare">Compare</a>
+      <a href="https://app.klasly.app/login" class="nav-ghost">Log in</a>
+      <a href="https://app.klasly.app/signup" class="nav-cta">Start Free Trial</a>
+    </div>
+    <a href="https://app.klasly.app/signup" class="nav-mobile-cta" style="display:none;">Start Free Trial</a>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile overlay -->
+  <div class="nav-mobile" role="menu">
+    <a href="#features" role="menuitem">Features</a>
+    <a href="#collective" role="menuitem">Shared Studios</a>
+    <a href="#pricing" role="menuitem">Pricing</a>
+    <a href="#compare" role="menuitem">Compare</a>
+    <a href="https://app.klasly.app/login" role="menuitem">Log in</a>
+    <a href="https://app.klasly.app/signup" class="nav-cta" role="menuitem">Start Free Trial</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ══════════ 2. Hero ══════════ -->
+<main id="main">
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-layout">
+  <h1 class="fade-up">Studio Management Software for <span class="text-brand">$19/month</span> — Not $129.</h1>
+  <p class="hero-desc fade-up fade-up-d1">Booking, payments, attendance, messaging, and waivers. Everything your small studio needs. Nothing it doesn't.</p>
+  <a href="https://app.klasly.app/signup" class="hero-cta fade-up fade-up-d2">Start Free 30-Day Trial</a>
+  <p class="hero-sub fade-up fade-up-d3">No credit card required to explore. Cancel anytime.</p>
+</section>
 
-    <!-- LEFT: copy -->
-    <div class="hero-content">
-      <div class="hero-badge">All-in-one studio platform · $19/month</div>
-      <h1>Everything your studio needs.<br><em>Nothing it doesn't.</em></h1>
-      <p class="hero-sub">
-        Members, scheduling, payments, retreats, shared studio tools, waivers, messaging, analytics — all for $19/mo. The platform small studios actually want.
-      </p>
-      <div class="hero-actions">
-        <a href="https://app.klasly.app/signup" class="btn-primary">Start Free 30-Day Trial</a>
-        <a href="demo.html" class="btn-demo">▶ Live Demo</a>
-      </div>
-      <p class="hero-note">30 days free &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; No charge until your trial ends</p>
+<!-- ══════════ 3. Social Proof Bar ══════════ -->
+<div class="social-proof">
+  <div class="social-proof-item"><span class="social-proof-dot"></span> Built for yoga, pilates, dance &amp; fitness studios</div>
+  <div class="social-proof-item"><span class="social-proof-dot"></span> Set up in under 10 minutes</div>
+  <div class="social-proof-item"><span class="social-proof-dot"></span> Direct access to the developer</div>
+</div>
+
+<!-- ══════════ 3.5. Demo Mockup ══════════ -->
+<section class="demo-section">
+  <p>See what your dashboard looks like on day one.</p>
+  <div class="app-mockup reveal">
+    <div class="mockup-chrome">
+      <div class="mockup-dot" style="background:#ff5f57;"></div>
+      <div class="mockup-dot" style="background:#febc2e;"></div>
+      <div class="mockup-dot" style="background:#28c840;"></div>
+      <div class="mockup-url">app.klasly.app/dashboard</div>
     </div>
-
-    <!-- RIGHT: CSS app mockup -->
-    <div class="hero-visual">
-      <div class="app-mockup">
-        <!-- Browser chrome -->
-        <div class="mockup-chrome">
-          <div class="mockup-dot" style="background:#ff5f57;"></div>
-          <div class="mockup-dot" style="background:#febc2e;"></div>
-          <div class="mockup-dot" style="background:#28c840;"></div>
-          <div class="mockup-url">app.klasly.app/dashboard</div>
-        </div>
-        <!-- App body -->
-        <div class="mockup-body">
-          <!-- Sidebar -->
-          <div class="mockup-sidebar">
-            <div class="mockup-sidebar-logo">K</div>
-            <div class="mockup-nav-item active"><div class="mockup-nav-dot active"></div></div>
-            <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-            <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-            <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-            <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-            <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
+    <div class="mockup-body">
+      <div class="mockup-sidebar">
+        <div class="mockup-sidebar-logo">K</div>
+        <div class="mockup-nav-item active"><div class="mockup-nav-dot active"></div></div>
+        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
+        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
+        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
+        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
+        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
+      </div>
+      <div class="mockup-main">
+        <div class="mockup-page-title">Dashboard</div>
+        <div class="mockup-stats">
+          <div class="mockup-stat">
+            <div class="mockup-stat-val">128</div>
+            <div class="mockup-stat-label">Members</div>
           </div>
-          <!-- Main content -->
-          <div class="mockup-main">
-            <div class="mockup-page-title">Dashboard</div>
-            <!-- Stats row -->
-            <div class="mockup-stats">
-              <div class="mockup-stat">
-                <div class="mockup-stat-val">42</div>
-                <div class="mockup-stat-label">Members</div>
-              </div>
-              <div class="mockup-stat">
-                <div class="mockup-stat-val">6</div>
-                <div class="mockup-stat-label">Today</div>
-              </div>
-              <div class="mockup-stat">
-                <div class="mockup-stat-val" style="color:#0074c5;">$2.4k</div>
-                <div class="mockup-stat-label">Revenue</div>
-              </div>
+          <div class="mockup-stat">
+            <div class="mockup-stat-val">14</div>
+            <div class="mockup-stat-label">Today</div>
+          </div>
+          <div class="mockup-stat">
+            <div class="mockup-stat-val" style="color:var(--brand);">$4.8k</div>
+            <div class="mockup-stat-label">Revenue</div>
+          </div>
+        </div>
+        <div class="mockup-section-title">Today's Classes</div>
+        <div class="mockup-rows">
+          <div class="mockup-row">
+            <div class="mockup-row-dot" style="background:var(--brand);"></div>
+            <div class="mockup-row-info">
+              <div class="mockup-row-name">Hatha Flow · 7:00 AM</div>
+              <div class="mockup-row-sub">Sarah M. · 12/15 booked</div>
             </div>
-            <!-- Today's classes -->
-            <div class="mockup-section-title">Today's Classes</div>
-            <div class="mockup-rows">
-              <div class="mockup-row">
-                <div class="mockup-row-dot" style="background:#0074c5;"></div>
-                <div class="mockup-row-info">
-                  <div class="mockup-row-name">Hatha Flow · 7:00 AM</div>
-                  <div class="mockup-row-sub">Sarah M. · 12/15 booked</div>
-                </div>
-                <div class="mockup-row-badge mockup-badge-green">Full</div>
-              </div>
-              <div class="mockup-row">
-                <div class="mockup-row-dot" style="background:#7c3aed;"></div>
-                <div class="mockup-row-info">
-                  <div class="mockup-row-name">Vinyasa · 9:30 AM</div>
-                  <div class="mockup-row-sub">James L. · 8/12 booked</div>
-                </div>
-                <div class="mockup-row-badge mockup-badge-blue">Open</div>
-              </div>
-              <div class="mockup-row">
-                <div class="mockup-row-dot" style="background:#d97706;"></div>
-                <div class="mockup-row-info">
-                  <div class="mockup-row-name">Restorative · 6:00 PM</div>
-                  <div class="mockup-row-sub">Maya R. · 5/10 booked</div>
-                </div>
-                <div class="mockup-row-badge mockup-badge-amber">Waitlist</div>
-              </div>
+            <div class="mockup-row-badge mockup-badge-green">Full</div>
+          </div>
+          <div class="mockup-row">
+            <div class="mockup-row-dot" style="background:#7c3aed;"></div>
+            <div class="mockup-row-info">
+              <div class="mockup-row-name">Vinyasa · 9:30 AM</div>
+              <div class="mockup-row-sub">James L. · 8/12 booked</div>
             </div>
+            <div class="mockup-row-badge mockup-badge-blue">Open</div>
+          </div>
+          <div class="mockup-row">
+            <div class="mockup-row-dot" style="background:#d97706;"></div>
+            <div class="mockup-row-info">
+              <div class="mockup-row-name">Restorative · 6:00 PM</div>
+              <div class="mockup-row-sub">Maya R. · 10/10 booked</div>
+            </div>
+            <div class="mockup-row-badge mockup-badge-amber">Waitlist</div>
+          </div>
+          <div class="mockup-row">
+            <div class="mockup-row-dot" style="background:var(--green);"></div>
+            <div class="mockup-row-info">
+              <div class="mockup-row-name">Pilates Mat · 12:00 PM</div>
+              <div class="mockup-row-sub">Emi T. · 6/8 booked</div>
+            </div>
+            <div class="mockup-row-badge mockup-badge-blue">Open</div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- PAIN -->
-<section class="pain">
-  <p class="section-label">Sound familiar?</p>
-  <h2>Managing a studio shouldn't feel like a second job.</h2>
-  <div class="pain-list">
-    <div class="pain-item">
-      <div class="pain-icon"><i data-lucide="layout-list" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
-      <div class="pain-text">
-        <strong>You don't know who's coming to class today</strong>
-        <span>Bookings scattered across texts, DMs, and a whiteboard — nothing in one place.</span>
-      </div>
+<!-- ══════════ 4. Core Features ══════════ -->
+<section class="section" id="features">
+  <div class="section-label">Core Features</div>
+  <h2>Everything you need. Nothing you don't.</h2>
+  <p class="section-sub">Stop paying for 100 features when you use 6. Klasly gives you exactly what a small studio needs — beautifully simple.</p>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <h3>Class Scheduling &amp; Booking</h3>
+      <p>Set up your classes once. Klasly auto-generates sessions for weeks ahead. Members book online 24/7. Waitlist fills spots automatically when someone cancels.</p>
     </div>
-    <div class="pain-item">
-      <div class="pain-icon"><i data-lucide="alert-circle" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
-      <div class="pain-text">
-        <strong>Chasing unpaid memberships every month</strong>
-        <span>Manually tracking who paid, who didn't, and feeling awkward about it.</span>
-      </div>
+    <div class="feature-card reveal reveal-d1">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+      <h3>Payments &amp; Billing</h3>
+      <p>Stripe-powered automatic billing. Monthly subscriptions, class packs, and drop-ins. See every payment. Get alerted on failures. No spreadsheets needed.</p>
     </div>
-    <div class="pain-item">
-      <div class="pain-icon"><i data-lucide="users" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
-      <div class="pain-text">
-        <strong>Instructors sharing your space need their own setup</strong>
-        <span>Shared studios struggle with separate schedules and revenue tracking — no single view.</span>
-      </div>
+    <div class="feature-card reveal reveal-d2">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Member Management</h3>
+      <p>All your members in one place — plans, credits, status, visit history. Import existing data from CSV. Manage everything from a single dashboard.</p>
     </div>
-    <div class="pain-item">
-      <div class="pain-icon"><i data-lucide="calendar-x" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
-      <div class="pain-text">
-        <strong>Retreats and workshops are managed in a separate spreadsheet</strong>
-        <span>Multi-day events, installment payments, room options — all manual and error-prone.</span>
-      </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
+      <h3>Digital Waivers</h3>
+      <p>Send signature requests by email. Members sign online. Track who's signed and who hasn't. Minor waivers go directly to parents — no account needed.</p>
     </div>
-    <div class="pain-item">
-      <div class="pain-icon"><i data-lucide="building-2" style="width:16px;height:16px;color:#7a7570;stroke-width:1.5;"></i></div>
-      <div class="pain-text">
-        <strong>Existing tools cost $129+/month and still charge extra for basics</strong>
-        <span>Waivers, SOAP notes, custom forms — often add-ons you pay more for.</span>
-      </div>
+    <div class="feature-card reveal reveal-d1">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>In-App Messaging</h3>
+      <p>Message your members directly inside the app. Unread badges, read receipts, and email notifications. No more switching between apps to communicate.</p>
+    </div>
+    <div class="feature-card reveal reveal-d2">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18L12 3 3 21z"/><path d="M8 21h8l-4-8-4 8z"/></svg></div>
+      <h3>Events &amp; Retreats</h3>
+      <p>Multi-day events with room options, 3-installment payment plans, custom cancellation policies, and application forms. Guests can book without an account.</p>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="features-inner">
-    <p class="section-label">Core Platform</p>
-    <h2>Everything a studio needs.<br><em>Built in from day one.</em></h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-num">01</div>
-        <div class="feature-title">Member Management</div>
-        <p class="feature-desc">See every member's profile, active plan, remaining class credits, and payment status at a glance. No spreadsheets.</p>
-        <div class="feature-tags">
-          <span class="feature-tag">Profiles</span>
-          <span class="feature-tag">Class credits</span>
-          <span class="feature-tag">Plan history</span>
-          <span class="feature-tag">Payment status</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">02</div>
-        <div class="feature-title">Class Scheduling & Booking</div>
-        <p class="feature-desc">Set up recurring classes per instructor. Members book online. You see a clean daily roster — who's coming, who cancelled.</p>
-        <div class="feature-tags">
-          <span class="feature-tag">Online booking</span>
-          <span class="feature-tag">Capacity limits</span>
-          <span class="feature-tag">Waitlist</span>
-          <span class="feature-tag">Attendance</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">03</div>
-        <div class="feature-title">Payments & Memberships</div>
-        <p class="feature-desc">Automatic billing for monthly memberships. Class pass tracking. Get paid without chasing anyone.</p>
-        <div class="feature-tags">
-          <span class="feature-tag">Auto billing</span>
-          <span class="feature-tag">Class passes</span>
-          <span class="feature-tag">Drop-ins</span>
-          <span class="feature-tag">Stripe</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">04</div>
-        <div class="feature-title">In-App Messaging</div>
-        <p class="feature-desc">Owner-to-member chat built in. Keep conversations in one place instead of scattered across texts and email.</p>
-        <div class="feature-tags">
-          <span class="feature-tag">Owner↔Member chat</span>
-          <span class="feature-tag">Read receipts</span>
-          <span class="feature-tag">Email alerts</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">05</div>
-        <div class="feature-title">Email Notifications</div>
-        <p class="feature-desc">Automated emails for bookings, waivers, and reminders. Members stay informed; you stay hands-off.</p>
-        <div class="feature-tags">
-          <span class="feature-tag">Booking alerts</span>
-          <span class="feature-tag">Waiver requests</span>
-          <span class="feature-tag">Reminders</span>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">06</div>
-        <div class="feature-title">Dashboard & Analytics</div>
-        <p class="feature-desc">Revenue stats, class rankings, and UTM tracking. See what's working without digging through spreadsheets.</p>
-        <div class="feature-tags">
-          <span class="feature-tag">Revenue stats</span>
-          <span class="feature-tag">Class rankings</span>
-          <span class="feature-tag">UTM tracking</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEMO STRIP -->
-<section class="demo-strip">
-  <div class="demo-strip-inner">
-    <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:16px;">No signup required</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,44px);color:white;letter-spacing:-1px;line-height:1.15;margin-bottom:16px;">Try the full app —<br><em style="font-style:italic;color:var(--sage-light);">right now.</em></h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:16px;margin-bottom:36px;line-height:1.75;">Click through every screen. Browse members, check bookings, view payments. See exactly what your studio will look like on day one — before signing up for anything.</p>
-    <a href="demo.html" class="btn-demo-strip">Open Live Demo →</a>
-    <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.3);">No account · No credit card · Just the app</p>
-  </div>
-</section>
-
-<!-- COLLECTIVE MODE -->
-<section class="collective-section" id="collective">
+<!-- ══════════ 5. Collective Mode ══════════ -->
+<section class="collective" id="collective">
   <div class="collective-inner">
-    <p class="collective-badge">Only on Klasly — no competitor has this</p>
-    <h2>Collective Mode.<br><em>Built for shared studios.</em></h2>
-    <p class="collective-desc">Multiple instructors run their own classes, pricing, and Stripe — with studio fee automatically deducted. One platform, one calendar, no double-booking.</p>
+    <div class="badge">Only on Klasly</div>
+    <div class="section-label">Shared Studio Mode</div>
+    <h2>Built for studios where instructors rent space and run their own business.</h2>
+    <p class="section-sub">If your studio works like an Airbnb for wellness — instructors pay rent, set their own prices, and collect their own payments — no other software was built for you. Until now.</p>
     <div class="collective-grid">
-      <div class="collective-card">
-        <div class="collective-card-icon"><i data-lucide="user-check" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Instructor Independence</h3>
-        <p>Each instructor sets their own class names, prices, and schedule. Payments go directly to their Stripe — you just collect the studio fee.</p>
-      </div>
-      <div class="collective-card">
-        <div class="collective-card-icon"><i data-lucide="calendar-check" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
+      <div class="collective-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
         <h3>Self-Scheduling</h3>
-        <p>Instructors see real-time room availability and book slots themselves. No double-booking, no back-and-forth.</p>
+        <p>Instructors book rooms and add classes themselves. No more back-and-forth. Double-booking is prevented automatically.</p>
       </div>
-      <div class="collective-card">
-        <div class="collective-card-icon"><i data-lucide="door-open" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Room Management</h3>
-        <p>Define multiple rooms. Each room has its own calendar and capacity. Book by room, track by room.</p>
+      <div class="collective-card reveal reveal-d1">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Direct Payments + Studio Fee</h3>
+        <p>Student payments go directly to the instructor's Stripe. Your studio fee percentage is automatically deducted. Zero manual transfers.</p>
       </div>
-      <div class="collective-card">
-        <div class="collective-card-icon"><i data-lucide="layers" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Tier-Based Memberships</h3>
-        <p>Set monthly studio usage tiers (e.g. 5 hrs, 15 hrs, unlimited). Usage is tracked in 15-minute increments — automatically.</p>
+      <div class="collective-card reveal reveal-d2">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Tier Memberships &amp; Hour Tracking</h3>
+        <p>Set up rent tiers with monthly hours. Usage is tracked in 15-minute increments. Overage fees are billed automatically.</p>
       </div>
-      <div class="collective-card">
-        <div class="collective-card-icon"><i data-lucide="ticket" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Studio Pass</h3>
-        <p>Members buy a monthly pass and can book any instructor's class. Revenue is split by attendance — auto-allocated. Owner can approve payouts or switch to fully automatic.</p>
-      </div>
-      <div class="collective-card">
-        <div class="collective-card-icon"><i data-lucide="shield" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Manager Role</h3>
-        <p>Grant Owner-like access without billing control. Multiple managers can manage members, instructors, and schedules — you keep payment settings to yourself.</p>
+      <div class="collective-card reveal reveal-d3">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M2 9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5a1.5 1.5 0 1 0 0 3V15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 1 0 0-3V9z"/></svg></div>
+        <h3>Studio Pass &amp; Revenue Split</h3>
+        <p>Sell a monthly pass for all classes. At month-end, revenue is automatically split among instructors based on participation.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ADVANCED FEATURES -->
-<section class="adv-features" id="advanced">
-  <div class="adv-inner">
-    <p class="section-label">Powerful features, built in</p>
-    <h2>Features competitors charge <em>extra for.</em></h2>
-    <p class="adv-desc">Turn on only what you need from Settings. Every feature below is included in your $19/month — no add-ons, no upsells.</p>
-    <div class="adv-grid">
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="file-signature" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Digital Waivers</h3>
-        <p>Custom templates, bulk send, minor waivers supported.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="mountain" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Retreats & Events</h3>
-        <p>Installment payments, room options, guest booking.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="clipboard-list" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>SOAP Notes</h3>
-        <p>4-field format, confidential mode.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="video" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Online & Hybrid Classes</h3>
-        <p>Zoom/Meet integration, hybrid mode.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="form-input" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Custom Forms</h3>
-        <p>Form builder, response management.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="globe" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Website Widget</h3>
-        <p>iframe/JS embed, WordPress-ready.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="user-cog" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Private Sessions</h3>
-        <p>Per-session toggle, room-aware.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="smartphone" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>Mobile App (PWA)</h3>
-        <p>iOS, Android, desktop — no app store required.</p>
-      </div>
-      <div class="adv-card">
-        <div class="adv-card-icon"><i data-lucide="bar-chart-2" style="width:22px;height:22px;stroke-width:1.5;"></i></div>
-        <h3>UTM & Analytics</h3>
-        <p>Traffic sources, UTM tracking.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ══════════ 6. Comparison Table ══════════ -->
+<section class="compare-section" id="compare">
+  <div class="compare-inner">
+    <div class="section-label">How We Compare</div>
+    <h2>Klasly vs. the big names.</h2>
+    <p class="section-sub">Same features. A fraction of the price. Plus features they don't even have.</p>
 
-<!-- MINDBODY ALTERNATIVE + COMPARISON -->
-<section class="alt-section" id="vs-mindbody">
-  <div class="alt-inner">
-    <p class="section-label">Why Klasly</p>
-    <h2>See how Klasly compares to <em>the alternatives.</em></h2>
-    <p style="color:var(--muted);font-size:17px;max-width:640px;margin-bottom:8px;">Mindbody ($129+), Momence ($99+), Vagaro ($30+) — see what's included at each price. Klasly includes features others charge extra for.</p>
-
-    <div class="comparison-table-wrap">
-      <table class="comparison">
+    <!-- Desktop table -->
+    <div class="table-wrapper">
+      <table class="compare-table">
         <thead>
           <tr>
-            <th style="width:28%;">Feature</th>
-            <th>Klasly</th>
+            <th>Feature</th>
+            <th class="klasly-col">Klasly</th>
             <th>Mindbody</th>
             <th>Momence</th>
             <th>Vagaro</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Starting price</td>
-            <td class="cmp-yes">$19/month</td>
-            <td class="cmp-no">$129+/month</td>
-            <td class="cmp-neutral">$99+/month</td>
-            <td class="cmp-neutral">$30+/month</td>
-          </tr>
-          <tr>
-            <td>Member management</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-          </tr>
-          <tr>
-            <td>Scheduling & booking</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-          </tr>
-          <tr>
-            <td>Payments & billing</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-          </tr>
-          <tr>
-            <td>Collective Mode</td>
-            <td class="cmp-yes">✓ Yes</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-          </tr>
-          <tr>
-            <td>Retreat & event booking</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-neutral">Limited</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-          </tr>
-          <tr>
-            <td>Studio Pass + auto revenue split</td>
-            <td class="cmp-yes">✓ Yes</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-          </tr>
-          <tr>
-            <td>Installment payments</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-neutral">Extra fee</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-          </tr>
-          <tr>
-            <td>Custom forms</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-neutral">Extra fee</td>
-            <td class="cmp-neutral">Limited</td>
-            <td class="cmp-no">✗ No</td>
-          </tr>
-          <tr>
-            <td>SOAP Notes</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-neutral">Extra fee</td>
-            <td class="cmp-no">✗ No</td>
-            <td class="cmp-no">✗ No</td>
-          </tr>
-          <tr>
-            <td>Digital waivers</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-neutral">Extra / add-on</td>
-            <td class="cmp-yes">✓ Included</td>
-            <td class="cmp-yes">✓ Included</td>
-          </tr>
-          <tr>
-            <td>No app download for members</td>
-            <td class="cmp-yes">✓ Browser-based</td>
-            <td class="cmp-no">App required</td>
-            <td class="cmp-neutral">Optional</td>
-            <td class="cmp-neutral">Optional</td>
-          </tr>
+          <tr><td>Monthly Price</td><td class="klasly-col"><strong>$19</strong></td><td>$129+</td><td>$99+</td><td>$30+</td></tr>
+          <tr><td>Booking &amp; Scheduling</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Payments (Stripe)</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Waitlist Auto-Promote</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Digital Waivers</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="limited">Add-on $</span></td><td><span class="limited">Limited</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>In-App Messaging</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>Online Classes (Zoom)</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Retreat Booking + Installments</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="limited">Limited</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>Shared Studio Mode</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>Studio Pass + Revenue Split</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>SOAP Notes</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="limited">Add-on $</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>WordPress Embed</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="limited">Limited</span></td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
+          <tr><td>UTM Tracking</td><td class="klasly-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:16px;font-size:12px;color:var(--muted);text-align:center;">Prices based on publicly available information. Competitor pricing varies by plan and region.</p>
+
+    <!-- Mobile cards -->
+    <div class="compare-cards">
+      <div class="compare-card-item">
+        <h4>Monthly Price</h4>
+        <div class="compare-card-row"><span>Klasly</span><span class="text-brand"><strong>$19</strong></span></div>
+        <div class="compare-card-row"><span>Mindbody</span><span>$129+</span></div>
+        <div class="compare-card-row"><span>Momence</span><span>$99+</span></div>
+        <div class="compare-card-row"><span>Vagaro</span><span>$30+</span></div>
+      </div>
+      <div class="compare-card-item">
+        <h4>Klasly-Only Features</h4>
+        <div class="compare-card-row"><span>In-App Messaging</span><span class="check">✓ Only Klasly</span></div>
+        <div class="compare-card-row"><span>Shared Studio Mode</span><span class="check">✓ Only Klasly</span></div>
+        <div class="compare-card-row"><span>Studio Pass + Revenue Split</span><span class="check">✓ Only Klasly</span></div>
+        <div class="compare-card-row"><span>UTM Tracking</span><span class="check">✓ Only Klasly</span></div>
+      </div>
+      <div class="compare-card-item">
+        <h4>Included Free (Others Charge Extra)</h4>
+        <div class="compare-card-row"><span>Digital Waivers</span><span class="check">✓ Free</span></div>
+        <div class="compare-card-row"><span>SOAP Notes</span><span class="check">✓ Free</span></div>
+        <div class="compare-card-row"><span>Retreat Booking</span><span class="check">✓ Free</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ROLES -->
-<section class="roles">
-  <p class="section-label">Who sees what</p>
-  <h2>The right access for everyone in your studio.</h2>
-  <div class="roles-grid">
-    <div class="role-card">
-      <div class="role-avatar"><i data-lucide="user" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-      <div class="role-name">Role</div>
-      <div class="role-title">Owner</div>
-      <ul class="role-list">
-        <li>Full member & payment overview</li>
-        <li>Manage instructors & managers</li>
-        <li>Revenue analytics & unpaid alerts</li>
-        <li>Configure billing plans & features</li>
-        <li>Studio Pass payout approval</li>
+<!-- ══════════ 7. Additional Features ══════════ -->
+<section class="section">
+  <div class="section-label">And More</div>
+  <h2>Every feature included. No add-on fees.</h2>
+  <p class="section-sub">All of these come standard with your $19/month plan.</p>
+  <div class="additional-grid">
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> Online &amp; Hybrid Classes</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> WordPress Widget</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Analytics Dashboard</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> UTM Tracking</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg> SOAP Notes</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg> Minor Waiver</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> CSV Import / Export</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> PWA — No App Download</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Referral Program</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Auto Email Notifications</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Room Management</div>
+    <div class="additional-item reveal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Feature ON/OFF Toggle</div>
+  </div>
+</section>
+
+<!-- ══════════ 8. Pricing ══════════ -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-label">Pricing</div>
+    <h2>Simple pricing. No surprises.</h2>
+    <div class="pricing-card reveal">
+      <div class="pricing-amount">$19<span class="pricing-period"> /month</span></div>
+      <p class="pricing-fee">+ 0.5% platform fee on member payments</p>
+      <ul class="pricing-list">
+        <li>All features included — no tiers, no add-ons</li>
+        <li>Unlimited members</li>
+        <li>Unlimited classes</li>
+        <li>Unlimited instructors</li>
+        <li>30-day free trial</li>
+        <li>Annual plan: $190/year (save 2 months)</li>
+        <li>Refer a studio → both get 1 month free</li>
       </ul>
-    </div>
-    <div class="role-card">
-      <div class="role-avatar"><i data-lucide="shield" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-      <div class="role-name">Role</div>
-      <div class="role-title">Manager</div>
-      <ul class="role-list">
-        <li>Everything the Owner can do</li>
-        <li>Except billing & payment config</li>
-        <li>Manage members & instructors</li>
-        <li>Multiple managers supported</li>
-      </ul>
-    </div>
-    <div class="role-card">
-      <div class="role-avatar"><i data-lucide="activity" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-      <div class="role-name">Role</div>
-      <div class="role-title">Instructor</div>
-      <ul class="role-list">
-        <li>Own class schedule & attendance</li>
-        <li>Self-scheduling (Collective Mode)</li>
-        <li>SOAP Notes for their clients</li>
-        <li>Own Stripe payouts (Collective)</li>
-      </ul>
-    </div>
-    <div class="role-card">
-      <div class="role-avatar"><i data-lucide="star" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-      <div class="role-name">Role</div>
-      <div class="role-title">Member</div>
-      <ul class="role-list">
-        <li>Book and cancel classes online</li>
-        <li>Check remaining credits</li>
-        <li>View payment history</li>
-        <li>In-app messaging with studio</li>
-      </ul>
+      <a href="https://app.klasly.app/signup" class="pricing-cta">Start Free 30-Day Trial</a>
     </div>
   </div>
 </section>
 
-
-<!-- WHY STUDIOS SWITCH -->
-<section class="section-full" style="background:var(--paper);">
-  <div style="max-width:1100px;margin:0 auto;">
-    <p class="section-label">Why studios switch</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:640px;">More features. Lower price.<br><em style="font-style:italic;color:var(--sage);">Zero add-on fees.</em></h2>
-    <p style="color:var(--muted);font-size:17px;max-width:560px;margin-bottom:56px;">Waivers, SOAP notes, retreat booking, custom forms — everything is included in $19/month. No tiers. No upsells. No surprises.</p>
-    <div class="rg-3">
-      <div style="background:white;border:1px solid var(--border);border-radius:16px;padding:32px;">
-        <div style="width:48px;height:48px;background:var(--sage-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><i data-lucide="smartphone" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-        <div style="font-size:17px;font-weight:600;margin-bottom:10px;">Book in 3 clicks</div>
-        <p style="font-size:14px;color:var(--muted);line-height:1.7;">No app download required. Members book directly from their phone browser — fast, clean, and frustration-free.</p>
+<!-- ══════════ 9. Founder Story ══════════ -->
+<section class="founder-section">
+  <div class="founder-inner">
+    <div class="section-label">The Developer Behind Klasly</div>
+    <h2>Built by a studio owner, for studio owners.</h2>
+    <blockquote class="founder-quote reveal">"I run a learning academy in Japan with 280 students. I know the pain of managing a studio with spreadsheets. So I built something better — and priced it so any small studio can afford it."</blockquote>
+    <p class="founder-name">Yudai</p>
+    <p class="founder-role">Founder &amp; Solo Developer</p>
+    <div class="founder-grid">
+      <div class="founder-card reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h4>Direct Line to the Developer</h4>
+        <p>Your feedback goes straight into the product. No support tickets disappearing into a void.</p>
       </div>
-      <div style="background:white;border:1px solid var(--border);border-radius:16px;padding:32px;">
-        <div style="width:48px;height:48px;background:var(--sage-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><i data-lucide="zap" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-        <div style="font-size:17px;font-weight:600;margin-bottom:10px;">Live same day</div>
-        <p style="font-size:14px;color:var(--muted);line-height:1.7;">Set up your account and start taking bookings today. No onboarding calls, no training sessions, no consultants.</p>
+      <div class="founder-card reveal reveal-d1">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h4>Features Ship Fast</h4>
+        <p>Send feedback before bed, wake up to see it implemented. That's the indie developer advantage.</p>
       </div>
-      <div style="background:var(--sage-pale);border:1px solid rgba(74,103,65,0.2);border-radius:16px;padding:32px;">
-        <div style="width:48px;height:48px;background:white;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><i data-lucide="heart" style="width:22px;height:22px;color:#4a6741;stroke-width:1.5;"></i></div>
-        <div style="font-size:17px;font-weight:600;margin-bottom:10px;color:var(--sage);">"Focus on teaching.<br>Not software."</div>
-        <p style="font-size:14px;color:var(--muted);line-height:1.7;">The simplest studio tool out there — because complexity is what you're running away from.</p>
+      <div class="founder-card reveal reveal-d2">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>$19 Forever</h4>
+        <p>Early customers lock in $19/month permanently. No bait-and-switch. No surprise price hikes.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AUTOMATING ESSENTIALS -->
-<section class="section-dark-full" style="background:var(--ink);color:white;">
-  <div style="max-width:1100px;margin:0 auto;">
-    <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:20px;">Automating the Essentials</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;max-width:680px;">Set it up once.<br><em style="font-style:italic;color:var(--sage-light);">Let it run.</em></h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:17px;max-width:560px;margin-bottom:56px;">Billing, waitlists, waivers, notifications, revenue splits — the things that eat your time are fully automated.</p>
-    <div class="rg-2">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="credit-card" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Auto Billing & Payments</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Monthly auto-charge, class credits consumed automatically, unpaid alerts so you never chase.</p>
-        </div>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="users" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Waitlist Auto-Promotion</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Spot opens → next on waitlist is notified and auto-booked. No manual promotion.</p>
-        </div>
-      </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="pie-chart" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;">Revenue Auto-Split</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Studio Pass revenue split by attendance — auto-allocated. Fees deducted. Owner approval or fully automatic.</p>
-        </div>
-      </div>
-      <div style="background:rgba(109,184,122,0.08);border:1px solid rgba(109,184,122,0.2);border-radius:16px;padding:32px;display:flex;gap:20px;">
-        <div style="width:44px;height:44px;background:rgba(109,184,122,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="bell" style="width:22px;height:22px;color:#6db87a;stroke-width:1.5;"></i></div>
-        <div>
-          <div style="font-size:16px;font-weight:600;margin-bottom:8px;color:var(--sage-light);">Smart Notifications</div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;">Booking confirmations, cancellation notices, waiver requests, trial reminders — sent automatically.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER STORY -->
-<section class="section-full" style="background:var(--paper);">
-  <div style="max-width:760px;margin:0 auto;">
-    <p class="section-label">Why we built this</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;line-height:1.15;margin-bottom:48px;color:var(--ink);">A tool should make your life<br><em style="font-style:italic;color:var(--sage);">smaller, not bigger.</em></h2>
-
-    <div class="story-card">
-      <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(74,103,65,0.06) 0%,transparent 70%);pointer-events:none;"></div>
-
-      <div style="font-family:'Instrument Serif',serif;font-size:clamp(18px,2.5vw,26px);line-height:1.6;color:var(--ink);margin-bottom:32px;">
-        <p style="margin-bottom:20px;">I ran a small yoga studio — 34 members, three instructors, one shared Google Sheet that everyone was terrified to touch.</p>
-        <p style="margin-bottom:20px;">I was paying <strong>$147/month</strong> for studio software. It had a built-in marketing suite, an e-commerce store, an event ticketing module, and an analytics dashboard I opened exactly once. I didn't need any of it. I needed to know who was coming to the 7am class.</p>
-        <p style="margin-bottom:20px;">One Thursday morning, a member asked me at the door if her 10-class pass had expired. I didn't know. I told her to wait a second, went to the back room, opened my laptop, navigated through four screens, and found the answer. She'd used 9 classes. She bought a new pass. The whole thing took four minutes.</p>
-        <p style="margin-bottom:20px;"><em>Four minutes. For one answer. That one studio owner should know by heart.</em></p>
-        <p style="margin-bottom:20px;">That afternoon I sat down and wrote the first lines of what became Klasly. Not because I'm a developer — I'm not — but because I was embarrassed. <strong>My software was making me worse at my job.</strong></p>
-        <p>The goal was simple: build something so obvious, so quiet, so out of the way that you forget it's running. One screen to see today's classes. One screen to see your members. Payments that just work. That's it.</p>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid var(--border);">
-        <div style="width:48px;height:48px;background:var(--sage-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <i data-lucide="leaf" style="width:20px;height:20px;color:#4a6741;stroke-width:1.5;"></i>
-        </div>
-        <div>
-          <p style="font-size:14px;font-weight:600;color:var(--ink);">Founder, Klasly</p>
-          <p style="font-size:13px;color:var(--muted);margin-top:2px;">Studio owner · Built this for studios like mine</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div style="max-width:760px;margin:0 auto;">
-    <p class="section-label" style="text-align:center;">Pricing</p>
-    <h2 style="text-align:center;font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;margin-bottom:12px;">Priced for studios that teach.</h2>
-    <p style="text-align:center;color:var(--muted);font-size:17px;margin-bottom:48px;">A flat monthly fee, plus a small cut only when your members pay you. No tiers, no upsells.</p>
-    <div class="pricing-cards">
-
-      <!-- YEARLY (FEATURED) -->
-      <div class="pricing-card featured">
-        <div class="plan-badge">Best Value — Save $38/year</div>
-        <div class="plan-name">Pro · Yearly</div>
-        <div class="price-amount highlight">$190</div>
-        <div class="price-period">per year <span style="font-size:13px;font-weight:400;color:var(--muted);">+ 0.5% per transaction</span></div>
-        <div class="price-save">$15.83/month · 2 months free</div>
-        <ul class="price-features">
-          <li>Unlimited members, classes & instructors</li>
-          <li>Online booking, waitlist & attendance</li>
-          <li>Auto billing, class passes & drop-ins</li>
-          <li>In-app messaging & email notifications</li>
-          <li>Digital waivers (incl. minor waivers)</li>
-          <li>Collective Mode & room management</li>
-          <li>Retreat booking & installment payments</li>
-          <li>Studio Pass with auto revenue split</li>
-          <li>SOAP Notes, custom forms, analytics</li>
-          <li>Online/hybrid classes, website widget</li>
-          <li>Cancel anytime · (Yearly: 14-day refund / Monthly: No long-term commitment)</li>
-        </ul>
-        <a href="https://app.klasly.app/signup" class="pricing-cta">Start Free 30-Day Trial</a>
-        <p class="pricing-note">Card required · You won't be charged during the trial</p>
-      </div>
-
-      <!-- MONTHLY -->
-      <div class="pricing-card">
-        <div class="plan-name">Pro · Monthly</div>
-        <div class="price-amount">$19</div>
-        <div class="price-period">per month <span style="font-size:13px;font-weight:400;color:var(--muted);">+ 0.5% per transaction</span></div>
-        <div style="height:26px;margin-bottom:20px;"></div>
-        <ul class="price-features">
-          <li>Unlimited members, classes & instructors</li>
-          <li>Online booking, waitlist & attendance</li>
-          <li>Auto billing, class passes & drop-ins</li>
-          <li>In-app messaging & email notifications</li>
-          <li>Digital waivers (incl. minor waivers)</li>
-          <li>Collective Mode & room management</li>
-          <li>Retreat booking & installment payments</li>
-          <li>Studio Pass with auto revenue split</li>
-          <li>SOAP Notes, custom forms, analytics</li>
-          <li>Online/hybrid classes, website widget</li>
-          <li>Cancel anytime · (Yearly: 14-day refund / Monthly: No long-term commitment)</li>
-        </ul>
-        <a href="https://app.klasly.app/signup" class="pricing-cta ghost">Start Free 30-Day Trial</a>
-        <p class="pricing-note">Card required · You won't be charged during the trial</p>
-      </div>
-
-    </div>
-
-    <!-- Fee explanation -->
-    <div style="margin-top:32px;background:white;border:1px solid var(--border);border-radius:16px;padding:28px 32px;">
-      <div class="fee-grid">
-        <div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="width:36px;height:36px;background:var(--sage-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="percent" style="width:16px;height:16px;color:#4a6741;stroke-width:1.5;"></i></div>
-            <span style="font-size:15px;font-weight:600;color:var(--ink);">What is the 0.5%?</span>
-          </div>
-          <p style="font-size:14px;color:var(--muted);line-height:1.75;">When a member pays for a membership or class pack through Klasly, we take a 0.5% platform fee in addition to Stripe's standard card processing fees. You keep the rest — 99.5% goes to you. On a $2,000/month studio, that's just $10 extra.</p>
-        </div>
-        <div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="width:36px;height:36px;background:var(--sage-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="shield-check" style="width:16px;height:16px;color:#4a6741;stroke-width:1.5;"></i></div>
-            <span style="font-size:15px;font-weight:600;color:var(--ink);">Powered by Stripe</span>
-          </div>
-          <p style="font-size:14px;color:var(--muted);line-height:1.75;">All payments are processed by <strong style="color:var(--ink);">Stripe</strong> — the same platform trusted by Amazon and Shopify. Stripe's standard card fees (2.9% + 30¢) apply separately and go directly to Stripe, not us.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="faq-inner">
-    <p class="section-label">FAQ</p>
-    <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,48px);letter-spacing:-1px;line-height:1.15;margin-bottom:48px;color:var(--ink);">Common questions.</h2>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          What is the best Mindbody alternative for small studios?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Klasly is purpose-built for small boutique yoga, Pilates, and fitness studios. Mindbody targets large gym chains at $129+/month; Momence and Vagaro start at $99+ and $30+ but often charge extra for waivers, SOAP notes, and custom forms. Klasly gives you member management, scheduling, payments, retreats, Collective Mode, and more — all included at $19/month.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          How much does Klasly cost?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Klasly costs $19/month (or $190/year — 2 months free). Competitors like Mindbody ($129+), Momence ($99+), and Vagaro ($30+) often add fees for waivers, SOAP notes, and custom forms. Klasly includes everything in one price. There's a 0.5% platform fee on member payments in addition to Stripe's standard card processing fees. Your 30-day free trial starts immediately — no charge until the trial ends.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          How long does it take to get set up?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Most studios are live the same day. Create your account, add your classes and instructors, invite your members, and you're ready to take bookings. No onboarding calls, no training sessions, no consultants required. If you can send an email, you can set up Klasly.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          Does Klasly work for yoga studios, Pilates studios, and other boutique fitness studios?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Yes. Klasly is designed for any small boutique studio: yoga, Pilates, barre, CrossFit boxes, martial arts, dance studios, and personal training studios. If you have recurring classes, a roster of members, and need to collect payments — Klasly works for you.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          What payment processor does Klasly use? Is it secure?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">All payments are processed by Stripe — the same platform used by Amazon, Shopify, and millions of businesses worldwide. Stripe's standard card processing fees (2.9% + 30¢ per transaction) apply and go directly to Stripe. Klasly charges an additional 0.5% on member payments. You keep 99.5% of every dollar your members pay you.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          Do I need to sign a long-term contract?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">No. Monthly plans cancel anytime with no penalty. Yearly plans include a 14-day refund window on your first purchase. Unlike Mindbody's typical annual contracts, Klasly has no long-term commitment, no cancellation fees, no surprises.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          Can members book classes without downloading an app?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Yes. Members book directly from their phone or desktop browser — no app download required. Mindbody often requires an app; Klasly is fully browser-based. Less friction means more completed bookings.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          What is Collective Mode?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Collective Mode is built for shared studios where multiple instructors run their own classes, pricing, and Stripe payouts. Instructors self-schedule into rooms, see real-time availability, and avoid double-booking. Studio fee is automatically deducted. Studio Pass lets members book any instructor's class with revenue split by attendance. No competitor (Mindbody, Momence, Vagaro) offers this in one platform.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          Can I manage retreats and workshops?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Yes. Klasly supports multi-day retreats and workshops with room options, installment payments (e.g. 3-pay), custom cancellation policies, guest booking, and custom forms. Mindbody has limited event tools; Momence and Vagaro don't offer the same depth. All included in your $19/month.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-          What is Studio Pass?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-a">Studio Pass is a monthly membership that lets members book any instructor's class in Collective Mode. Revenue is split automatically by attendance — who taught which class, who showed up. You can start with owner approval for each payout, then switch to fully automatic. No other platform offers this built-in.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
+<!-- ══════════ 10. Final CTA ══════════ -->
 <section class="final-cta">
-  <h2>Everything your studio needs.<br><em>$19/month.</em></h2>
-  <p>Members, scheduling, payments, retreats, shared studio tools, waivers, messaging, analytics — all included. No add-ons. No tiers. Just one price.</p>
-  <a href="https://app.klasly.app/signup" class="btn-primary">Start Free 30-Day Trial →</a>
-  <p style="margin-top:16px;font-size:13px;color:var(--muted);">Card required · No charge until your trial ends</p>
+  <h2>Ready to simplify your studio?</h2>
+  <p>Join studios that switched from $100+/month tools to Klasly — and never looked back.</p>
+  <a href="https://app.klasly.app/signup" class="hero-cta">Start Free 30-Day Trial</a>
+  <p class="hero-sub">No credit card required. Set up in under 10 minutes.</p>
 </section>
+</main>
 
-<!-- FOOTER -->
-<footer>
-  <a href="#" class="logo">Klas<span>ly</span></a>
+<!-- ══════════ 11. Footer ══════════ -->
+<footer class="footer">
   <div class="footer-links">
-    <a href="https://app.klasly.app/privacy">Privacy Policy</a>
-    <a href="https://app.klasly.app/terms">Terms of Service</a>
+    <a href="#features">Features</a>
+    <a href="#collective">Shared Studios</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://app.klasly.app/help">Help</a>
+    <a href="https://app.klasly.app/privacy">Privacy</a>
+    <a href="https://app.klasly.app/terms">Terms</a>
     <a href="mailto:support@klasly.app">Contact</a>
   </div>
-  <p>© 2026 Klasly. Built for small studios.</p>
+  <p class="footer-copy">&copy; 2026 Klasly. Built in Japan.</p>
 </footer>
 
-</body>
-<script>lucide.createIcons();</script>
+<!-- ══════════ Scripts ══════════ -->
 <script>
-function toggleFaq(btn) {
-  var isOpen = btn.getAttribute('aria-expanded') === 'true';
-  document.querySelectorAll('.faq-q').forEach(function(b) {
-    b.setAttribute('aria-expanded', 'false');
-    b.nextElementSibling.classList.remove('open');
-  });
-  if (!isOpen) {
-    btn.setAttribute('aria-expanded', 'true');
-    btn.nextElementSibling.classList.add('open');
+// Intersection Observer for scroll-triggered animations
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function(el) { el.classList.add('visible'); });
+    return;
   }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the best Mindbody alternative for small studios?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Klasly is purpose-built for small boutique yoga, Pilates, and fitness studios. Mindbody targets large gym chains at $129+/month; Momence and Vagaro start at $99+ and $30+ but often charge extra for waivers, SOAP notes, and custom forms. Klasly gives you member management, scheduling, payments, retreats, Collective Mode, and more — all included at $19/month."
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does Klasly cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Klasly costs $19/month (or $190/year — 2 months free). Competitors like Mindbody ($129+), Momence ($99+), and Vagaro ($30+) often add fees for waivers, SOAP notes, and custom forms. Klasly includes everything in one price. There's a 0.5% platform fee on member payments in addition to Stripe's standard card processing fees. Your 30-day free trial starts immediately — no charge until the trial ends."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does it take to get set up?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most studios are live the same day. Create your account, add your classes and instructors, invite your members, and you're ready to take bookings. No onboarding calls, no training sessions, no consultants required."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Klasly work for yoga studios, Pilates studios, and other boutique fitness studios?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Klasly is designed for any small boutique studio: yoga, Pilates, barre, CrossFit boxes, martial arts, dance studios, and personal training studios. If you have recurring classes, a roster of members, and need to collect payments — Klasly works for you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What payment processor does Klasly use? Is it secure?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "All payments are processed by Stripe — the same platform used by Amazon, Shopify, and millions of businesses worldwide. Stripe's standard card processing fees (2.9% + 30¢ per transaction) apply and go directly to Stripe. Klasly charges an additional 0.5% on member payments. You keep 99.5% of every dollar your members pay you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to sign a long-term contract?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Monthly plans cancel anytime with no penalty. Yearly plans include a 14-day refund window on your first purchase. Unlike Mindbody's typical annual contracts, Klasly has no long-term commitment, no cancellation fees, no surprises."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can members book classes without downloading an app?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Members book directly from their phone or desktop browser — no app download required. Mindbody often requires an app; Klasly is fully browser-based. Less friction means more completed bookings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Collective Mode?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Collective Mode is built for shared studios where multiple instructors run their own classes, pricing, and Stripe payouts. Instructors self-schedule into rooms, see real-time availability, and avoid double-booking. Studio fee is automatically deducted. Studio Pass lets members book any instructor's class with revenue split by attendance. No competitor (Mindbody, Momence, Vagaro) offers this in one platform."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I manage retreats and workshops?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Klasly supports multi-day retreats and workshops with room options, installment payments (e.g. 3-pay), custom cancellation policies, guest booking, and custom forms. Mindbody has limited event tools; Momence and Vagaro don't offer the same depth. All included in your $19/month."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Studio Pass?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Studio Pass is a monthly membership that lets members book any instructor's class in Collective Mode. Revenue is split automatically by attendance — who taught which class, who showed up. You can start with owner approval for each payout, then switch to fully automatic. No other platform offers this built-in."
-      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el) { observer.observe(el); });
+})();
+
+// Hamburger menu toggle
+(function() {
+  var btn = document.querySelector('.nav-hamburger');
+  var menu = document.querySelector('.nav-mobile');
+  var mobileCta = document.querySelector('.nav-mobile-cta');
+  if (!btn || !menu) return;
+  // Show mobile CTA next to hamburger
+  if (mobileCta && window.innerWidth <= 768) mobileCta.style.display = 'inline-block';
+  window.addEventListener('resize', function() {
+    if (mobileCta) mobileCta.style.display = window.innerWidth <= 768 ? 'inline-block' : 'none';
+    if (window.innerWidth > 768) {
+      menu.classList.remove('open');
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
-  ]
-}
+  });
+  btn.addEventListener('click', function() {
+    var isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('active');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  // Close menu on link click
+  menu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      menu.classList.remove('open');
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
 </script>
+</body>
 </html>
