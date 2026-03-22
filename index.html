@@ -332,108 +332,72 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
 }
 
-/* ── App Mockup / Demo ── */
+/* ── App Demo ── */
 .demo-section {
-  padding: 64px 2rem 96px;
+  padding: 48px 2rem 96px;
   text-align: center;
   background: var(--white);
 }
-.demo-section p {
+.demo-section .demo-lead {
   font-size: 0.95rem;
   color: var(--gray-500);
   margin-bottom: 2rem;
 }
-.app-mockup {
-  max-width: 560px;
+.demo-frame-wrapper {
+  max-width: 960px;
   margin: 0 auto;
-  background: white;
-  border-radius: 14px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.10), 0 4px 20px rgba(0,0,0,0.06);
+  border-radius: 16px;
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.08), 0 4px 20px rgba(0,0,0,0.04);
   overflow: hidden;
-  transform: perspective(1000px) rotateY(-3deg) rotateX(2deg);
-  transition: transform 0.4s ease;
+  background: var(--white);
 }
-.app-mockup:hover { transform: perspective(1000px) rotateY(-1deg) rotateX(1deg); }
-.mockup-chrome {
+.demo-frame-chrome {
   background: #f8fafc;
   border-bottom: 1px solid #e2e8f0;
-  padding: 9px 12px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
-.mockup-dot { width: 9px; height: 9px; border-radius: 50%; }
-.mockup-url {
+.demo-frame-dot { width: 10px; height: 10px; border-radius: 50%; }
+.demo-frame-url {
   flex: 1;
   background: white;
   border: 1px solid #e2e8f0;
-  border-radius: 5px;
-  padding: 3px 10px;
-  font-size: 10px;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 11px;
   color: #94a3b8;
-  margin-left: 6px;
+  margin-left: 8px;
   font-family: 'Plus Jakarta Sans', monospace;
 }
-.mockup-body { display: flex; height: 340px; }
-.mockup-sidebar {
-  width: 52px;
-  background: white;
-  border-right: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
+.demo-iframe {
+  width: 100%;
+  height: 540px;
+  border: none;
+  display: block;
+}
+.demo-cta {
+  margin-top: 1.5rem;
+}
+.demo-cta a {
+  display: inline-flex;
   align-items: center;
-  padding: 10px 0;
-  gap: 5px;
-}
-.mockup-sidebar-logo {
-  font-size: 13px;
-  font-weight: 800;
+  gap: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--brand);
-  margin-bottom: 10px;
+  transition: color 0.2s;
 }
-.mockup-nav-item {
-  width: 34px; height: 30px;
-  border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
+.demo-cta a:hover { color: var(--brand-dark); }
+.demo-cta a svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
 }
-.mockup-nav-item.active { background: var(--brand-light); }
-.mockup-nav-dot { width: 18px; height: 3px; border-radius: 2px; background: #e2e8f0; }
-.mockup-nav-dot.active { background: var(--brand); }
-.mockup-main {
-  flex: 1;
-  background: #f8fafc;
-  padding: 14px;
-  overflow: hidden;
-}
-.mockup-page-title {
-  font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 10px;
-}
-.mockup-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px;
-}
-.mockup-stat {
-  background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px;
-}
-.mockup-stat-val { font-size: 16px; font-weight: 700; color: #0f172a; line-height: 1; margin-bottom: 2px; }
-.mockup-stat-label { font-size: 7.5px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.4px; }
-.mockup-section-title {
-  font-size: 8px; font-weight: 600; color: #64748b; text-transform: uppercase;
-  letter-spacing: 0.5px; margin-bottom: 6px;
-}
-.mockup-rows { display: flex; flex-direction: column; gap: 5px; }
-.mockup-row {
-  background: white; border: 1px solid #e2e8f0; border-radius: 7px;
-  padding: 8px 10px; display: flex; align-items: center; gap: 8px;
-}
-.mockup-row-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.mockup-row-info { flex: 1; min-width: 0; }
-.mockup-row-name { font-size: 9.5px; font-weight: 600; color: #0f172a; line-height: 1; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mockup-row-sub { font-size: 8px; color: #94a3b8; }
-.mockup-row-badge { font-size: 7px; padding: 2px 7px; border-radius: 100px; font-weight: 600; white-space: nowrap; }
-.mockup-badge-green { background: #dcfce7; color: #16a34a; }
-.mockup-badge-blue  { background: #dbeafe; color: #2563eb; }
-.mockup-badge-amber { background: #fef3c7; color: #d97706; }
 
 /* ── Sections ── */
 .section {
@@ -890,9 +854,8 @@ img { max-width: 100%; display: block; }
   .hero-desc { font-size: 1rem; }
   .hero-cta { padding: 14px 32px; font-size: 1rem; }
   .social-proof { flex-direction: column; gap: 1rem; padding: 1.5rem; }
-  .demo-section { padding: 32px 1.5rem 64px; }
-  .app-mockup { transform: none; }
-  .app-mockup:hover { transform: none; }
+  .demo-section { padding: 32px 1rem 64px; }
+  .demo-iframe { height: 400px; }
   .section { padding: 64px 1.5rem; }
   .features-grid { grid-template-columns: 1fr; }
   .collective { padding: 64px 1.5rem; }
@@ -964,79 +927,20 @@ img { max-width: 100%; display: block; }
   <div class="social-proof-item"><span class="social-proof-dot"></span> Direct access to the developer</div>
 </div>
 
-<!-- ══════════ 3.5. Demo Mockup ══════════ -->
+<!-- ══════════ 3.5. Live Demo ══════════ -->
 <section class="demo-section">
-  <p>See what your dashboard looks like on day one.</p>
-  <div class="app-mockup reveal">
-    <div class="mockup-chrome">
-      <div class="mockup-dot" style="background:#ff5f57;"></div>
-      <div class="mockup-dot" style="background:#febc2e;"></div>
-      <div class="mockup-dot" style="background:#28c840;"></div>
-      <div class="mockup-url">app.klasly.app/dashboard</div>
+  <p class="demo-lead">See what your dashboard looks like on day one — click around, it's fully interactive.</p>
+  <div class="demo-frame-wrapper reveal">
+    <div class="demo-frame-chrome">
+      <div class="demo-frame-dot" style="background:#ff5f57;"></div>
+      <div class="demo-frame-dot" style="background:#febc2e;"></div>
+      <div class="demo-frame-dot" style="background:#28c840;"></div>
+      <div class="demo-frame-url">app.klasly.app/dashboard</div>
     </div>
-    <div class="mockup-body">
-      <div class="mockup-sidebar">
-        <div class="mockup-sidebar-logo">K</div>
-        <div class="mockup-nav-item active"><div class="mockup-nav-dot active"></div></div>
-        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-        <div class="mockup-nav-item"><div class="mockup-nav-dot"></div></div>
-      </div>
-      <div class="mockup-main">
-        <div class="mockup-page-title">Dashboard</div>
-        <div class="mockup-stats">
-          <div class="mockup-stat">
-            <div class="mockup-stat-val">128</div>
-            <div class="mockup-stat-label">Members</div>
-          </div>
-          <div class="mockup-stat">
-            <div class="mockup-stat-val">14</div>
-            <div class="mockup-stat-label">Today</div>
-          </div>
-          <div class="mockup-stat">
-            <div class="mockup-stat-val" style="color:var(--brand);">$4.8k</div>
-            <div class="mockup-stat-label">Revenue</div>
-          </div>
-        </div>
-        <div class="mockup-section-title">Today's Classes</div>
-        <div class="mockup-rows">
-          <div class="mockup-row">
-            <div class="mockup-row-dot" style="background:var(--brand);"></div>
-            <div class="mockup-row-info">
-              <div class="mockup-row-name">Hatha Flow · 7:00 AM</div>
-              <div class="mockup-row-sub">Sarah M. · 12/15 booked</div>
-            </div>
-            <div class="mockup-row-badge mockup-badge-green">Full</div>
-          </div>
-          <div class="mockup-row">
-            <div class="mockup-row-dot" style="background:#7c3aed;"></div>
-            <div class="mockup-row-info">
-              <div class="mockup-row-name">Vinyasa · 9:30 AM</div>
-              <div class="mockup-row-sub">James L. · 8/12 booked</div>
-            </div>
-            <div class="mockup-row-badge mockup-badge-blue">Open</div>
-          </div>
-          <div class="mockup-row">
-            <div class="mockup-row-dot" style="background:#d97706;"></div>
-            <div class="mockup-row-info">
-              <div class="mockup-row-name">Restorative · 6:00 PM</div>
-              <div class="mockup-row-sub">Maya R. · 10/10 booked</div>
-            </div>
-            <div class="mockup-row-badge mockup-badge-amber">Waitlist</div>
-          </div>
-          <div class="mockup-row">
-            <div class="mockup-row-dot" style="background:var(--green);"></div>
-            <div class="mockup-row-info">
-              <div class="mockup-row-name">Pilates Mat · 12:00 PM</div>
-              <div class="mockup-row-sub">Emi T. · 6/8 booked</div>
-            </div>
-            <div class="mockup-row-badge mockup-badge-blue">Open</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <iframe src="demo.html" class="demo-iframe" title="Klasly live demo" loading="lazy"></iframe>
+  </div>
+  <div class="demo-cta">
+    <a href="demo.html" target="_blank">Open full demo <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
   </div>
 </section>
 
