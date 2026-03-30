@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls -la *.png *.jpg *.webp *.svg)"
+      "Bash(ls -la *.png *.jpg *.webp *.svg)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
