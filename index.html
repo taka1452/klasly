@@ -149,7 +149,7 @@ h1, h2, h3, h4, .display {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* ── Global focus states ──────────────────────────────────────────────── */
+/* ── Global focus / press states ──────────────────────────────────────── */
 :focus { outline: none; }
 :focus-visible {
   outline: 2px solid var(--brand);
@@ -159,6 +159,22 @@ img { max-width: 100%; display: block; }
 button:focus-visible,
 a:focus-visible {
   outline-offset: 4px;
+}
+button { font-family: inherit; }
+.hero-cta:active,
+.pricing-cta:active,
+.nav-cta:active,
+.sticky-cta-action:active {
+  transform: translateY(1px);
+}
+/* Ensure minimum 44px touch targets for key actions */
+.nav-cta, .nav-ghost, .hero-cta, .hero-cta-secondary,
+.pricing-cta, .sticky-cta-action, .compare-toggle {
+  min-height: 44px;
+}
+@media (hover: none) {
+  .feature-card:hover { transform: none; }
+  .diff-feature-item:hover { transform: none; }
 }
 
 /* ── Screen-reader only utility ───────────────────────────────────────── */
@@ -170,6 +186,52 @@ a:focus-visible {
   clip: rect(0,0,0,0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ── Sticky bottom CTA (mobile + late-scroll conversion) ──────────────── */
+.sticky-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 120%);
+  z-index: 998;
+  background: var(--ink);
+  color: var(--surface);
+  border-radius: 100px;
+  padding: 10px 12px 10px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 16px 40px -8px rgba(0,0,0,0.35),
+              0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.35s var(--ease-out);
+  font-size: 0.88rem;
+  max-width: calc(100vw - 32px);
+}
+.sticky-cta.show { transform: translate(-50%, 0); }
+.sticky-cta-text {
+  color: color-mix(in oklch, var(--surface) 88%, transparent);
+  font-weight: 500;
+}
+.sticky-cta-text strong {
+  color: var(--surface);
+  font-weight: 600;
+}
+.sticky-cta-action {
+  background: var(--brand);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.sticky-cta-action:hover { background: var(--brand-dark); }
+@media (prefers-color-scheme: dark) { .sticky-cta-action { color: #0a1220; } }
+@media (max-width: 480px) {
+  .sticky-cta { padding: 8px 10px 8px 16px; gap: 10px; font-size: 0.82rem; }
+  .sticky-cta-text-long { display: none; }
+  .sticky-cta-action { padding: 7px 14px; font-size: 0.8rem; }
 }
 
 /* ── Skip Link (a11y) ─────────────────────────────────────────────────── */
@@ -311,19 +373,20 @@ a.nav-ghost:hover {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--brand);
-  background: var(--brand-light);
+  background: var(--brand-soft);
+  border: 1px solid color-mix(in oklch, var(--brand) 25%, transparent);
   border-radius: 100px;
   padding: 4px 10px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.02em;
 }
 .nav-price-chip::before {
   content: '';
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--success);
 }
 /* Hamburger */
 .nav-hamburger {
@@ -725,15 +788,16 @@ a.nav-ghost:hover {
 .social-proof-item {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: 0.75rem;
   letter-spacing: 0;
 }
-.social-proof-dot {
-  width: 4px;
-  height: 4px;
-  background: var(--brand);
-  border-radius: 50%;
-  flex-shrink: 0;
+.social-proof-num {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 /* ── App Demo ────────────────────────────────────────────────────────── */
@@ -942,7 +1006,15 @@ a.nav-ghost:hover {
   font-size: 0.925rem;
   color: var(--ink-2);
   line-height: 1.6;
+  max-width: 46ch;
 }
+.inline-link {
+  color: var(--brand);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.inline-link:hover { border-bottom-color: var(--brand); }
 
 /* ── Differentiator Sections ─────────────────────────────────────────── */
 .diff-section {
@@ -963,6 +1035,12 @@ a.nav-ghost:hover {
 .diff-header {
   max-width: 660px;
   margin-bottom: 3rem;
+}
+.diff-lead {
+  font-size: 1.05rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin: 0;
 }
 .diff-header .only-badge {
   display: inline-flex;
@@ -1084,6 +1162,101 @@ a.nav-ghost:hover {
 }
 .diff-visual-card .value.green { color: var(--success); }
 .diff-visual-card .value.brand { color: var(--brand); }
+.diff-visual-card .value.sm { font-size: 0.85rem; }
+.diff-visual-card .value.xs { font-size: 0.8rem; }
+.price-strike {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+.status-warn { color: var(--warn); }
+
+/* Hero visual small variants */
+.hero-visual-price > div:last-child { text-align: right; }
+.hero-visual-price .price-value.strike {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+/* Instructor chip row inside diff-visual */
+.instructor-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.instructor-chip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--ink);
+}
+.instructor-chip.selected {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+.instructor-chip .emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.instructor-chip .name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.instructor-chip.selected .name { color: var(--brand); }
+.instructor-chip .role {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Time slot pills */
+.slot-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+.slot-pill {
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.slot-pill.active {
+  background: var(--brand);
+  color: #fff;
+}
+@media (prefers-color-scheme: dark) { .slot-pill.active { color: #0a1220; } }
+
+/* Widget mocks */
+.widget-mock-row .dot.warn { background: var(--warn); }
+.widget-mock-row .mock-btn.warn { background: var(--warn); }
+.widget-code-card { margin-top: 0.5rem; }
+.widget-code-card code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  word-break: break-all;
+  display: block;
+}
+.widget-powered {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
 .diff-visual .mock-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1150,6 +1323,9 @@ a.nav-ghost:hover {
   margin-bottom: 4px;
 }
 .widget-mock-row .mock-line.short { width: 60%; }
+.widget-mock-row .mock-line-70 { width: 70%; }
+.widget-mock-row .mock-line-65 { width: 65%; }
+.widget-mock-row .mock-line-55 { width: 55%; }
 .widget-mock-row .mock-btn {
   font-size: 0.65rem;
   font-weight: 700;
@@ -1325,6 +1501,29 @@ a.nav-ghost:hover {
 .check { color: var(--success); font-weight: 600; font-size: 1.05rem; }
 .cross { color: var(--danger); font-weight: 600; font-size: 1.05rem; opacity: 0.6; }
 .limited { color: var(--warn); font-weight: 500; font-size: 0.78rem; }
+.compare-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1.25rem;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.compare-toggle:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: var(--brand-soft);
+}
+.compare-toggle svg { transition: transform 0.25s var(--ease-out); }
+.compare-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 
 /* Mobile: comparison cards */
 .compare-cards { display: none; }
@@ -1354,32 +1553,45 @@ a.nav-ghost:hover {
 .compare-card-row span:first-child { color: var(--ink-2); }
 .compare-card-row span:last-child { font-weight: 600; color: var(--ink); }
 
-/* ── Additional Features ── */
+/* ── Additional Features — dense chip rail ───────────────────────────── */
+.additional-intro {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  max-width: 620px;
+}
 .additional-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 .additional-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
   background: var(--surface-2);
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 0.95rem 1.15rem;
-  font-size: 0.92rem;
+  border-radius: 100px;
+  padding: 0.5rem 0.95rem 0.5rem 0.7rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--ink-2);
-  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+  white-space: nowrap;
 }
 .additional-item:hover {
-  border-color: var(--brand);
+  border-color: color-mix(in oklch, var(--brand) 50%, var(--line));
+  background: var(--surface);
   color: var(--ink);
 }
 .additional-item svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   stroke: var(--brand);
   stroke-width: 1.75;
   fill: none;
@@ -1545,49 +1757,60 @@ a.nav-ghost:hover {
 .founder-aside {
   position: sticky;
   top: 100px;
-}
-.founder-aside .section-label { margin-bottom: 1rem; }
-.founder-avatar {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: var(--r-xl);
-  background:
-    radial-gradient(circle at 30% 30%, var(--brand-soft), transparent 60%),
-    linear-gradient(135deg, var(--surface), var(--surface-3));
+  padding: 1.75rem 1.5rem;
   border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: 500;
-  letter-spacing: -0.05em;
-  color: var(--brand);
-  margin-bottom: 1.25rem;
+  border-radius: var(--r-lg);
+  background: var(--surface);
   position: relative;
   overflow: hidden;
 }
-.founder-avatar::after {
+.founder-aside::before {
   content: '';
   position: absolute;
-  inset: auto 12px 12px auto;
-  width: 28px;
-  height: 28px;
-  background: var(--accent);
-  border-radius: 50%;
-  border: 4px solid var(--surface-2);
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--brand), var(--accent));
 }
+.founder-aside .section-label { margin-bottom: 1rem; }
 .founder-name {
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--ink);
-  font-size: 1.15rem;
-  letter-spacing: -0.01em;
+  font-size: 1.35rem;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
 }
 .founder-role {
   color: var(--muted);
   font-size: 0.85rem;
+  margin-top: 2px;
   margin-bottom: 1.5rem;
+}
+.founder-meta {
+  margin: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.founder-meta > div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+.founder-meta dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.founder-meta dd {
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-weight: 500;
 }
 .founder-main h2 {
   max-width: 100%;
@@ -1721,8 +1944,7 @@ a.nav-ghost:hover {
   .diff-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .diff-visual { min-height: 360px; }
   .founder-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .founder-aside { position: static; display: grid; grid-template-columns: 120px 1fr; gap: 1.25rem; align-items: center; }
-  .founder-avatar { font-size: 3rem; margin-bottom: 0; }
+  .founder-aside { position: static; }
 }
 
 /* ── Mobile (768px) ──────────────────────────────────────────────────── */
@@ -1753,8 +1975,8 @@ a.nav-ghost:hover {
   .compare-cards { display: block; }
   .additional-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .pricing-card { padding: 2rem 1.75rem; }
-  .founder-aside { grid-template-columns: 88px 1fr; }
-  .founder-avatar { font-size: 2.25rem; }
+  .founder-aside { padding: 1.5rem 1.25rem; }
+  .founder-meta > div { grid-template-columns: 80px 1fr; }
   .founder-quote { font-size: 1.15rem; padding-left: 1.25rem; }
   .founder-grid { grid-template-columns: 1fr; }
   .faq-item summary { padding: 1.1rem 0.25rem; font-size: 1rem; }
@@ -1786,9 +2008,9 @@ a.nav-ghost:hover {
       <a href="#compare">Compare</a>
       <a href="#pricing" class="nav-price-chip">From $19/mo</a>
       <a href="https://app.klasly.app/login" class="nav-ghost">Log in</a>
-      <a href="https://app.klasly.app/signup" class="nav-cta">Start Free Trial</a>
+      <a href="https://app.klasly.app/signup" class="nav-cta">Start free trial</a>
     </div>
-    <a href="https://app.klasly.app/signup" class="nav-mobile-cta" style="display:none;">Start Free Trial</a>
+    <a href="https://app.klasly.app/signup" class="nav-mobile-cta">Start free trial</a>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1801,7 +2023,7 @@ a.nav-ghost:hover {
     <a href="#compare" role="menuitem">Compare</a>
     <a href="#pricing" role="menuitem">Pricing — from $19/mo</a>
     <a href="https://app.klasly.app/login" role="menuitem">Log in</a>
-    <a href="https://app.klasly.app/signup" class="nav-cta" role="menuitem">Start Free Trial</a>
+    <a href="https://app.klasly.app/signup" class="nav-cta" role="menuitem">Start free trial</a>
   </div>
 </nav>
 
@@ -1815,13 +2037,13 @@ a.nav-ghost:hover {
         <span>Klasly &middot; Studio Software &middot; Est. 2024</span>
       </div>
       <p class="hero-badge fade-up fade-up-d1">Built for retreats, appointments &amp; shared studios</p>
-      <h1 class="fade-up fade-up-d1">The booking platform for studios that don't fit the <em>Mindbody</em> mold.</h1>
-      <p class="hero-desc fade-up fade-up-d2">Retreat landing pages with installments, 1-on-1 appointments, instructor rent tracking, and class booking &mdash; purpose-built for the studios legacy platforms forgot.</p>
+      <h1 class="fade-up fade-up-d1">Studio software for retreats, appointments, and <em>shared spaces</em>.</h1>
+      <p class="hero-desc fade-up fade-up-d2">Retreat landing pages with installment payments, 1-on-1 appointments, instructor-rent tracking, and class booking &mdash; at $19/mo, everything included.</p>
       <div class="hero-cta-row fade-up fade-up-d3">
-        <a href="https://app.klasly.app/signup" class="hero-cta">Start Free 30-Day Trial</a>
-        <a href="#demo" class="hero-cta-secondary"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 3 19 12 5 21 5 3"/></svg>See live demo</a>
+        <a href="https://app.klasly.app/signup" class="hero-cta">Start your 30-day trial</a>
+        <a href="#demo" class="hero-cta-secondary"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 3 19 12 5 21 5 3"/></svg>Try the live demo</a>
       </div>
-      <p class="hero-sub fade-up fade-up-d3">No credit card required &middot; From $19/mo, all features included &middot; Cancel anytime.</p>
+      <p class="hero-sub fade-up fade-up-d3">No credit card &middot; $19/mo after trial &middot; Cancel anytime</p>
     </div>
     <div class="hero-visual fade-up fade-up-d2" aria-hidden="true">
       <div class="hero-visual-label">Today &middot; Tue, Apr 17</div>
@@ -1836,25 +2058,25 @@ a.nav-ghost:hover {
           <div class="price-label">Klasly</div>
           <div class="price-value">$19<small>/mo</small></div>
         </div>
-        <div style="text-align:right">
+        <div>
           <div class="price-label">Mindbody</div>
-          <div class="price-value" style="color:var(--muted);text-decoration:line-through;">$129</div>
+          <div class="price-value strike">$129</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ 3. Social Proof Bar ══════════ -->
+<!-- ══════════ 3. What you won't find elsewhere ══════════ -->
 <div class="social-proof">
-  <div class="social-proof-item"><span class="social-proof-dot"></span> Retreat landing pages with 3-installment payments</div>
-  <div class="social-proof-item"><span class="social-proof-dot"></span> Instructor rent &amp; revenue split tracking</div>
-  <div class="social-proof-item"><span class="social-proof-dot"></span> All features included — from $19/mo</div>
+  <div class="social-proof-item"><span class="social-proof-num" aria-hidden="true">01</span> <span>Retreat LP with 3-installment payments</span></div>
+  <div class="social-proof-item"><span class="social-proof-num" aria-hidden="true">02</span> <span>Instructor rent &amp; revenue-split tracking</span></div>
+  <div class="social-proof-item"><span class="social-proof-num" aria-hidden="true">03</span> <span>Every feature &mdash; from $19/mo flat</span></div>
 </div>
 
 <!-- ══════════ 3.5. Live Demo ══════════ -->
 <section class="demo-section" id="demo">
-  <p class="demo-lead">See what your dashboard looks like on day one — click around, it's fully interactive.</p>
+  <p class="demo-lead">Your dashboard on day one &mdash; click around, it's fully interactive.</p>
   <div class="demo-frame-wrapper reveal">
     <div class="demo-frame-chrome">
       <div class="demo-frame-dot frame-dot-r" aria-hidden="true"></div>
@@ -1872,38 +2094,38 @@ a.nav-ghost:hover {
 <!-- ══════════ 4. Core Features ══════════ -->
 <section class="section" id="features">
   <div class="section-label">Core Features</div>
-  <h2>Everything you need. Nothing you don't.</h2>
-  <p class="section-sub">Bookings, payments, messaging, waivers — the basics are solid and simple. The differentiators above (retreats, shared studios, widgets) are what make Klasly actually fit your studio.</p>
+  <h2>The basics, done right.</h2>
+  <p class="section-sub">Solid primitives underneath. The real differentiators &mdash; retreats, shared studios, widgets &mdash; live below.</p>
   <div class="features-grid">
     <div class="feature-card reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <h3>Class Scheduling &amp; Booking</h3>
-      <p>Set up your classes once. Klasly auto-generates sessions for weeks ahead. Members book online 24/7. Waitlist fills spots automatically when someone cancels.</p>
+      <h3>Class scheduling &amp; booking</h3>
+      <p>Set classes up once. Klasly auto-generates sessions for weeks ahead. Members book 24/7; waitlists auto-fill on cancellations.</p>
     </div>
     <div class="feature-card reveal reveal-d1">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-      <h3>Payments &amp; Billing</h3>
-      <p>Stripe-powered automatic billing. Monthly subscriptions, class packs, and drop-ins. See every payment. Get alerted on failures. No spreadsheets needed.</p>
+      <h3>Payments &amp; billing</h3>
+      <p>Stripe-powered automatic billing for subscriptions, packs, and drop-ins. Failure alerts included. No spreadsheets.</p>
     </div>
     <div class="feature-card reveal reveal-d2">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <h3>Member Management</h3>
-      <p>All your members in one place — plans, credits, status, visit history. Import existing data from CSV. Manage everything from a single dashboard.</p>
+      <h3>Member management</h3>
+      <p>Plans, credits, status, and visit history in one dashboard. CSV import for migration day.</p>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
-      <h3>Digital Waivers</h3>
-      <p>Send signature requests by email. Members sign online. Track who's signed and who hasn't. Minor waivers go directly to parents — no account needed.</p>
+      <h3>Digital waivers</h3>
+      <p>Email-based signatures with status tracking. Minor waivers go straight to parents &mdash; no extra account needed.</p>
     </div>
     <div class="feature-card reveal reveal-d1">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <h3>In-App Messaging</h3>
-      <p>Message your members directly inside the app. Unread badges, read receipts, and email notifications. No more switching between apps to communicate.</p>
+      <h3>In-app messaging</h3>
+      <p>Message members inside the app with read receipts and email notifications. One less tool to switch to.</p>
     </div>
     <div class="feature-card reveal reveal-d2">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18L12 3 3 21z"/><path d="M8 21h8l-4-8-4 8z"/></svg></div>
-      <h3>Retreats &amp; Events</h3>
-      <p>Auto-generated landing pages with photo galleries, daily timetables, Google Maps, early bird pricing, group booking, waitlist, and 3-installment payments. <a href="#retreats" style="color:var(--brand);font-weight:600;">See details →</a></p>
+      <h3>Retreats &amp; events</h3>
+      <p>Auto-generated landing pages with gallery, daily schedule, map, early-bird pricing, group booking, waitlist, and 3-installment payments. <a href="#retreats" class="inline-link">See details &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -1912,9 +2134,9 @@ a.nav-ghost:hover {
 <section class="diff-section alt-bg" id="retreats">
   <div class="diff-inner">
     <div class="diff-header">
-      <span class="only-badge">Not on Mindbody</span>
-      <h2>Retreat Booking — One Page Does Everything.</h2>
-      <p class="section-sub" style="margin-bottom:0">Auto-generate a beautiful landing page for your retreat with built-in booking, payments, waitlist, and group reservations. No third-party tools needed.</p>
+      <span class="only-badge">Only on Klasly</span>
+      <h2>Retreat booking &mdash; one page, end to end.</h2>
+      <p class="diff-lead">Auto-generated landing page with booking, payments, waitlist, and group reservations. No third-party tools.</p>
     </div>
     <div class="diff-layout">
       <div class="diff-features-list">
@@ -1953,7 +2175,7 @@ a.nav-ghost:hover {
         </div>
         <div class="diff-visual-card">
           <div class="label">Pricing</div>
-          <div class="value green">Early Bird: $1,200 <span style="text-decoration:line-through;color:var(--gray-500);font-weight:400;font-size:0.8rem;">$1,500</span></div>
+          <div class="value green">Early bird: $1,200 <span class="price-strike">$1,500</span></div>
         </div>
         <div class="diff-visual-card">
           <div class="label">Payment Plan</div>
@@ -1961,7 +2183,7 @@ a.nav-ghost:hover {
         </div>
         <div class="diff-visual-card">
           <div class="label">Availability</div>
-          <div class="value">14 / 20 spots filled — <span style="color:var(--orange);">Waitlist ON</span></div>
+          <div class="value">14 / 20 spots &middot; <span class="status-warn">Waitlist on</span></div>
         </div>
       </div>
     </div>
@@ -1971,9 +2193,9 @@ a.nav-ghost:hover {
 <!-- ══════════ 4.2 Embeddable Widgets ══════════ -->
 <section class="diff-section" id="widgets">
   <div class="diff-header">
-    <span class="only-badge">Not on Mindbody</span>
-    <h2>3 Embeddable Widgets for Your Website.</h2>
-    <p class="section-sub" style="margin-bottom:0">Drop a widget on your WordPress, Squarespace, or any site. Members book classes, buy passes, or reserve retreats — without ever leaving your page.</p>
+    <span class="only-badge">Only on Klasly</span>
+    <h2>3 widgets for your own site.</h2>
+    <p class="diff-lead">Drop on WordPress, Squarespace, or anywhere. Members book classes, buy passes, or reserve retreats without leaving your page.</p>
   </div>
   <div class="diff-layout">
     <div class="diff-features-list">
@@ -2003,25 +2225,25 @@ a.nav-ghost:hover {
         </div>
         <div class="widget-mock-row">
           <div class="dot"></div>
-          <div class="mock-text"><div class="mock-line" style="width:70%"></div><div class="mock-line short"></div></div>
+          <div class="mock-text"><div class="mock-line mock-line-70"></div><div class="mock-line short"></div></div>
           <div class="mock-btn">Book</div>
         </div>
         <div class="widget-mock-row">
           <div class="dot"></div>
-          <div class="mock-text"><div class="mock-line" style="width:55%"></div><div class="mock-line short"></div></div>
+          <div class="mock-text"><div class="mock-line mock-line-55"></div><div class="mock-line short"></div></div>
           <div class="mock-btn">Book</div>
         </div>
         <div class="widget-mock-row">
-          <div class="dot" style="background:var(--orange)"></div>
-          <div class="mock-text"><div class="mock-line" style="width:65%"></div><div class="mock-line short"></div></div>
-          <div class="mock-btn" style="background:var(--orange)">Waitlist</div>
+          <div class="dot warn"></div>
+          <div class="mock-text"><div class="mock-line mock-line-65"></div><div class="mock-line short"></div></div>
+          <div class="mock-btn warn">Waitlist</div>
         </div>
       </div>
-      <div class="diff-visual-card" style="margin-top:0.5rem;">
-        <div class="label">Embed Code</div>
-        <div style="font-family:monospace;font-size:0.7rem;color:var(--gray-500);word-break:break-all;">&lt;script src="klasly.app/widget.js"&gt;&lt;/script&gt;</div>
+      <div class="diff-visual-card widget-code-card">
+        <div class="label">Embed code</div>
+        <code>&lt;script src="klasly.app/widget.js"&gt;&lt;/script&gt;</code>
       </div>
-      <div style="text-align:center;font-size:0.65rem;color:var(--gray-500);margin-top:0.25rem;">Powered by Klasly</div>
+      <div class="widget-powered">Powered by Klasly</div>
     </div>
   </div>
 </section>
@@ -2030,9 +2252,9 @@ a.nav-ghost:hover {
 <section class="diff-section alt-bg" id="appointments">
   <div class="diff-inner">
     <div class="diff-header">
-      <span class="only-badge">Not on Mindbody</span>
-      <h2>1-on-1 Private Lesson Booking.</h2>
-      <p class="section-sub" style="margin-bottom:0">Members pick an instructor, choose a time slot, and book instantly. Perfect for private yoga, personal training, massage, and therapy sessions.</p>
+      <span class="only-badge">Only on Klasly</span>
+      <h2>1-on-1 private sessions.</h2>
+      <p class="diff-lead">Members pick an instructor, choose a slot, and book instantly. For private yoga, personal training, massage, and therapy.</p>
     </div>
     <div class="diff-layout">
       <div class="diff-features-list">
@@ -2062,35 +2284,35 @@ a.nav-ghost:hover {
           <div class="label">Book a Private Session</div>
           <div class="value">Select Instructor</div>
         </div>
-        <div style="display:flex;gap:0.5rem;">
-          <div class="diff-visual-card" style="flex:1;text-align:center;border:2px solid var(--brand);">
-            <div style="font-size:1.5rem;margin-bottom:2px;">🧘</div>
-            <div class="value brand" style="font-size:0.8rem;">Sarah M.</div>
-            <div style="font-size:0.65rem;color:var(--gray-500);">Yoga</div>
+        <div class="instructor-row">
+          <div class="instructor-chip selected">
+            <div class="emoji" aria-hidden="true">🧘</div>
+            <div class="name">Sarah M.</div>
+            <div class="role">Yoga</div>
           </div>
-          <div class="diff-visual-card" style="flex:1;text-align:center;">
-            <div style="font-size:1.5rem;margin-bottom:2px;">💆</div>
-            <div class="value" style="font-size:0.8rem;">James K.</div>
-            <div style="font-size:0.65rem;color:var(--gray-500);">Massage</div>
+          <div class="instructor-chip">
+            <div class="emoji" aria-hidden="true">💆</div>
+            <div class="name">James K.</div>
+            <div class="role">Massage</div>
           </div>
-          <div class="diff-visual-card" style="flex:1;text-align:center;">
-            <div style="font-size:1.5rem;margin-bottom:2px;">🏋️</div>
-            <div class="value" style="font-size:0.8rem;">Mia T.</div>
-            <div style="font-size:0.65rem;color:var(--gray-500);">Training</div>
+          <div class="instructor-chip">
+            <div class="emoji" aria-hidden="true">🏋️</div>
+            <div class="name">Mia T.</div>
+            <div class="role">Training</div>
           </div>
         </div>
         <div class="diff-visual-card">
-          <div class="label">Available Slots — March 31</div>
-          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.35rem;">
-            <span style="font-size:0.75rem;font-weight:600;padding:4px 12px;background:var(--brand-light);color:var(--brand);border-radius:6px;">9:00 AM</span>
-            <span style="font-size:0.75rem;font-weight:600;padding:4px 12px;background:var(--brand);color:white;border-radius:6px;">10:30 AM</span>
-            <span style="font-size:0.75rem;font-weight:600;padding:4px 12px;background:var(--brand-light);color:var(--brand);border-radius:6px;">2:00 PM</span>
-            <span style="font-size:0.75rem;font-weight:600;padding:4px 12px;background:var(--brand-light);color:var(--brand);border-radius:6px;">4:30 PM</span>
+          <div class="label">Available slots &mdash; Mar 31</div>
+          <div class="slot-row">
+            <span class="slot-pill">9:00 AM</span>
+            <span class="slot-pill active">10:30 AM</span>
+            <span class="slot-pill">2:00 PM</span>
+            <span class="slot-pill">4:30 PM</span>
           </div>
         </div>
         <div class="diff-visual-card">
           <div class="label">Reminder</div>
-          <div class="value" style="font-size:0.85rem;">🔔 Session with Sarah M. in 1 hour</div>
+          <div class="value sm">🔔 Session with Sarah M. in 1 hour</div>
         </div>
       </div>
     </div>
@@ -2102,8 +2324,8 @@ a.nav-ghost:hover {
   <div class="collective-inner">
     <div class="badge">Only on Klasly</div>
     <div class="section-label">Shared Studio Mode</div>
-    <h2>Built for studios where instructors rent space and run their own business.</h2>
-    <p class="section-sub">If your studio works like an Airbnb for wellness — instructors pay rent, set their own prices, and collect their own payments — no other software was built for you. Until now.</p>
+    <h2>For studios where instructors rent space and run <em>their own</em> business.</h2>
+    <p class="section-sub">If your studio works like an Airbnb for wellness &mdash; instructors pay rent, set prices, and collect their own payments &mdash; no other software was built for you.</p>
     <div class="collective-grid">
       <div class="collective-card reveal">
         <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
@@ -2132,9 +2354,9 @@ a.nav-ghost:hover {
 <!-- ══════════ 6. Comparison Table ══════════ -->
 <section class="compare-section" id="compare">
   <div class="compare-inner">
-    <div class="section-label">How We Compare</div>
-    <h2>Klasly vs. Mindbody vs. the rest.</h2>
-    <p class="section-sub">The features purpose-built for retreats and shared studios simply don't exist on legacy platforms. Here's the side-by-side.</p>
+    <div class="section-label">Side by side</div>
+    <h2>Klasly vs. the legacy platforms.</h2>
+    <p class="section-sub">The features that matter for retreats and shared studios simply don't exist on Mindbody, Momence, or Vagaro.</p>
 
     <!-- Desktop table -->
     <div class="table-wrapper">
@@ -2148,27 +2370,33 @@ a.nav-ghost:hover {
             <th>Vagaro</th>
           </tr>
         </thead>
-        <tbody>
-          <tr><td>Monthly Price</td><td class="klasly-col"><strong>$19</strong> + 0.5% fee</td><td>$129+</td><td>$99+</td><td>$30+</td></tr>
-          <tr><td>Booking &amp; Scheduling</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
+        <tbody class="compare-essentials">
+          <tr><td>Monthly price</td><td class="klasly-col"><strong>$19</strong> + 0.5% fee</td><td>$129+</td><td>$99+</td><td>$30+</td></tr>
+          <tr><td>Retreat LP + installments</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>Shared-studio mode</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>Studio pass + revenue split</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>3 embeddable widgets</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="limited">1 widget</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>Early-bird pricing</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>In-app messaging</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>Digital waivers (included)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Add-on $</span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+        </tbody>
+        <tbody class="compare-more" hidden>
+          <tr><td>Booking &amp; scheduling</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
           <tr><td>Payments (Stripe)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Waitlist Auto-Promote</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Digital Waivers</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Add-on $</span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>In-App Messaging</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Online Classes (Zoom)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Retreat LP + Installments</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Early Bird Pricing</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Group Booking + Waitlist</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>3 Embeddable Widgets</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="limited">1 widget</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>1-on-1 Appointment Booking</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Google Calendar Sync</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Shared Studio Mode</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Studio Pass + Revenue Split</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>SOAP Notes</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Add-on $</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>PWA Offline Access</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>UTM Tracking</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>Waitlist auto-promote</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
+          <tr><td>Online classes (Zoom)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
+          <tr><td>Group booking + waitlist</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>1-on-1 appointments</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
+          <tr><td>Google Calendar sync</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
+          <tr><td>SOAP notes (therapy)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Add-on $</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>PWA offline access</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
+          <tr><td>UTM tracking</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
         </tbody>
       </table>
+      <button class="compare-toggle" type="button" id="compareToggle" aria-expanded="false" aria-controls="compareMore">
+        <span class="compare-toggle-label">Show 10 more rows</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
 
     <!-- Mobile cards -->
@@ -2204,9 +2432,9 @@ a.nav-ghost:hover {
 
 <!-- ══════════ 7. Additional Features ══════════ -->
 <section class="section">
-  <div class="section-label">And More</div>
-  <h2>Every feature included. No add-on fees.</h2>
-  <p class="section-sub">All of these come standard with your $19/month plan.</p>
+  <div class="section-label">Everything else</div>
+  <h2>All included. No add-on fees.</h2>
+  <p class="additional-intro">14 more features, standard at $19/mo</p>
   <div class="additional-grid">
     <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Google Calendar Sync</div>
     <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> PWA + Offline Access</div>
@@ -2229,8 +2457,8 @@ a.nav-ghost:hover {
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <div class="section-label">Pricing</div>
-    <h2 class="pricing-heading">One plan. Everything included.</h2>
-    <p class="pricing-sub">Retreats, shared studios, appointments, widgets, class booking &mdash; every feature at one flat price. No tiers, no add-ons, no surprise upsells.</p>
+    <h2 class="pricing-heading">One plan. Every feature.</h2>
+    <p class="pricing-sub">No tiers, no add-ons, no surprise upsells. Early customers lock $19 in permanently.</p>
     <div class="pricing-card reveal">
       <span class="pricing-badge">Up to 30&times; cheaper than Mindbody</span>
       <div class="pricing-amount"><sup>$</sup>19<span class="pricing-period">/month</span></div>
@@ -2246,7 +2474,7 @@ a.nav-ghost:hover {
         <li>Annual plan: $190/year (save 2 months)</li>
         <li>Refer a studio → both get 1 month free</li>
       </ul>
-      <a href="https://app.klasly.app/signup" class="pricing-cta">Start Free 30-Day Trial</a>
+      <a href="https://app.klasly.app/signup" class="pricing-cta">Start your 30-day trial</a>
     </div>
   </div>
 </section>
@@ -2255,12 +2483,15 @@ a.nav-ghost:hover {
 <section class="founder-section">
   <div class="founder-inner">
     <aside class="founder-aside">
-      <div class="founder-avatar" aria-hidden="true">Y</div>
-      <div>
-        <div class="section-label">The Developer</div>
-        <p class="founder-name">Yudai</p>
-        <p class="founder-role">Founder &amp; solo developer &middot; Japan</p>
-      </div>
+      <div class="section-label">The developer</div>
+      <p class="founder-name">Yudai</p>
+      <p class="founder-role">Solo developer &middot; Indie studio software</p>
+      <dl class="founder-meta">
+        <div><dt>Based</dt><dd>Japan</dd></div>
+        <div><dt>Runs</dt><dd>Learning academy, 280 students</dd></div>
+        <div><dt>Writes</dt><dd>Every line of Klasly</dd></div>
+        <div><dt>Replies to</dt><dd>Every email personally</dd></div>
+      </dl>
     </aside>
     <div class="founder-main">
       <h2>Built by a studio owner, for studio owners.</h2>
@@ -2269,22 +2500,22 @@ a.nav-ghost:hover {
         <article class="founder-card reveal">
           <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <div>
-            <h4>Direct Line to the Developer</h4>
-            <p>Your feedback goes straight into the product. No support tickets disappearing into a void.</p>
+            <h4>Direct line to the developer</h4>
+            <p>Your feedback goes straight into the product. No support tickets into a void.</p>
           </div>
         </article>
         <article class="founder-card reveal reveal-d1">
           <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div>
             <h4>Features ship fast</h4>
-            <p>Send feedback before bed, wake up to see it implemented. That's the indie developer advantage.</p>
+            <p>Send feedback before bed, wake up to see it implemented. Indie-dev advantage.</p>
           </div>
         </article>
         <article class="founder-card reveal reveal-d2">
           <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <div>
             <h4>$19 forever</h4>
-            <p>Early customers lock in $19/month permanently. No bait-and-switch. No surprise price hikes.</p>
+            <p>Early customers lock in $19 permanently. No bait-and-switch. No price hikes.</p>
           </div>
         </article>
       </div>
@@ -2294,49 +2525,55 @@ a.nav-ghost:hover {
 
 <!-- ══════════ 9.5. FAQ ══════════ -->
 <section class="faq-section" id="faq">
-  <div class="section-label" style="text-align:center;">FAQ</div>
-  <h2>Questions before you start?</h2>
-  <p class="section-sub">The stuff studio owners ask us most often.</p>
+  <div class="section-label">FAQ</div>
+  <h2>Questions studio owners ask.</h2>
+  <p class="section-sub">If yours isn't here, email <a href="mailto:support@klasly.app" class="inline-link">support@klasly.app</a> &mdash; Yudai replies personally.</p>
   <div class="faq-list">
     <details class="faq-item reveal">
-      <summary>Is this really free for 30 days? Do I need a credit card?</summary>
-      <p>Yes — the 30-day trial is fully free, and no credit card is required upfront. You only enter payment details if you decide to keep using Klasly after the trial.</p>
+      <summary>Is the 30-day trial really free? Do I need a card?</summary>
+      <p>Yes &mdash; the trial is fully free and no credit card is required upfront. You only enter payment details if you decide to keep using Klasly after day 30.</p>
     </details>
     <details class="faq-item reveal">
-      <summary>Can I import my existing members and class schedule?</summary>
-      <p>Yes. CSV import is built-in for members, and you can recreate your recurring class schedule in minutes. Klasly auto-generates sessions for weeks ahead, so you only set up each class once.</p>
+      <summary>Can I import my existing members and schedule?</summary>
+      <p>Yes. CSV import handles members; recurring classes are recreated in minutes. Klasly auto-generates sessions for weeks ahead, so each class is set up only once.</p>
     </details>
     <details class="faq-item reveal">
-      <summary>How does the retreat booking actually work?</summary>
-      <p>When you create a retreat, Klasly auto-generates a dedicated landing page with photo gallery, daily timetable, Google Maps, early-bird pricing, waitlist, and group booking — plus a 3-installment payment option. Share one link, guests book end-to-end from there.</p>
+      <summary>How does retreat booking actually work?</summary>
+      <p>Create a retreat and Klasly generates a dedicated landing page with gallery, daily schedule, map, early-bird pricing, waitlist, group booking, and 3-installment payments. Share one link &mdash; guests book end-to-end from there.</p>
     </details>
     <details class="faq-item reveal">
-      <summary>I run a shared studio. Can instructors collect their own payments?</summary>
-      <p>Yes — that's Shared Studio Mode. Each instructor connects their own Stripe account, sets their own prices, and payments go directly to them. Your studio fee is deducted automatically. Zero manual transfers.</p>
+      <summary>For shared studios: can instructors collect their own payments?</summary>
+      <p>Yes &mdash; that's Shared Studio Mode. Each instructor connects their own Stripe account, sets their own prices, and payments go straight to them. Your studio fee is deducted automatically. Zero manual transfers.</p>
     </details>
     <details class="faq-item reveal">
-      <summary>What's the 0.5% platform fee on payments?</summary>
-      <p>On top of the $19/month, Klasly charges a flat 0.5% on payments members make through the platform (this is separate from Stripe's processing fee). That's how we keep the base plan at one low flat price with all features included.</p>
+      <summary>What's the 0.5% platform fee?</summary>
+      <p>A flat 0.5% on member payments processed through Klasly (separate from Stripe's fee). That's how $19/mo covers every feature with no tiers.</p>
     </details>
     <details class="faq-item reveal">
       <summary>Does it work on mobile?</summary>
-      <p>Yes. Klasly is a PWA — members and instructors install it to their phone like a native app, and it works offline for viewing schedules and member info.</p>
+      <p>Yes. Klasly is a PWA &mdash; members and instructors install it like a native app, and it works offline for viewing schedules and member info.</p>
     </details>
     <details class="faq-item reveal">
       <summary>Can I cancel anytime?</summary>
-      <p>Yes. Month-to-month, cancel from your dashboard anytime. If you pay annually ($190/yr) and cancel mid-year, we refund the unused months pro-rata.</p>
+      <p>Yes. Cancel from your dashboard, no friction. Annual ($190/yr) cancellations are refunded pro-rata for unused months.</p>
     </details>
   </div>
 </section>
 
 <!-- ══════════ 10. Final CTA ══════════ -->
 <section class="final-cta">
-  <h2>Ready for software that fits your studio?</h2>
-  <p>Retreats, appointments, shared-space rent tracking, widgets, class booking — purpose-built for the studios other platforms forgot.</p>
-  <a href="https://app.klasly.app/signup" class="hero-cta">Start Free 30-Day Trial</a>
-  <p class="hero-sub">No credit card required. Set up in under 10 minutes. $19/mo after trial.</p>
+  <h2>Software that fits <em>your</em> studio.</h2>
+  <p>Set up in under 10 minutes. Import your members from CSV. Your first retreat page goes live the same day.</p>
+  <a href="https://app.klasly.app/signup" class="hero-cta">Try Klasly free for 30 days</a>
+  <p class="hero-sub">No credit card &middot; Keep everything you set up &middot; $19/mo after trial</p>
 </section>
 </main>
+
+<!-- ══════════ Sticky CTA ══════════ -->
+<div class="sticky-cta" id="stickyCta" role="complementary" aria-label="Quick sign up">
+  <span class="sticky-cta-text"><strong>$19/mo</strong> <span class="sticky-cta-text-long">&middot; all features &middot; no card</span></span>
+  <a href="https://app.klasly.app/signup" class="sticky-cta-action">Start free trial</a>
+</div>
 
 <!-- ══════════ 11. Footer ══════════ -->
 <footer class="footer">
@@ -2375,6 +2612,53 @@ a.nav-ghost:hover {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function(el) { observer.observe(el); });
+})();
+
+// Compare table expander
+(function() {
+  var btn = document.getElementById('compareToggle');
+  var more = document.querySelector('.compare-more');
+  if (!btn || !more) return;
+  var label = btn.querySelector('.compare-toggle-label');
+  btn.addEventListener('click', function() {
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    more.hidden = expanded;
+    if (label) label.textContent = expanded ? 'Show 10 more rows' : 'Hide extra rows';
+  });
+})();
+
+// Sticky CTA — show after scrolling past hero, hide when pricing section is in view
+(function() {
+  var cta = document.getElementById('stickyCta');
+  var hero = document.querySelector('.hero');
+  var pricing = document.getElementById('pricing');
+  var finalCta = document.querySelector('.final-cta');
+  if (!cta || !hero) return;
+  var heroBottom = 0;
+  var pricingTop = Infinity;
+  var finalCtaTop = Infinity;
+  function measure() {
+    heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
+    if (pricing) pricingTop = pricing.getBoundingClientRect().top + window.scrollY;
+    if (finalCta) finalCtaTop = finalCta.getBoundingClientRect().top + window.scrollY;
+  }
+  measure();
+  window.addEventListener('resize', measure);
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    window.requestAnimationFrame(function() {
+      var y = window.scrollY + window.innerHeight * 0.85;
+      var past = y > heroBottom;
+      var atPricing = y > pricingTop && window.scrollY < finalCtaTop;
+      cta.classList.toggle('show', past && !atPricing);
+      ticking = false;
+    });
+    ticking = true;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
 
 // Deferred analytics — loaded after main content to avoid render blocking
