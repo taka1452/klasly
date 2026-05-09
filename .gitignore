@@ -1,0 +1,16 @@
+# Local prototypes & design references
+index-a.html
+index-a2.html
+index-a3.html
+index-c.html
+index-ds.html
+_design_system/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node
+node_modules/

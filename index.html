@@ -1,2725 +1,2490 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klasly — Retreat Booking & Shared Studio Software | From $19/mo</title>
-<meta name="description" content="The only studio platform built for retreats, 1-on-1 appointments, and shared-space studios. Retreat landing pages, installment payments, instructor rent tracking, and class booking — all in one place. From $19/month.">
-<meta name="keywords" content="retreat booking software, shared studio software, co-working studio management, yoga retreat landing page, installment payment booking, mindbody alternative, studio rental software">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://klasly.app/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230074D4'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>K</text></svg>">
-<!-- Analytics are deferred to the end of <body> to avoid blocking render -->
-<meta property="og:title" content="Klasly — Retreat Booking & Shared Studio Software">
-<meta property="og:description" content="The only platform built for retreats, 1-on-1 appointments, and shared-space studios. Landing pages, installments, instructor rent tracking — all in one. From $19/mo.">
-<meta property="og:url" content="https://klasly.app/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://klasly.app/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Klasly — Retreat Booking & Shared Studio Software">
-<meta name="twitter:description" content="The only platform built for retreats, 1-on-1 appointments, and shared-space studios. From $19/mo.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<meta name="theme-color" content="#0069C0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a1220" media="(prefers-color-scheme: dark)">
-<meta name="color-scheme" content="light dark">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Klasly",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "19",
-    "priceCurrency": "USD",
-    "priceValidUntil": "2027-12-31"
-  },
-  "description": "Studio management software for yoga, pilates, dance, and fitness studios. Booking, payments, attendance, messaging, and waivers for $19/month.",
-  "url": "https://klasly.app"
-}
-</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Klasly — So you can spend the day teaching, not on the software</title>
+<meta name="description" content="Studio management for small yoga, pilates, dance, and bodywork studios. Classes, retreats with installment payments, collective mode for shared spaces — $19/month, every feature included.">
+<link rel="canonical" href="https://klasly.app/"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230074C5'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>K</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap"/>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* ── Design tokens (OKLCH + perceptually uniform) ────────────────────── */
 :root {
-  /* Brand — studio ocean blue, tinted toward warm neutrals */
-  --brand:       oklch(55% 0.16 244);
-  --brand-dark:  oklch(44% 0.15 244);
-  --brand-light: oklch(96% 0.025 244);
-  --brand-glow:  oklch(55% 0.16 244 / 0.18);
-  --brand-soft:  oklch(55% 0.16 244 / 0.10);
-
-  /* Accent — warm retreat amber (secondary, used sparingly) */
-  --accent:      oklch(74% 0.14 62);
-  --accent-soft: oklch(74% 0.14 62 / 0.12);
-
-  /* Neutrals tinted toward brand hue (244) */
-  --surface:     oklch(100% 0 0);
-  --surface-2:   oklch(98.5% 0.004 244);
-  --surface-3:   oklch(96% 0.006 244);
-  --ink:         oklch(20% 0.02 244);
-  --ink-2:       oklch(32% 0.018 244);
-  --muted:       oklch(45% 0.014 244);
-  --muted-2:     oklch(58% 0.012 244);
-  --line:        oklch(92% 0.006 244);
-  --line-strong: oklch(86% 0.008 244);
-
-  /* Status */
-  --success: oklch(62% 0.14 155);
-  --warn:    oklch(72% 0.15 65);
-  --danger:  oklch(58% 0.19 27);
-
-  /* Legacy token aliases — kept so existing rules keep working */
-  --white:    var(--surface);
-  --dark:     var(--ink);
-  --gray-900: var(--ink);
-  --gray-700: var(--ink-2);
-  --gray-500: var(--muted);
-  --gray-300: var(--line-strong);
-  --gray-100: var(--surface-3);
-  --green:  var(--success);
-  --red:    var(--danger);
-  --orange: var(--warn);
-
-  /* Type — distinctive pairing, avoids reflex fonts */
-  --font-display: 'Bricolage Grotesque', ui-serif, Georgia, serif;
-  --font-body:    'Geist', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-  /* Motion */
-  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.6, 0, 0.4, 1);
-
-  /* Radii */
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 16px;
-  --r-xl: 20px;
-  --r-2xl: 24px;
-
-  color-scheme: light;
+  /* Sky (default) */
+  --brand-rgb: 12 147 231;
+  --brand-50:  #f0f7ff;
+  --brand-100: #e0effe;
+  --brand-200: #bae0fd;
+  --brand-300: #7cc8fb;
+  --brand-400: #36adf6;
+  --brand-500: #0c93e7;
+  --brand-600: #0074c5;
+  --brand-700: #015da0;
+  --brand-800: #064f84;
+  --brand-900: #0b426e;
+  --brand-glow: rgb(var(--brand-rgb) / 0.18);
+  --brand-soft: rgb(var(--brand-rgb) / 0.10);
+  --accent: #d9923c;
+  --accent-soft: rgba(217, 146, 60, 0.12);
 }
 
-/* ── Dark mode ────────────────────────────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --brand:       oklch(68% 0.14 244);
-    --brand-dark:  oklch(58% 0.15 244);
-    --brand-light: oklch(28% 0.04 244);
-    --brand-glow:  oklch(68% 0.14 244 / 0.25);
-    --brand-soft:  oklch(68% 0.14 244 / 0.18);
-    --accent:      oklch(78% 0.14 62);
-    --accent-soft: oklch(78% 0.14 62 / 0.18);
-
-    --surface:   oklch(15% 0.02 244);
-    --surface-2: oklch(18% 0.022 244);
-    --surface-3: oklch(22% 0.024 244);
-    --ink:       oklch(96% 0.008 244);
-    --ink-2:     oklch(88% 0.01 244);
-    --muted:     oklch(72% 0.014 244);
-    --muted-2:   oklch(60% 0.012 244);
-    --line:      oklch(28% 0.018 244);
-    --line-strong: oklch(34% 0.022 244);
-
-    color-scheme: dark;
-  }
+/* ── Sage (deep forest green) ── */
+[data-theme="sage"] {
+  --brand-rgb: 80 130 100;
+  --brand-50:  #f0f6f2;
+  --brand-100: #d8e8dd;
+  --brand-200: #b1d0bc;
+  --brand-300: #82b290;
+  --brand-400: #5a9069;
+  --brand-500: #467a55;
+  --brand-600: #386142;
+  --brand-700: #2c4d34;
+  --brand-800: #243d2a;
+  --brand-900: #1c2f21;
 }
 
+/* ── Plum (deep berry) ── */
+[data-theme="plum"] {
+  --brand-rgb: 156 79 129;
+  --brand-50:  #faf3f7;
+  --brand-100: #f3e3ed;
+  --brand-200: #e6c6dc;
+  --brand-300: #d49bbf;
+  --brand-400: #b56e9d;
+  --brand-500: #9c4f81;
+  --brand-600: #7e3d68;
+  --brand-700: #663052;
+  --brand-800: #532741;
+  --brand-900: #432034;
+}
+
+/* ── Clay (warm terracotta) ── */
+[data-theme="clay"] {
+  --brand-rgb: 201 93 36;
+  --brand-50:  #fdf4ee;
+  --brand-100: #fae0cf;
+  --brand-200: #f4c19f;
+  --brand-300: #ec9b6b;
+  --brand-400: #e1773e;
+  --brand-500: #c95d24;
+  --brand-600: #a64a1d;
+  --brand-700: #84391b;
+  --brand-800: #6a2f1a;
+  --brand-900: #56281a;
+  /* Clay-only: shift accent to sage so the warm-orange kiss doesn't clash */
+  --accent: #7a8a6b;
+  --accent-soft: rgba(122, 138, 107, 0.14);
+}
+
+:root {
+
+  --gray-50:  #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --bg-app: var(--gray-50);
+  --bg-card: #ffffff;
+  --bg-muted: var(--gray-100);
+  --bg-subtle: var(--gray-50);
+  --fg-1: var(--gray-900);
+  --fg-2: var(--gray-700);
+  --fg-3: var(--gray-500);
+  --fg-4: var(--gray-400);
+  --line: var(--gray-200);
+  --line-strong: var(--gray-300);
+  --line-soft: var(--gray-100);
+
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --success-fg: #065f46;
+  --warn: #f59e0b;
+  --danger: #dc2626;
+
+  --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-2xl: 24px;
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --shadow-pop: 0 8px 24px -8px rgba(0,0,0,0.18), 0 2px 6px -2px rgba(0,0,0,0.08);
+  --shadow-brand: 0 4px 14px var(--brand-glow);
+  --shadow-brand-lg: 0 10px 30px var(--brand-glow);
+
+  --font-display-lp: 'Bricolage Grotesque', ui-serif, Georgia, serif;
+  --font-body-lp: 'Geist', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
 body {
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--surface);
-  line-height: 1.6;
+  margin: 0;
+  font-family: var(--font-body-lp);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--fg-1);
+  background: #fcfcfd;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "ss01", "cv11";
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgb(var(--brand-rgb) / 0.04), transparent 50%),
+    radial-gradient(circle at 80% 60%, rgb(var(--brand-rgb) / 0.03), transparent 55%);
+  z-index: 0;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
 
-h1, h2, h3, h4, .display {
-  font-family: var(--font-display);
-  font-feature-settings: "ss01", "ss02";
-  letter-spacing: -0.02em;
-}
-
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-
-/* ── Global focus / press states ──────────────────────────────────────── */
-:focus { outline: none; }
-:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-button:focus-visible,
-a:focus-visible {
-  outline-offset: 4px;
-}
-button { font-family: inherit; }
-.hero-cta:active,
-.pricing-cta:active,
-.nav-cta:active,
-.sticky-cta-action:active {
-  transform: translateY(1px);
-}
-/* Ensure minimum 44px touch targets for key actions */
-.nav-cta, .nav-ghost, .hero-cta, .hero-cta-secondary,
-.pricing-cta, .sticky-cta-action, .compare-toggle {
-  min-height: 44px;
-}
-@media (hover: none) {
-  .feature-card:hover { transform: none; }
-  .diff-feature-item:hover { transform: none; }
-}
-
-/* ── Screen-reader only utility ───────────────────────────────────────── */
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ── Sticky bottom CTA (mobile + late-scroll conversion) ──────────────── */
-.sticky-cta {
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  transform: translate(-50%, 120%);
-  z-index: 998;
-  background: var(--ink);
-  color: var(--surface);
-  border-radius: 100px;
-  padding: 10px 12px 10px 22px;
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; }
+.eyebrow-lp {
+  font-family: var(--font-body-lp);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-700);
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  box-shadow: 0 16px 40px -8px rgba(0,0,0,0.35),
-              0 2px 8px rgba(0,0,0,0.15);
-  transition: transform 0.35s var(--ease-out);
-  font-size: 0.88rem;
-  max-width: calc(100vw - 32px);
+  gap: 8px;
 }
-.sticky-cta.show { transform: translate(-50%, 0); }
-.sticky-cta-text {
-  color: color-mix(in oklch, var(--surface) 88%, transparent);
-  font-weight: 500;
-}
-.sticky-cta-text strong {
-  color: var(--surface);
-  font-weight: 600;
-}
-.sticky-cta-action {
-  background: var(--brand);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 100px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: background 0.2s;
-}
-.sticky-cta-action:hover { background: var(--brand-dark); }
-@media (prefers-color-scheme: dark) { .sticky-cta-action { color: #0a1220; } }
-@media (max-width: 480px) {
-  .sticky-cta { padding: 8px 10px 8px 16px; gap: 10px; font-size: 0.82rem; }
-  .sticky-cta-text-long { display: none; }
-  .sticky-cta-action { padding: 7px 14px; font-size: 0.8rem; }
+.eyebrow-lp::before {
+  content: "";
+  width: 18px; height: 1px;
+  background: var(--brand-700);
 }
 
-/* ── Skip Link (a11y) ─────────────────────────────────────────────────── */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 16px;
-  background: var(--brand);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 0 0 var(--r-sm) var(--r-sm);
-  font-size: 14px;
-  font-weight: 600;
-  z-index: 9999;
-  transition: top 0.2s;
-}
-.skip-link:focus { top: 0; }
-@media (prefers-color-scheme: dark) { .skip-link { color: #0a1220; } }
-
-/* ── Animations ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-d1 { transition-delay: 0.1s; }
-.reveal-d2 { transition-delay: 0.2s; }
-.reveal-d3 { transition-delay: 0.3s; }
-/* Hero only: immediate fade-up on load */
-.fade-up {
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-}
-.fade-up-d1 { animation-delay: 0.1s; }
-.fade-up-d2 { animation-delay: 0.2s; }
-.fade-up-d3 { animation-delay: 0.3s; }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .fade-up { opacity: 1; transform: none; animation: none; transition: none; }
-}
-
-/* ── Navigation ── */
+/* Nav */
 .nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: color-mix(in oklch, var(--surface) 88%, transparent);
-  backdrop-filter: blur(14px) saturate(1.1);
-  -webkit-backdrop-filter: blur(14px) saturate(1.1);
-  border-bottom: 1px solid var(--line);
-  padding: 0 2rem;
+  z-index: 100;
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  background: rgba(252,252,253,0.72);
+  border-bottom: 1px solid transparent;
+  transition: border-color .24s var(--ease-out-strong), background .24s var(--ease-out-strong);
 }
+.nav.scrolled { border-bottom-color: var(--line); background: rgba(252,252,253,0.92); }
 .nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  padding: 16px 0;
 }
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--brand);
-}
-.nav-logo::after {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 2px;
-  margin-left: 3px;
-  vertical-align: 0.5em;
-  transform: rotate(45deg);
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-.nav-links a {
-  font-size: 14px;
-  color: var(--gray-700);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--brand); }
-.nav-cta,
-a.nav-cta {
-  background: var(--brand);
-  color: #fff;
-  border-radius: var(--r-sm);
-  padding: 9px 20px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background 0.2s var(--ease-out), box-shadow 0.25s var(--ease-out);
-  box-shadow: 0 1px 0 color-mix(in oklch, var(--brand-dark) 60%, transparent) inset,
-              0 4px 14px var(--brand-glow);
-}
-.nav-cta:hover {
-  background: var(--brand-dark);
-  box-shadow: 0 1px 0 color-mix(in oklch, var(--brand-dark) 80%, transparent) inset,
-              0 8px 22px var(--brand-glow);
-}
-@media (prefers-color-scheme: dark) {
-  .nav-cta, a.nav-cta { color: #0a1220; }
-}
-.nav-ghost,
-a.nav-ghost {
-  border: 1.5px solid var(--line-strong);
-  border-radius: var(--r-sm);
-  padding: 7px 18px;
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--ink-2);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.nav-ghost:hover,
-a.nav-ghost:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-  background: var(--brand-soft);
-}
-.nav-price-chip {
+.brand {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--brand);
-  background: var(--brand-soft);
-  border: 1px solid color-mix(in oklch, var(--brand) 25%, transparent);
-  border-radius: 100px;
-  padding: 4px 10px;
-  letter-spacing: 0.02em;
+  gap: 10px;
+  font-family: var(--font-display-lp);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
 }
-.nav-price-chip::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--success);
-}
-/* Hamburger */
-.nav-hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  flex-direction: column;
-  gap: 5px;
-}
-.nav-hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-.nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-hamburger.active span:nth-child(2) { opacity: 0; }
-.nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-/* Mobile menu overlay */
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--surface);
-  border-top: 1px solid var(--line);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
-  flex-direction: column;
+.brand-mark {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  background: var(--brand-600);
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 3rem;
-  gap: 1.5rem;
-  z-index: 999;
-  min-height: calc(100vh - 64px);
-  height: calc(100vh - 64px);
-  overflow-y: auto;
+  justify-content: center;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  box-shadow: 0 4px 12px var(--brand-glow);
 }
-.nav-mobile.open { display: flex; }
-.nav-mobile a {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+.nav-links {
+  display: flex; gap: 32px;
+  font-size: 14px; color: var(--fg-2);
   font-weight: 500;
-  letter-spacing: -0.015em;
-  color: var(--ink);
 }
-.nav-mobile a:hover { color: var(--brand); }
-.nav-mobile .nav-cta {
-  padding: 12px 32px;
-  font-size: 1rem;
+.nav-links a { transition: color .15s; }
+.nav-links a:hover { color: var(--fg-1); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  background: var(--fg-1);
+  color: #fff;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform .15s, background .15s;
+}
+.nav-cta:hover { transform: translateY(-1px); background: #000; }
+.nav-burger { display: none; background: none; border: 0; padding: 8px; }
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .nav-burger { display: inline-flex; }
 }
 
-/* ── Hero — editorial, asymmetric ───────────────────────────────────── */
+/* Hero */
 .hero {
-  padding: clamp(120px, 14vw, 180px) clamp(1.25rem, 4vw, 3rem) clamp(72px, 10vw, 120px);
-  background:
-    radial-gradient(1200px 500px at 85% -10%, var(--brand-soft), transparent 60%),
-    radial-gradient(800px 400px at 0% 110%, var(--accent-soft), transparent 60%),
-    var(--surface);
   position: relative;
+  padding: 96px 0 120px;
   overflow: hidden;
-  border-bottom: 1px solid var(--line);
+  z-index: 1;
 }
-.hero-inner {
-  max-width: 1240px;
-  margin: 0 auto;
+.hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: end;
-}
-.hero-meta {
-  display: flex;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 64px;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 1.5rem;
-  font-size: 0.78rem;
-  color: var(--muted);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
-.hero-meta-rule {
-  flex: 0 0 48px;
-  height: 1px;
-  background: var(--line-strong);
-}
+@media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--brand-soft);
-  color: var(--brand);
-  border: 1px solid color-mix(in oklch, var(--brand) 30%, transparent);
-  border-radius: 100px;
-  font-size: 0.78rem;
+  gap: 10px;
+  padding: 6px 14px 6px 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  border-radius: 999px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 6px 14px;
-  margin-bottom: 1.5rem;
   letter-spacing: 0.02em;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease-out-strong) .1s forwards;
 }
-.hero-badge::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--success);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px color-mix(in oklch, var(--success) 25%, transparent);
+.hero-badge .dot {
+  width: 18px; height: 18px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 10px;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 700;
 }
+
 .hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.2vw, 4.25rem);
-  font-weight: 500;
+  font-family: var(--font-display-lp);
+  font-weight: 600;
+  font-size: clamp(44px, 7vw, 86px);
+  line-height: 0.98;
   letter-spacing: -0.035em;
-  line-height: 1.02;
-  margin: 0 0 1.75rem;
-  color: var(--ink);
-  text-wrap: balance;
+  margin: 0 0 28px;
+  color: var(--fg-1);
 }
+.hero h1 .word { display: inline-block; margin-right: 0.22em; }
+.hero h1 .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(8px);
+  transition: opacity .65s var(--ease-out-strong), transform .65s var(--ease-out-strong), filter .65s var(--ease-out-strong);
+}
+.hero h1.is-in .char { opacity: 1; transform: translateY(0); filter: blur(0); }
 .hero h1 em {
   font-style: italic;
-  font-weight: 400;
-  color: var(--brand);
-  font-feature-settings: "ss01";
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--brand-700);
+  letter-spacing: -0.04em;
 }
-.text-brand { color: var(--brand); }
-.hero-desc {
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  color: var(--ink-2);
-  max-width: 540px;
-  margin: 0 0 2.5rem;
-  line-height: 1.6;
-}
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--brand);
-  color: #fff;
-  padding: 15px 28px;
-  border-radius: var(--r-md);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  box-shadow: 0 1px 0 color-mix(in oklch, var(--brand-dark) 70%, transparent) inset,
-              0 6px 24px var(--brand-glow);
-  transition: background 0.2s var(--ease-out), box-shadow 0.3s var(--ease-out);
-  position: relative;
-}
-.hero-cta::after {
-  content: '→';
-  transition: transform 0.25s var(--ease-out);
-}
-.hero-cta:hover {
-  background: var(--brand-dark);
-  box-shadow: 0 1px 0 color-mix(in oklch, var(--brand-dark) 90%, transparent) inset,
-              0 10px 36px var(--brand-glow);
-}
-.hero-cta:hover::after { transform: translateX(4px); }
-@media (prefers-color-scheme: dark) { .hero-cta { color: #0a1220; } }
+
 .hero-sub {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--muted-2);
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  max-width: 540px;
+  margin: 0 0 36px;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease-out-strong) .9s forwards;
 }
+.hero-sub strong { color: var(--fg-1); font-weight: 600; }
+
 .hero-cta-row {
-  display: inline-flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  align-items: center;
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease-out-strong) 1.05s forwards;
 }
-.hero-cta-secondary {
+.btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 15px 22px;
+  height: 52px;
+  padding: 0 24px;
   border-radius: var(--r-md);
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 500;
-  color: var(--ink-2);
+  letter-spacing: -0.005em;
+  border: 1px solid transparent;
+  transition: transform .2s var(--ease-out-strong), box-shadow .2s, background .2s, border-color .2s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--brand-600);
+  color: #fff;
+  box-shadow: var(--shadow-brand-lg);
+}
+.btn-primary:hover { background: var(--brand-700); transform: translateY(-2px); box-shadow: 0 14px 36px var(--brand-glow); }
+.btn-ghost {
   background: transparent;
-  border: 1.5px solid var(--line-strong);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  color: var(--fg-1);
+  border-color: var(--line-strong);
 }
-.hero-cta-secondary:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-  background: var(--brand-soft);
+.btn-ghost:hover { background: var(--bg-card); border-color: var(--fg-3); transform: translateY(-2px); }
+.btn .arrow { transition: transform .3s var(--ease-out-strong); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.hero-meta {
+  display: flex; gap: 28px; margin-top: 36px;
+  font-size: 13px; color: var(--fg-3);
+  opacity: 0;
+  animation: fadeUp .8s var(--ease-out-strong) 1.25s forwards;
+  flex-wrap: wrap;
 }
-.hero-cta-secondary svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.hero-meta .check { color: var(--success); }
+.hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(0.4deg); }
 }
 
-/* Hero right column — editorial product peek */
+/* Hero visual */
 .hero-visual {
   position: relative;
-  aspect-ratio: 4 / 5;
-  max-height: 520px;
-  border-radius: var(--r-2xl);
-  overflow: hidden;
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 60px -20px color-mix(in oklch, var(--brand) 22%, transparent),
-              0 4px 16px -4px rgba(0,0,0,0.05);
+  height: 540px;
+  perspective: 1600px;
 }
-.hero-visual-label {
+.hv-card {
   position: absolute;
-  top: 18px;
-  left: 18px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-family: var(--font-body);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.hero-visual-label::before {
-  content: '';
-  width: 8px; height: 8px;
-  background: var(--success);
-  border-radius: 50%;
-  animation: pulse-dot 2.4s var(--ease-in-out) infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-}
-.hero-visual-price {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 14px 16px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-.hero-visual-price .price-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  font-weight: 500;
-}
-.hero-visual-price .price-value {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-.hero-visual-price .price-value small {
-  font-size: 0.75rem;
-  color: var(--muted);
-  font-weight: 500;
-  margin-left: 2px;
-}
-.hero-visual-mock {
-  position: absolute;
-  top: 60px;
-  left: 24px;
-  right: 24px;
-  bottom: 90px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.hero-visual-mock-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  font-size: 0.78rem;
-  color: var(--ink-2);
-}
-.hero-visual-mock-row:nth-child(1) { border-left: 3px solid var(--brand); }
-.hero-visual-mock-row:nth-child(2) { border-left: 3px solid var(--accent); margin-left: 18px; }
-.hero-visual-mock-row:nth-child(3) { border-left: 3px solid var(--success); margin-left: 6px; }
-.hero-visual-mock-row:nth-child(4) { border-left: 3px solid var(--brand); margin-left: 28px; opacity: 0.88; }
-.hero-visual-mock-row .time {
-  font-family: var(--font-display);
-  font-weight: 600;
-  color: var(--ink);
-  min-width: 44px;
-}
-.hero-visual-mock-row .title { flex: 1; }
-.hero-visual-mock-row .count {
-  font-size: 0.7rem;
-  color: var(--muted);
-  background: var(--surface-3);
-  padding: 2px 8px;
-  border-radius: 100px;
-}
-
-/* ── FAQ ─────────────────────────────────────────────────────────────── */
-.faq-section {
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  max-width: 860px;
-  margin: 0 auto;
-}
-.faq-section h2 {
-  text-align: left;
-  margin-bottom: 0.75rem;
-}
-.faq-section .section-sub {
-  margin: 0 0 3rem;
-}
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--line);
-}
-.faq-item {
-  background: transparent;
-  border-bottom: 1px solid var(--line);
-  padding: 0;
-  transition: background 0.2s;
-}
-.faq-item[open] {
-  background: var(--surface-2);
-}
-.faq-item summary {
-  cursor: pointer;
-  padding: 1.35rem 0.25rem;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-.faq-item[open] summary { padding: 1.35rem 1rem; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
-  content: '';
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  background-image:
-    linear-gradient(var(--brand), var(--brand)),
-    linear-gradient(var(--brand), var(--brand));
-  background-size: 100% 1.5px, 1.5px 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.25s var(--ease-out);
-}
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
-  background-size: 100% 1.5px, 0 0;
-}
-.faq-item p {
-  padding: 0 1rem 1.5rem;
-  font-size: 0.95rem;
-  color: var(--ink-2);
-  line-height: 1.7;
-  margin: 0;
-  max-width: 72ch;
-}
-
-/* ── Social Proof Bar ─────────────────────────────────────────────────── */
-.social-proof {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  padding: 1.5rem 2rem;
-  background: var(--surface-2);
-  border-block: 1px solid var(--line);
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-.social-proof-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  letter-spacing: 0;
-}
-.social-proof-num {
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--brand);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-}
-
-/* ── App Demo ────────────────────────────────────────────────────────── */
-.demo-section {
-  padding: clamp(56px, 8vw, 96px) clamp(1.25rem, 3vw, 2rem);
-  text-align: center;
-  background: var(--surface);
-}
-.demo-section .demo-lead {
-  font-size: 0.92rem;
-  color: var(--ink-2);
-  margin-bottom: 2rem;
-  max-width: 560px;
-  margin-inline: auto;
-}
-.demo-frame-wrapper {
-  max-width: 960px;
-  margin: 0 auto;
+  background: #fff;
   border-radius: var(--r-lg);
-  border: 1px solid var(--line-strong);
-  box-shadow: 0 32px 80px -20px color-mix(in oklch, var(--brand) 18%, transparent),
-              0 4px 20px rgba(0,0,0,0.04);
-  overflow: hidden;
-  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line-soft);
+  opacity: 0;
+  transform: translateY(40px);
 }
-.demo-frame-chrome {
-  background: var(--surface-3);
-  border-bottom: 1px solid var(--line);
-  padding: 10px 14px;
+
+.hv-main {
+  width: 360px;
+  top: 60px;
+  left: 38%;
+  z-index: 3;
+  animation: fadeUp 1s var(--ease-out-strong) .55s forwards, float-slow 6s ease-in-out 1.6s infinite;
+}
+.hv-main .hv-head {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.hv-main .hv-head .who .name { font-size: 14px; font-weight: 600; color: var(--fg-1); font-family: var(--font-display-lp); }
+.hv-main .hv-head .who .role { font-size: 12px; color: var(--fg-3); margin-top: 2px; }
+.hv-main .hv-head .pill {
+  font-size: 11px; font-weight: 600;
+  background: var(--success-bg); color: var(--success-fg);
+  padding: 4px 10px; border-radius: 999px;
+}
+.hv-main .hv-row {
+  display: flex; align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13px;
+  gap: 14px;
+}
+.hv-main .hv-row:last-child { border-bottom: 0; }
+.hv-main .hv-row .time {
+  font-family: var(--font-display-lp);
+  font-weight: 600;
+  color: var(--brand-700);
+  font-size: 13px;
+  width: 50px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.hv-main .hv-row .body { flex: 1; min-width: 0; }
+.hv-main .hv-row .body .ttl { color: var(--fg-1); font-weight: 500; }
+.hv-main .hv-row .body .meta { color: var(--fg-3); font-size: 11px; margin-top: 2px; }
+.hv-main .hv-row .stat {
+  font-size: 11px;
+  color: var(--fg-3);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.hv-main .hv-row .stat.full { color: var(--brand-700); font-weight: 600; }
+.hv-main .hv-row .stat.warn { color: var(--accent); font-weight: 600; }
+
+.hv-kpi {
+  width: 200px;
+  top: 0;
+  left: 0;
+  padding: 18px;
+  z-index: 2;
+  animation: fadeUp 1s var(--ease-out-strong) .75s forwards, float-slow 7s ease-in-out 1.8s infinite;
+  animation-delay: .75s, 2s;
+}
+.hv-kpi .label-eyebrow {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--fg-3);
+}
+.hv-kpi .num {
+  font-family: var(--font-display-lp);
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--fg-1);
+  margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.hv-kpi .delta {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--success-bg);
+  color: var(--success-fg);
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+.hv-chart {
+  width: 220px;
+  bottom: 60px;
+  left: 10px;
+  padding: 16px;
+  z-index: 2;
+  animation: fadeUp 1s var(--ease-out-strong) .95s forwards, float-slow 8s ease-in-out 2.2s infinite;
+  animation-delay: .95s, 2.4s;
+}
+.hv-chart .head { font-size: 12px; color: var(--fg-3); margin-bottom: 10px; }
+.hv-chart .bars { display: flex; align-items: flex-end; gap: 6px; height: 64px; }
+.hv-chart .bar {
+  flex: 1;
+  background: var(--brand-100);
+  border-radius: 3px;
+  transform-origin: bottom;
+  animation: bar-grow 1s var(--ease-out-strong) forwards;
+  transform: scaleY(0);
+}
+.hv-chart .bar.b { background: var(--brand-600); }
+@keyframes bar-grow { to { transform: scaleY(1); } }
+
+.hv-toast {
+  width: 280px;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 16px;
+  z-index: 4;
+  display: flex; gap: 12px; align-items: flex-start;
+  animation: fadeUp 1s var(--ease-out-strong) 1.15s forwards, float-slow 6.5s ease-in-out 2.6s infinite;
+  animation-delay: 1.15s, 2.8s;
+}
+.hv-toast .icn {
+  flex: 0 0 32px; height: 32px; border-radius: 8px;
+  background: var(--brand-50); color: var(--brand-700);
+  display: grid; place-items: center;
+}
+.hv-toast .body-t { font-size: 13px; line-height: 1.4; }
+.hv-toast .body-t strong { color: var(--fg-1); font-weight: 600; }
+.hv-toast .body-t span { color: var(--fg-3); display: block; margin-top: 2px; font-size: 12px; }
+
+@media (max-width: 980px) {
+  .hero-visual { height: 460px; }
+  .hv-main { width: 300px; left: 22%; }
+  .hv-kpi { width: 170px; }
+  .hv-chart { width: 190px; left: 0; bottom: 30px; }
+  .hv-toast { width: 240px; right: 0; }
+}
+@media (max-width: 700px) {
+  .hero-visual {
+    height: auto;
+    min-height: 0;
+    transform: none;
+    perspective: none;
+  }
+  .hv-card { animation-name: fadeUp; opacity: 1; transform: none; }
+  .hv-main {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    top: 0; left: 0;
+  }
+  .hv-kpi, .hv-toast {
+    position: relative;
+    width: auto;
+    margin: 12px auto 0;
+    max-width: 420px;
+    top: 0; left: 0; right: 0; bottom: 0;
+  }
+  .hv-toast { display: flex; }
+  .hv-chart { display: none; }
+  .hv-main, .hv-kpi, .hv-chart, .hv-toast { animation: fadeUp .8s var(--ease-out-strong) forwards; }
+  .hv-main { animation-delay: .35s; }
+  .hv-kpi { animation-delay: .55s; }
+  .hv-toast { animation-delay: .75s; }
+}
+
+/* Statement */
+.statement {
+  padding: 160px 0 140px;
+  position: relative;
+  z-index: 1;
+}
+.statement .text {
+  font-family: var(--font-display-lp);
+  font-size: clamp(36px, 5.6vw, 72px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  max-width: 1000px;
+}
+.statement .text .word-reveal {
+  display: inline-block;
+  color: var(--gray-300);
+  transition: color .5s var(--ease-out-strong);
+  margin-right: 0.18em;
+}
+.statement .text .word-reveal.is-lit { color: var(--fg-1); }
+.statement .text em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--brand-700);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+/* Mind block — three tenets */
+.mind {
+  padding: 96px 0 120px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+  z-index: 1;
+}
+.mind-head {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+.mind-head h2 {
+  font-family: var(--font-display-lp);
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  margin: 12px 0 0;
+  max-width: 720px;
+}
+.mind-head h2 em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--brand-700);
+  font-weight: 500;
+}
+.mind-head .lede {
+  color: var(--fg-2);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 460px;
+  align-self: end;
+}
+.tenet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tenet {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .25s var(--ease-out-strong), box-shadow .25s var(--ease-out-strong);
+}
+.tenet:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.tenet .ix {
+  font-family: var(--font-display-lp);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-700);
+  letter-spacing: 0.05em;
+}
+.tenet h3 {
+  font-family: var(--font-display-lp);
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 6px 0 0;
+}
+.tenet h3 em { font-style: italic; font-family: var(--font-serif); color: var(--brand-700); font-weight: 500; }
+.tenet p { color: var(--fg-2); font-size: 15px; line-height: 1.55; margin: 0; }
+@media (max-width: 880px) {
+  .mind-head { grid-template-columns: 1fr; gap: 24px; }
+  .tenet-grid { grid-template-columns: 1fr; }
+}
+
+/* Sticky scrollytelling */
+.scrolly {
+  position: relative;
+  background: var(--gray-900);
+  color: #fff;
+  border-radius: 32px;
+  margin: 0 32px 120px;
+  overflow: hidden;
+}
+.scrolly-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 96px 32px;
+}
+.scrolly-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 64px;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.scrolly-head .eyebrow-lp { color: var(--brand-300); }
+.scrolly-head .eyebrow-lp::before { background: var(--brand-300); }
+.scrolly-head h2 {
+  font-family: var(--font-display-lp);
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  margin: 12px 0 0;
+  max-width: 760px;
+}
+.scrolly-head h2 em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--brand-300);
+  font-weight: 500;
+}
+.scrolly-head .lede { color: rgba(255,255,255,0.65); max-width: 360px; font-size: 15px; }
+
+.scrolly-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.scrolly-copy { display: flex; flex-direction: column; gap: 80px; }
+.scrolly-step {
+  opacity: 0.35;
+  transition: opacity .4s var(--ease-out-strong);
+  padding: 8px 0;
+}
+.scrolly-step.is-active { opacity: 1; }
+.scrolly-step .num {
+  font-family: var(--font-display-lp);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-300);
+  letter-spacing: 0.05em;
+}
+.scrolly-step h3 {
+  font-family: var(--font-display-lp);
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 8px 0 12px;
+  color: #fff;
+}
+.scrolly-step p {
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 440px;
+  margin: 0;
+}
+
+.scrolly-stage {
+  position: sticky;
+  top: 80px;
+  height: 480px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, #1a2332, #0f1722);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.scrolly-stage .panel {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity .6s var(--ease-out-strong), transform .6s var(--ease-out-strong);
+  display: flex;
+  flex-direction: column;
+}
+.scrolly-stage .panel.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.scrolly-stage .ttl { font-size: 13px; color: rgba(255,255,255,0.6); }
+.scrolly-stage .day { font-family: var(--font-display-lp); font-size: 26px; font-weight: 600; margin-top: 4px; letter-spacing: -0.02em; }
+
+/* Panel 1 — Schedule grid */
+.panel-schedule .grid {
+  display: grid;
+  grid-template-columns: 60px repeat(5, 1fr);
+  gap: 4px;
+  margin-top: 18px;
+  flex: 1;
+}
+.panel-schedule .grid .h, .panel-schedule .grid .d { font-size: 10px; color: rgba(255,255,255,0.5); padding: 4px; }
+.panel-schedule .grid .cell { background: rgba(255,255,255,0.04); border-radius: 4px; height: 36px; }
+.panel-schedule .grid .cell.booked {
+  background: rgb(var(--brand-rgb) / 0.85);
+  color: #fff;
+  font-size: 10px;
+  padding: 6px;
+  font-weight: 600;
+  height: auto;
+  grid-row: span 2;
+}
+.panel-schedule .grid .cell.booked.alt { background: rgba(217, 146, 60, 0.7); }
+.panel-schedule .grid .cell.pop { animation: pop-in .45s var(--ease-out-strong) both; }
+@keyframes pop-in { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Panel 2 — Retreat */
+.panel-retreat .splash {
+  height: 110px;
+  margin-top: 14px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--brand-700), var(--accent));
+  position: relative;
+  overflow: hidden;
+}
+.panel-retreat .splash::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15), transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1), transparent 50%);
+}
+.panel-retreat .splash-label {
+  position: absolute;
+  bottom: 12px; left: 14px;
+  color: #fff;
+  font-family: var(--font-display-lp);
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 1;
+}
+.panel-retreat .price-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+.panel-retreat .price-cell {
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 12px;
+}
+.panel-retreat .price-cell .lbl { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+.panel-retreat .price-cell .val { font-family: var(--font-display-lp); font-size: 18px; font-weight: 600; margin-top: 4px; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.panel-retreat .price-cell .val .strike { text-decoration: line-through; color: rgba(255,255,255,0.4); font-size: 13px; margin-right: 6px; font-weight: 400; }
+.panel-retreat .price-cell.brand { background: rgba(12,147,231,0.2); }
+.panel-retreat .installments {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
+  font-size: 12px;
 }
-.demo-frame-dot { width: 10px; height: 10px; border-radius: 50%; }
-.frame-dot-r { background: oklch(72% 0.16 25); }
-.frame-dot-y { background: oklch(82% 0.14 85); }
-.frame-dot-g { background: oklch(72% 0.16 145); }
-.demo-frame-url {
+.panel-retreat .installments .dots { display: flex; gap: 4px; }
+.panel-retreat .installments .dots span {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+}
+.panel-retreat .installments .dots span.paid { background: var(--brand-500); color: #fff; }
+.panel-retreat .installments .label { color: rgba(255,255,255,0.7); }
+.panel-retreat .waitlist {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Panel 3 — Collective payout */
+.panel-collective .summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+.panel-collective .stat {
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 14px;
+}
+.panel-collective .stat .lbl { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+.panel-collective .stat .val { font-family: var(--font-display-lp); font-size: 24px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.panel-collective .stat.green .val { color: #6ee7b7; }
+.panel-collective .stat.brand .val { color: var(--brand-300); }
+.panel-collective .timeline {
+  margin-top: 16px;
   flex: 1;
-  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.panel-collective .tline {
+  display: flex; gap: 10px;
+  font-size: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  align-items: center;
+}
+.panel-collective .tline .who { flex: 1; }
+.panel-collective .tline .who .nm { color: #fff; font-weight: 500; }
+.panel-collective .tline .who .sub { font-size: 11px; color: rgba(255,255,255,0.5); }
+.panel-collective .tline .amt { color: #fff; font-weight: 500; font-variant-numeric: tabular-nums; }
+.panel-collective .tline.fee {
+  background: rgb(var(--brand-rgb) / 0.1);
+  border-bottom: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+.panel-collective .tline.fee .amt { color: var(--brand-300); }
+
+/* Panel 4 — Communication */
+.panel-comms .msg {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+  margin-top: 12px;
+  max-width: 80%;
+  position: relative;
+}
+.panel-comms .msg.sent { background: rgb(var(--brand-rgb) / 0.25); margin-left: auto; color: #fff; }
+.panel-comms .msg .who { font-size: 10px; color: rgba(255,255,255,0.5); margin-bottom: 4px; font-weight: 600; letter-spacing: 0.05em; }
+.panel-comms .typing { display: inline-flex; gap: 3px; padding: 6px 0; }
+.panel-comms .typing span {
+  width: 6px; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.5);
+  animation: typing 1.2s infinite;
+}
+.panel-comms .typing span:nth-child(2) { animation-delay: .15s; }
+.panel-comms .typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+@media (max-width: 900px) {
+  .scrolly-stack { grid-template-columns: 1fr; }
+  .scrolly-stage { position: relative; top: 0; height: 380px; }
+  .scrolly-copy { gap: 32px; }
+  .scrolly { margin: 0 16px 80px; }
+}
+
+/* Horizontal scroll feature cards */
+.hscroll {
+  padding: 96px 0 120px;
+  position: relative;
+  z-index: 1;
+}
+.hscroll-head {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hscroll-head h2 {
+  font-family: var(--font-display-lp);
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  margin: 12px 0 0;
+  max-width: 600px;
+}
+.hscroll-head .lede { color: var(--fg-3); max-width: 380px; font-size: 15px; }
+.hscroll-controls { display: flex; gap: 8px; }
+.hscroll-controls button {
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  display: grid; place-items: center;
+  color: var(--fg-1);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.hscroll-controls button:hover { background: var(--bg-card); border-color: var(--fg-3); transform: translateY(-1px); }
+.hscroll-controls button:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+.hscroll-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 32px 40px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hscroll-track::-webkit-scrollbar { display: none; }
+.hscroll-track > :first-child { margin-left: max(32px, calc((100vw - 1180px) / 2)); }
+.hscroll-track > :last-child { margin-right: max(32px, calc((100vw - 1180px) / 2)); }
+
+.hcard {
+  flex: 0 0 380px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  padding: 32px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s var(--ease-out-strong), box-shadow .3s var(--ease-out-strong);
+}
+.hcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.hcard .num {
+  font-family: var(--font-display-lp);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-700);
+  letter-spacing: 0.05em;
+}
+.hcard h3 {
+  font-family: var(--font-display-lp);
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 6px 0 0;
+}
+.hcard p { color: var(--fg-2); font-size: 15px; line-height: 1.5; margin: 0; }
+.hcard ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.hcard ul li {
+  font-size: 14px; color: var(--fg-2);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.hcard ul li::before {
+  content: ""; width: 6px; height: 6px; border-radius: 999px;
+  background: var(--brand-500); margin-top: 8px; flex: 0 0 6px;
+}
+.hcard .visual {
+  margin-top: auto;
+  height: 130px;
+  border-radius: 12px;
+  background: var(--brand-50);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mini visuals */
+.viz-cal { padding: 14px; height: 100%; display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; align-content: center; }
+.viz-cal div { aspect-ratio: 1; border-radius: 4px; background: rgb(var(--brand-rgb) / 0.12); }
+.viz-cal div.b { background: var(--brand-500); }
+.viz-cal div.b2 { background: var(--brand-700); }
+
+.viz-people { padding: 16px; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.viz-people .row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.viz-people .av { width: 22px; height: 22px; border-radius: 999px; background: linear-gradient(135deg, #fde68a, #d97706); flex-shrink: 0; }
+.viz-people .av.b { background: linear-gradient(135deg, #36adf6, #015da0); }
+.viz-people .av.p { background: linear-gradient(135deg, #c4b5fd, #6d28d9); }
+.viz-people .nm { flex: 1; color: var(--fg-1); font-weight: 500; }
+.viz-people .ck { width: 16px; height: 16px; border-radius: 999px; background: var(--success); display: grid; place-items: center; color: #fff; font-size: 9px; font-weight: 700; }
+
+.viz-pay { padding: 18px; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.viz-pay .stat { display: flex; align-items: baseline; gap: 8px; }
+.viz-pay .lbl { font-size: 11px; color: var(--fg-3); letter-spacing: 0.06em; text-transform: uppercase; }
+.viz-pay .val { font-family: var(--font-display-lp); font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: var(--fg-1); font-variant-numeric: tabular-nums; }
+.viz-pay .delta { font-size: 11px; color: var(--success-fg); background: var(--success-bg); padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+.viz-pay .bars { display: flex; align-items: flex-end; gap: 4px; height: 36px; }
+.viz-pay .bar { flex: 1; background: var(--brand-200); border-radius: 2px; }
+.viz-pay .bar.b { background: var(--brand-600); }
+
+.viz-msg {
+  padding: 16px; height: 100%;
+  display: flex; flex-direction: column; gap: 8px; justify-content: center;
+}
+.viz-msg .b {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--fg-1);
+  max-width: 75%;
+}
+.viz-msg .b.s { background: var(--brand-600); color: #fff; align-self: flex-end; border-color: var(--brand-600); }
+
+.viz-doc {
+  padding: 18px; height: 100%;
+  display: flex; flex-direction: column; justify-content: center; gap: 8px;
+}
+.viz-doc .doc-row {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.viz-doc .doc-row .ic {
+  width: 22px; height: 22px; border-radius: 5px;
+  background: var(--brand-50); color: var(--brand-700);
+  display: grid; place-items: center;
+  flex-shrink: 0; font-size: 10px; font-weight: 700;
+}
+.viz-doc .doc-row .nm { flex: 1; color: var(--fg-1); font-weight: 500; }
+.viz-doc .doc-row .st { font-size: 10px; padding: 2px 6px; border-radius: 999px; font-weight: 600; }
+.viz-doc .doc-row .st.green { background: var(--success-bg); color: var(--success-fg); }
+.viz-doc .doc-row .st.amber { background: rgba(217, 146, 60, 0.15); color: var(--accent); }
+
+.viz-room {
+  padding: 16px; height: 100%;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+}
+.viz-room .col { background: rgb(var(--brand-rgb) / 0.06); border-radius: 6px; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+.viz-room .col-h { font-size: 9px; color: var(--brand-700); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.viz-room .blk { background: var(--brand-300); border-radius: 3px; height: 14px; }
+.viz-room .blk.b { background: var(--brand-600); }
+.viz-room .blk.dim { background: rgb(var(--brand-rgb) / 0.2); }
+
+.viz-retreat {
+  padding: 0; height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-700), var(--accent));
+  overflow: hidden;
+}
+.viz-retreat::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 25% 75%, rgba(255,255,255,0.18), transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(255,255,255,0.12), transparent 50%);
+}
+.viz-retreat .badge {
+  position: absolute;
+  bottom: 14px; left: 14px;
+  z-index: 1;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+.viz-retreat .pricetag {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: #fff;
+  color: var(--fg-1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-display-lp);
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.viz-pwa {
+  padding: 18px; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.viz-pwa .phone {
+  width: 80px; height: 100%;
+  background: var(--gray-900);
+  border-radius: 12px;
+  padding: 6px;
+  position: relative;
+}
+.viz-pwa .phone::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
+.viz-pwa .phone .screen {
+  background: linear-gradient(180deg, var(--brand-50), var(--brand-100));
+  height: 100%;
+  border-radius: 8px;
+  padding: 14px 6px 6px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.viz-pwa .phone .lns { background: rgba(12,147,231,0.3); height: 8px; border-radius: 2px; }
+.viz-pwa .phone .lns.s { width: 60%; }
+.viz-pwa .phone .lns.b { background: var(--brand-600); height: 12px; margin-top: auto; }
+
+.hscroll-progress {
+  max-width: 1180px;
+  margin: 32px auto 0;
+  padding: 0 32px;
+  height: 2px;
+  background: var(--line);
+  position: relative;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.hscroll-progress .bar {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  background: var(--brand-600);
+  border-radius: 999px;
+  width: 25%;
+  transition: width .3s var(--ease-out-strong);
+}
+
+@media (max-width: 600px) {
+  .hcard { flex: 0 0 280px; min-height: 380px; padding: 24px; }
+  .hcard h3 { font-size: 22px; }
+}
+
+/* Compare */
+.compare {
+  background: var(--bg-card);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 120px 0;
+  position: relative;
+  z-index: 1;
+}
+.compare-head { text-align: center; margin-bottom: 64px; }
+.compare-head h2 {
+  font-family: var(--font-display-lp);
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  margin: 12px auto;
+  max-width: 720px;
+}
+.compare-head .lede { color: var(--fg-3); max-width: 520px; margin: 0 auto; }
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  position: relative;
+}
+.compare-grid::before {
+  content: "vs";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px; height: 56px;
+  background: var(--fg-1);
+  color: #fff;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  font-family: var(--font-display-lp);
+  font-size: 14px;
+  font-weight: 600;
+  font-style: italic;
+  z-index: 5;
+  box-shadow: var(--shadow-pop);
+}
+.compare-col {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.compare-col.before { background: #fafbfc; }
+.compare-col.after { background: linear-gradient(180deg, #fff, var(--brand-50)); border-color: var(--brand-200); }
+.compare-col .tag {
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.compare-col.before .tag { background: var(--gray-200); color: var(--fg-2); }
+.compare-col.after .tag { background: var(--brand-100); color: var(--brand-700); }
+.compare-col h3 {
+  font-family: var(--font-display-lp);
+  font-size: 28px;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+.compare-col.after h3 em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--brand-700);
+  font-weight: 500;
+}
+.compare-list { display: flex; flex-direction: column; gap: 12px; }
+.compare-item {
+  display: flex; gap: 12px;
+  font-size: 14px; line-height: 1.5;
+  color: var(--fg-2);
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity .5s var(--ease-out-strong), transform .5s var(--ease-out-strong);
+}
+.compare-col.after .compare-item { transform: translateX(12px); }
+.compare-col.is-in .compare-item { opacity: 1; transform: translateX(0); }
+.compare-col.is-in .compare-item:nth-child(1) { transition-delay: .05s; }
+.compare-col.is-in .compare-item:nth-child(2) { transition-delay: .15s; }
+.compare-col.is-in .compare-item:nth-child(3) { transition-delay: .25s; }
+.compare-col.is-in .compare-item:nth-child(4) { transition-delay: .35s; }
+.compare-col.is-in .compare-item:nth-child(5) { transition-delay: .45s; }
+.compare-item .time {
+  font-family: var(--font-display-lp);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-3);
+  flex: 0 0 60px;
+  font-variant-numeric: tabular-nums;
+}
+.compare-col.after .compare-item { border-color: var(--brand-100); }
+.compare-col.after .compare-item .time { color: var(--brand-700); }
+.compare-item .what { flex: 1; }
+.compare-item .what strong { color: var(--fg-1); font-weight: 600; }
+
+.compare-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--brand-200);
+}
+.compare-col.before .compare-stats { display: none; }
+.compare-stat .lbl { font-size: 11px; color: var(--brand-700); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.compare-stat .val { font-family: var(--font-display-lp); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 880px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .compare-grid::before { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}
+
+/* Demo */
+.demo {
+  padding: 64px 0 96px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.demo .wrap { padding: 0 32px; }
+.demo .lede {
+  font-size: 16px;
+  color: var(--fg-3);
+  margin: 12px auto 32px;
+  max-width: 520px;
+}
+.demo-frame {
+  max-width: 1080px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  background: #fff;
+}
+.demo-chrome {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--line);
+}
+.demo-chrome .dot { width: 10px; height: 10px; border-radius: 50%; }
+.demo-chrome .dot:nth-child(1) { background: #ef4444; }
+.demo-chrome .dot:nth-child(2) { background: #f59e0b; }
+.demo-chrome .dot:nth-child(3) { background: #22c55e; }
+.demo-chrome .url {
+  flex: 1; margin-left: 8px;
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 4px 12px;
   font-size: 11px;
-  color: var(--muted);
-  margin-left: 8px;
-  font-family: var(--font-body);
+  color: var(--fg-3);
+  font-family: ui-monospace, monospace;
+  text-align: left;
 }
-.demo-iframe {
-  width: 100%;
-  height: 540px;
-  border: none;
-  display: block;
-}
-.demo-cta {
-  margin-top: 1.5rem;
-}
+.demo-iframe { width: 100%; height: 580px; border: 0; display: block; }
+.demo-cta { margin-top: 16px; }
 .demo-cta a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--brand);
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500;
+  color: var(--brand-700);
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
-  transition: border-color 0.2s;
+  transition: border-color .15s;
 }
-.demo-cta a:hover { border-bottom-color: var(--brand); }
-.demo-cta a svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-}
+.demo-cta a:hover { border-bottom-color: var(--brand-700); }
 
-/* ── Sections ────────────────────────────────────────────────────────── */
-.section {
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  max-width: 1200px;
-  margin: 0 auto;
+/* Pricing */
+.pricing {
+  padding: 120px 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--line-soft);
+  position: relative;
+  z-index: 1;
 }
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--brand);
-  font-size: 0.72rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-.section-label::before {
-  content: '';
-  width: 24px;
-  height: 1.5px;
-  background: var(--brand);
-}
-.section h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
-  font-weight: 500;
+.pricing-head { text-align: center; margin-bottom: 56px; }
+.pricing-head h2 {
+  font-family: var(--font-display-lp);
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.05;
   letter-spacing: -0.03em;
-  line-height: 1.08;
-  margin-bottom: 1rem;
-  max-width: 780px;
-  text-wrap: balance;
-  color: var(--ink);
-}
-.section-sub {
-  font-size: 1.05rem;
-  color: var(--ink-2);
-  max-width: 620px;
-  line-height: 1.65;
-  margin-bottom: 2.75rem;
-}
-
-/* ── Feature Cards — bento grid w/ varied sizes ──────────────────────── */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
-}
-.feature-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  padding: 1.75rem 1.75rem 1.5rem;
-  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
-  position: relative;
-  overflow: hidden;
-  grid-column: span 2;
-}
-/* First card: wide feature (3 cols) */
-.feature-card:nth-child(1) { grid-column: span 3; background: var(--surface-2); }
-/* Second: standard (3 cols) */
-.feature-card:nth-child(2) { grid-column: span 3; }
-/* 3-5: tight bento row */
-.feature-card:nth-child(6) { grid-column: span 3; }
-.feature-card:nth-child(5) { grid-column: span 3; background: var(--surface-2); }
-.feature-card::after {
-  content: '';
-  position: absolute;
-  inset: auto -40% -40% auto;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, var(--brand-soft), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s var(--ease-out);
-  pointer-events: none;
-}
-.feature-card:hover {
-  border-color: color-mix(in oklch, var(--brand) 50%, var(--line));
-  box-shadow: 0 12px 36px -12px color-mix(in oklch, var(--brand) 20%, transparent);
-}
-.feature-card:hover::after { opacity: 1; }
-/* Varied accent stripe per card for visual distinction */
-.feature-card:nth-child(1) { border-top: 2px solid var(--brand); }
-.feature-card:nth-child(2) { border-top: 2px solid var(--accent); }
-.feature-card:nth-child(3) { border-top: 2px solid var(--success); }
-.feature-card:nth-child(4) { border-top: 2px solid var(--brand); }
-.feature-card:nth-child(5) { border-top: 2px solid var(--accent); }
-.feature-card:nth-child(6) { border-top: 2px solid var(--brand); }
-
-.feature-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--brand-soft);
-  border-radius: var(--r-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  flex-shrink: 0;
-  color: var(--brand);
-}
-.feature-card:nth-child(2) .feature-icon,
-.feature-card:nth-child(5) .feature-icon {
-  background: var(--accent-soft);
-  color: var(--accent);
-}
-.feature-card:nth-child(3) .feature-icon {
-  background: color-mix(in oklch, var(--success) 15%, transparent);
-  color: var(--success);
-}
-.feature-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: currentColor;
-  stroke-width: 1.75;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.feature-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.4rem;
-  color: var(--ink);
+  margin: 12px 0;
 }
-.feature-card p {
-  font-size: 0.925rem;
-  color: var(--ink-2);
-  line-height: 1.6;
-  max-width: 46ch;
-}
-.inline-link {
-  color: var(--brand);
-  font-weight: 500;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-.inline-link:hover { border-bottom-color: var(--brand); }
-
-/* ── Differentiator Sections ─────────────────────────────────────────── */
-.diff-section {
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.diff-section.alt-bg {
-  background: var(--surface-2);
-  max-width: 100%;
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  border-block: 1px solid var(--line);
-}
-.diff-section.alt-bg .diff-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.diff-header {
-  max-width: 660px;
-  margin-bottom: 3rem;
-}
-.diff-lead {
-  font-size: 1.05rem;
-  color: var(--ink-2);
-  line-height: 1.6;
-  margin: 0;
-}
-.diff-header .only-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: var(--success);
-  border: 1px solid color-mix(in oklch, var(--success) 40%, transparent);
-  border-radius: 100px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 5px 12px;
-  margin-bottom: 1rem;
-}
-.diff-header .only-badge::before {
-  content: '◆';
-  font-size: 0.6rem;
-}
-.diff-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-.diff-features-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.diff-feature-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 1.1rem 1.35rem;
-  transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
-}
-.alt-bg .diff-feature-item {
-  border-color: var(--line);
-}
-.diff-feature-item:hover {
-  border-color: color-mix(in oklch, var(--brand) 45%, var(--line));
-  transform: translateX(4px);
-}
-.diff-feature-item .item-icon {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  background: var(--brand-soft);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--brand);
-}
-.diff-feature-item .item-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  stroke-width: 1.75;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.diff-feature-item h4 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.2rem;
-  color: var(--ink);
-}
-.diff-feature-item p {
-  font-size: 0.875rem;
-  color: var(--ink-2);
-  line-height: 1.55;
-}
-.diff-visual {
-  background:
-    radial-gradient(600px 400px at 100% 0%, var(--brand-soft), transparent 60%),
-    radial-gradient(400px 300px at 0% 100%, var(--accent-soft), transparent 60%),
-    var(--surface-2);
-  border: 1px solid var(--line);
-  border-radius: var(--r-xl);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  min-height: 400px;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.diff-visual-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  padding: 0.9rem 1.15rem;
-  font-size: 0.85rem;
-}
-.diff-visual-card .label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 0.3rem;
-}
-.diff-visual-card .value {
-  font-family: var(--font-display);
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 0.95rem;
-  letter-spacing: -0.01em;
-}
-.diff-visual-card .value.green { color: var(--success); }
-.diff-visual-card .value.brand { color: var(--brand); }
-.diff-visual-card .value.sm { font-size: 0.85rem; }
-.diff-visual-card .value.xs { font-size: 0.8rem; }
-.price-strike {
-  text-decoration: line-through;
-  color: var(--muted);
-  font-weight: 400;
-  font-size: 0.8rem;
-  margin-left: 4px;
-}
-.status-warn { color: var(--warn); }
-
-/* Hero visual small variants */
-.hero-visual-price > div:last-child { text-align: right; }
-.hero-visual-price .price-value.strike {
-  color: var(--muted);
-  text-decoration: line-through;
-}
-
-/* Instructor chip row inside diff-visual */
-.instructor-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-}
-.instructor-chip {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  padding: 0.75rem 0.5rem;
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--ink);
-}
-.instructor-chip.selected {
-  border-color: var(--brand);
-  background: var(--brand-soft);
-}
-.instructor-chip .emoji {
-  font-size: 1.4rem;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.instructor-chip .name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-.instructor-chip.selected .name { color: var(--brand); }
-.instructor-chip .role {
-  font-size: 0.68rem;
-  color: var(--muted);
-  margin-top: 2px;
-}
-
-/* Time slot pills */
-.slot-row {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-  margin-top: 0.4rem;
-}
-.slot-pill {
-  font-size: 0.73rem;
-  font-weight: 600;
-  padding: 4px 11px;
-  background: var(--brand-soft);
-  color: var(--brand);
-  border-radius: 6px;
-  font-variant-numeric: tabular-nums;
-}
-.slot-pill.active {
-  background: var(--brand);
-  color: #fff;
-}
-@media (prefers-color-scheme: dark) { .slot-pill.active { color: #0a1220; } }
-
-/* Widget mocks */
-.widget-mock-row .dot.warn { background: var(--warn); }
-.widget-mock-row .mock-btn.warn { background: var(--warn); }
-.widget-code-card { margin-top: 0.5rem; }
-.widget-code-card code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.7rem;
-  color: var(--muted);
-  word-break: break-all;
-  display: block;
-}
-.widget-powered {
-  text-align: center;
-  font-size: 0.65rem;
-  color: var(--muted);
-  margin-top: 0.25rem;
-}
-.diff-visual .mock-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin-top: 0.5rem;
-}
-.diff-visual .mock-gallery div {
-  aspect-ratio: 1;
-  background: var(--gray-300);
-  border-radius: 6px;
-  opacity: 0.5;
-}
-.diff-visual .mock-gallery div:first-child {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
-  opacity: 0.6;
-}
-.widget-preview {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.widget-tab {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.25rem;
-}
-.widget-tab span {
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 6px;
-  background: rgba(0,116,212,0.1);
-  color: var(--brand);
-}
-.widget-tab span.active {
-  background: var(--brand);
-  color: var(--white);
-}
-.widget-mock-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--white);
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-.widget-mock-row .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  flex-shrink: 0;
-}
-.widget-mock-row .mock-text {
-  flex: 1;
-}
-.widget-mock-row .mock-line {
-  height: 8px;
-  background: var(--gray-300);
-  border-radius: 4px;
-  margin-bottom: 4px;
-}
-.widget-mock-row .mock-line.short { width: 60%; }
-.widget-mock-row .mock-line-70 { width: 70%; }
-.widget-mock-row .mock-line-65 { width: 65%; }
-.widget-mock-row .mock-line-55 { width: 55%; }
-.widget-mock-row .mock-btn {
-  font-size: 0.65rem;
-  font-weight: 700;
-  background: var(--brand);
-  color: var(--white);
-  padding: 4px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .diff-visual { min-height: auto; padding: 1.75rem; }
-}
-
-/* ── Collective / Dark Section ───────────────────────────────────────── */
-.collective {
-  background: oklch(18% 0.028 244);
-  color: oklch(96% 0.008 244);
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  position: relative;
-  overflow: hidden;
-}
-.collective::before {
-  content: '';
-  position: absolute;
-  top: -120px;
-  right: -120px;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, oklch(55% 0.16 244 / 0.25), transparent 65%);
-  pointer-events: none;
-}
-.collective::after {
-  content: '';
-  position: absolute;
-  bottom: -80px;
-  left: -80px;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, oklch(74% 0.14 62 / 0.14), transparent 65%);
-  pointer-events: none;
-}
-.collective-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: oklch(68% 0.14 244 / 0.14);
-  color: oklch(78% 0.12 244);
-  border: 1px solid oklch(68% 0.14 244 / 0.28);
-  border-radius: 100px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 5px 14px;
-  margin-bottom: 1rem;
-}
-.collective-inner { position: relative; z-index: 1; }
-.collective .section-label { color: oklch(78% 0.12 244); }
-.collective .section-label::before { background: oklch(78% 0.12 244); }
-.collective h2 {
-  color: oklch(98% 0.005 244);
-  max-width: 720px;
-  font-family: var(--font-display);
-  font-weight: 500;
-}
-.collective h2 em {
+.pricing-head h2 em {
   font-style: italic;
-  color: oklch(82% 0.12 244);
-  font-weight: 400;
-}
-.collective .section-sub {
-  color: oklch(82% 0.01 244);
-  max-width: 720px;
-}
-.collective-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-.collective-card {
-  background: oklch(22% 0.028 244 / 0.6);
-  border: 1px solid oklch(40% 0.03 244);
-  border-radius: var(--r-lg);
-  padding: 1.6rem;
-  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.collective-card:hover {
-  background: oklch(26% 0.032 244 / 0.8);
-  border-color: oklch(68% 0.14 244 / 0.4);
-}
-.collective-card .feature-icon {
-  background: oklch(68% 0.14 244 / 0.18);
-  color: oklch(82% 0.12 244);
-}
-.collective-card .feature-icon svg { stroke: currentColor; }
-.collective-card h3 {
-  color: oklch(98% 0.005 244);
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  margin-bottom: 0.4rem;
-}
-.collective-card p {
-  color: oklch(82% 0.01 244);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-
-/* ── Comparison Table ────────────────────────────────────────────────── */
-.compare-section {
-  background: var(--surface-2);
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  border-block: 1px solid var(--line);
-}
-.compare-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.compare-table {
-  width: 100%;
-  min-width: 700px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  border-collapse: collapse;
-}
-.compare-table th,
-.compare-table td {
-  padding: 14px 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  border-bottom: 1px solid var(--line);
-}
-.compare-table tr:last-child td { border-bottom: none; }
-.compare-table th {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.88rem;
-  letter-spacing: -0.01em;
-  background: var(--surface-3);
-  color: var(--ink-2);
-}
-.compare-table th:first-child,
-.compare-table td:first-child {
-  text-align: left;
+  font-family: var(--font-serif);
+  color: var(--brand-700);
   font-weight: 500;
-  color: var(--ink);
 }
-.compare-table th.klasly-col {
-  background: var(--brand);
-  color: #fff;
-}
-@media (prefers-color-scheme: dark) { .compare-table th.klasly-col { color: #0a1220; } }
-.compare-table td.klasly-col {
-  background: var(--brand-soft);
-  font-weight: 600;
-  color: var(--ink);
-}
-.check { color: var(--success); font-weight: 600; font-size: 1.05rem; }
-.cross { color: var(--danger); font-weight: 600; font-size: 1.05rem; opacity: 0.6; }
-.limited { color: var(--warn); font-weight: 500; font-size: 0.78rem; }
-.compare-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 1.25rem;
-  padding: 10px 18px;
-  background: transparent;
-  border: 1px solid var(--line-strong);
-  border-radius: 100px;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--ink-2);
-  cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.compare-toggle:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-  background: var(--brand-soft);
-}
-.compare-toggle svg { transition: transform 0.25s var(--ease-out); }
-.compare-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.pricing-head .lede { color: var(--fg-3); max-width: 540px; margin: 0 auto; font-size: 16px; }
 
-/* Mobile: comparison cards */
-.compare-cards { display: none; }
-.compare-card-item {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 1.25rem;
-  margin-bottom: 1rem;
-}
-.compare-card-item h4 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.75rem;
-  color: var(--ink);
-}
-.compare-card-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 7px 0;
-  font-size: 0.875rem;
-  border-bottom: 1px solid var(--line);
-}
-.compare-card-row:last-child { border-bottom: none; }
-.compare-card-row span:first-child { color: var(--ink-2); }
-.compare-card-row span:last-child { font-weight: 600; color: var(--ink); }
-
-/* ── Additional Features — dense chip rail ───────────────────────────── */
-.additional-intro {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--line);
-  max-width: 620px;
-}
-.additional-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-.additional-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  padding: 0.5rem 0.95rem 0.5rem 0.7rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--ink-2);
-  transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out), color 0.2s var(--ease-out);
-  white-space: nowrap;
-}
-.additional-item:hover {
-  border-color: color-mix(in oklch, var(--brand) 50%, var(--line));
-  background: var(--surface);
-  color: var(--ink);
-}
-.additional-item svg {
-  width: 15px;
-  height: 15px;
-  stroke: var(--brand);
-  stroke-width: 1.75;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
-}
-
-/* ── Pricing ─────────────────────────────────────────────────────────── */
-.pricing-section {
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  text-align: center;
-}
-.pricing-heading {
-  max-width: 640px;
-  margin: 0 auto 1rem;
-  text-align: center;
-}
-.pricing-sub {
-  font-size: 1.05rem;
-  color: var(--ink-2);
-  max-width: 600px;
-  line-height: 1.65;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-.pricing-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.pricing-inner > .section-label { justify-content: center; }
-.pricing-section .section-label {
-  display: inline-flex;
-  margin-bottom: 1rem;
-}
 .pricing-card {
-  max-width: 480px;
+  max-width: 540px;
   margin: 0 auto;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-2xl);
-  padding: 3rem 2.5rem;
-  background: var(--surface);
-  text-align: left;
+  background: var(--gray-900);
+  color: #fff;
+  border-radius: 24px;
+  padding: 44px 40px;
   position: relative;
   overflow: hidden;
 }
 .pricing-card::before {
   content: '';
   position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand), var(--accent));
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgb(var(--brand-rgb) / 0.4), transparent 50%),
+    radial-gradient(circle at 80% 100%, color-mix(in srgb, var(--accent) 25%, transparent), transparent 50%);
+  opacity: 0.6;
+  pointer-events: none;
 }
-.pricing-badge {
+.pricing-card-inner { position: relative; }
+.pricing-flag {
   display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid color-mix(in oklch, var(--accent) 35%, transparent);
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 100px;
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--brand-300);
+  color: var(--brand-950);
+  padding: 4px 12px; border-radius: 999px;
+  margin-bottom: 20px;
 }
 .pricing-amount {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 500;
-  color: var(--ink);
+  font-family: var(--font-display-lp);
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
   line-height: 1;
-  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
 }
 .pricing-amount sup {
-  font-size: 0.45em;
+  font-size: 0.4em;
+  vertical-align: super;
   font-weight: 500;
-  color: var(--muted);
-  margin-right: 4px;
-  vertical-align: 0.5em;
+  color: rgba(255,255,255,0.55);
 }
-.pricing-period {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--muted);
+.pricing-amount .per {
+  font-size: 18px;
   font-weight: 400;
-  letter-spacing: 0;
+  color: rgba(255,255,255,0.55);
+  margin-left: 4px;
 }
 .pricing-fee {
-  font-size: 0.88rem;
-  color: var(--ink-2);
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 8px;
+  margin-bottom: 28px;
 }
-.pricing-list {
+.pricing-card ul {
   list-style: none;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-.pricing-list li {
+  padding: 0;
+  margin: 0 0 32px;
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.5rem 0;
-  font-size: 0.92rem;
-  color: var(--ink-2);
-  border-bottom: 1px dashed var(--line);
+  flex-direction: column;
+  gap: 10px;
 }
-.pricing-list li:last-child { border-bottom: none; }
-.pricing-list li::before {
-  content: '';
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  background: color-mix(in oklch, var(--success) 20%, transparent);
-  background-image:
-    linear-gradient(45deg, transparent 40%, var(--success) 40%, var(--success) 55%, transparent 55%),
-    linear-gradient(-45deg, transparent 55%, var(--success) 55%, var(--success) 65%, transparent 65%);
-  background-size: 10px 10px;
-  background-position: center;
-  background-repeat: no-repeat;
+.pricing-card ul li {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.pricing-card ul li::before {
+  content: "✓";
+  color: var(--brand-300);
+  font-weight: 700;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 .pricing-cta {
   display: block;
   width: 100%;
-  background: var(--brand);
-  color: #fff;
-  padding: 16px;
-  border-radius: var(--r-md);
-  font-size: 1rem;
-  font-weight: 600;
   text-align: center;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s var(--ease-out), box-shadow 0.25s var(--ease-out);
-  box-shadow: 0 1px 0 color-mix(in oklch, var(--brand-dark) 70%, transparent) inset,
-              0 6px 20px var(--brand-glow);
-}
-.pricing-cta:hover {
-  background: var(--brand-dark);
-  box-shadow: 0 1px 0 color-mix(in oklch, var(--brand-dark) 90%, transparent) inset,
-              0 10px 30px var(--brand-glow);
-}
-@media (prefers-color-scheme: dark) { .pricing-cta { color: #0a1220; } }
-
-/* ── Founder ─────────────────────────────────────────────────────────── */
-.founder-section {
-  background: var(--surface-2);
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
-  border-block: 1px solid var(--line);
-}
-.founder-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-.founder-aside {
-  position: sticky;
-  top: 100px;
-  padding: 1.75rem 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  background: var(--surface);
-  position: relative;
-  overflow: hidden;
-}
-.founder-aside::before {
-  content: '';
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--brand), var(--accent));
-}
-.founder-aside .section-label { margin-bottom: 1rem; }
-.founder-name {
-  font-family: var(--font-display);
+  height: 52px;
+  line-height: 52px;
+  border-radius: var(--r-md);
+  background: #fff;
+  color: var(--gray-900);
+  border: 0;
   font-weight: 600;
-  color: var(--ink);
-  font-size: 1.35rem;
-  letter-spacing: -0.015em;
-  line-height: 1.1;
+  font-size: 15px;
+  transition: transform .15s, background .15s;
+  font-family: inherit;
 }
-.founder-role {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 2px;
-  margin-bottom: 1.5rem;
+.pricing-cta:hover { background: var(--brand-50); transform: translateY(-2px); }
+
+/* Savings table */
+.savings {
+  max-width: 540px;
+  margin: 24px auto 0;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 28px;
 }
-.founder-meta {
-  margin: 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.founder-meta > div {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 0.75rem;
-  align-items: baseline;
-}
-.founder-meta dt {
-  font-size: 0.7rem;
+.savings .label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
+  color: var(--brand-700);
+  margin-bottom: 4px;
+}
+.savings .h {
+  font-family: var(--font-display-lp);
+  font-size: 18px;
   font-weight: 500;
-}
-.founder-meta dd {
-  font-size: 0.88rem;
-  color: var(--ink);
-  font-weight: 500;
-}
-.founder-main h2 {
-  max-width: 100%;
-}
-.founder-quote {
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  padding: 1.5rem 0 2rem;
-  border-left: 2px solid var(--brand);
-  padding-left: 1.5rem;
-  margin: 1.5rem 0 2.5rem;
-  text-wrap: balance;
-}
-.founder-quote::before {
-  content: '"';
-  display: block;
-  font-size: 3rem;
-  color: var(--brand);
-  line-height: 0.5;
-  margin-bottom: 1rem;
-  font-family: var(--font-display);
-}
-.founder-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-.founder-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 1.25rem 1.5rem;
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 1rem;
-  align-items: start;
-  text-align: left;
-}
-.founder-card .feature-icon {
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  border-radius: var(--r-sm);
-}
-.founder-card h4 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: 0.25rem;
-  color: var(--ink);
+  margin-bottom: 16px;
 }
-.founder-card p {
-  font-size: 0.88rem;
-  color: var(--ink-2);
-  line-height: 1.55;
+.savings .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+}
+.savings .row:last-child { border-bottom: 0; padding-top: 14px; }
+.savings .row .who { color: var(--fg-2); }
+.savings .row .val { font-weight: 600; color: var(--fg-1); font-variant-numeric: tabular-nums; }
+.savings .row.us .val { color: var(--brand-700); }
+.savings .row.diff {
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+  margin-top: 4px;
+}
+.savings .row.diff .val { color: var(--success-fg); font-size: 16px; }
+.savings .foot {
+  margin-top: 14px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--fg-3);
+  font-family: var(--font-serif);
+  line-height: 1.5;
 }
 
-/* ── Final CTA ───────────────────────────────────────────────────────── */
+/* FAQ */
+.faq-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 96px 32px;
+}
+.faq-wrap h2 {
+  font-family: var(--font-display-lp);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  margin: 12px 0 12px;
+}
+.faq-wrap .lede { color: var(--fg-3); margin-bottom: 32px; }
+.faq-list { border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 20px 4px;
+  font-family: var(--font-display-lp);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: color .15s;
+}
+.faq-item:hover summary { color: var(--brand-700); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-display-lp);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--brand-700);
+  transition: transform .2s;
+  line-height: 1;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 4px 20px;
+  color: var(--fg-2);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 65ch;
+}
+
+/* Final CTA */
 .final-cta {
-  padding: clamp(72px, 10vw, 112px) clamp(1.25rem, 3vw, 2rem);
+  padding: 140px 0 160px;
   text-align: center;
-  background:
-    radial-gradient(800px 400px at 50% 120%, var(--brand-soft), transparent 60%),
-    var(--surface);
-  border-top: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
 }
 .final-cta h2 {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.final-cta p {
-  font-size: 1.05rem;
-  color: var(--ink-2);
-  max-width: 560px;
-  margin: 0 auto 2rem;
-}
-
-/* ── Footer ──────────────────────────────────────────────────────────── */
-.footer {
-  background: oklch(18% 0.028 244);
-  color: oklch(82% 0.01 244);
-  padding: 3rem 2rem 2.5rem;
-}
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 2rem;
-  align-items: center;
-}
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-family: var(--font-display-lp);
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   font-weight: 600;
-  color: oklch(98% 0.005 244);
-  letter-spacing: -0.02em;
+  margin: 0 0 28px;
 }
-.footer-links {
+.final-cta h2 em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--brand-700);
+  font-weight: 500;
+}
+.final-cta .lede {
+  color: var(--fg-3);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  font-size: 17px;
+}
+
+/* Footer */
+.footer {
+  padding: 56px 0 32px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--bg-card);
+  position: relative;
+  z-index: 1;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-grid .col h4 { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); margin: 0 0 14px; font-weight: 600; }
+.footer-grid .col a { display: block; font-size: 14px; color: var(--fg-2); margin-bottom: 8px; transition: color .15s; }
+.footer-grid .col a:hover { color: var(--fg-1); }
+.footer-grid .about { max-width: 320px; }
+.footer-grid .about p { font-size: 14px; color: var(--fg-3); line-height: 1.55; margin: 12px 0 0; }
+.footer-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  font-size: 13px; color: var(--fg-3);
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 16px;
 }
-.footer-links a {
-  color: oklch(82% 0.01 244);
-  font-size: 0.88rem;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: oklch(98% 0.005 244); }
-.footer-copy {
-  font-size: 0.82rem;
-  color: oklch(68% 0.012 244);
-  text-align: right;
-}
-@media (max-width: 768px) {
-  .footer-inner { grid-template-columns: 1fr; text-align: center; }
-  .footer-copy { text-align: center; }
-}
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
 
-/* ── Tablet (1024px) ─────────────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
-  .hero-visual { max-width: 420px; margin-inline: auto; }
-  .diff-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .diff-visual { min-height: 360px; }
-  .founder-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .founder-aside { position: static; }
-}
-
-/* ── Mobile (768px) ──────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
-  .nav-inner { gap: 1rem; }
-  .nav-mobile-cta {
-    display: inline-block;
-    background: var(--brand);
-    color: #fff;
-    border-radius: var(--r-sm);
-    padding: 8px 18px;
-    font-weight: 600;
-    font-size: 14px;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  @media (prefers-color-scheme: dark) { .nav-mobile-cta { color: #0a1220; } }
-  .hero h1 { font-size: clamp(2.1rem, 7vw, 2.75rem); }
-  .hero-desc { font-size: 1rem; }
-  .hero-cta { padding: 14px 26px; font-size: 0.95rem; }
-  .hero-visual { aspect-ratio: 4 / 4.5; max-height: 440px; }
-  .social-proof { flex-direction: column; gap: 0.75rem; padding: 1.25rem; }
-  .demo-iframe { height: 400px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .feature-card:nth-child(n) { grid-column: span 1; }
-  .collective-grid { grid-template-columns: 1fr; }
-  .table-wrapper { display: none; }
-  .compare-cards { display: block; }
-  .additional-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .pricing-card { padding: 2rem 1.75rem; }
-  .founder-aside { padding: 1.5rem 1.25rem; }
-  .founder-meta > div { grid-template-columns: 80px 1fr; }
-  .founder-quote { font-size: 1.15rem; padding-left: 1.25rem; }
-  .founder-grid { grid-template-columns: 1fr; }
-  .faq-item summary { padding: 1.1rem 0.25rem; font-size: 1rem; }
-  .faq-item[open] summary { padding: 1.1rem 0.5rem; }
-  .faq-item p { padding: 0 0.5rem 1.25rem; font-size: 0.92rem; }
-  .hero-cta-secondary { padding: 14px 22px; font-size: 0.95rem; }
-  .nav-price-chip { display: none; }
-  .footer-links { gap: 1.25rem; }
-}
-@media (max-width: 480px) {
-  .additional-grid { grid-template-columns: 1fr; }
-  .hero-meta-rule { display: none; }
+  .hero h1 .char { opacity: 1; transform: none; filter: none; }
+  .hv-card { opacity: 1; transform: none; }
 }
 </style>
+<script>
+/* ── Theme rotation — picks 1 of 4 brand colors per week.
+   Same week → same theme for everyone. Returning visitors
+   see a fresh palette every Monday. Cycles every 4 weeks.
+   Append ?theme=sky|sage|plum|clay to URL to preview. ── */
+(function() {
+  var themes = ['', 'sage', 'plum', 'clay']; // '' = sky (default)
+  var d = new Date();
+  var weeks = Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(2024, 0, 1)) / 86400000 / 7);
+  var theme = themes[((weeks % themes.length) + themes.length) % themes.length];
+  var override = (location.search.match(/[?&]theme=(sky|sage|plum|clay)/) || [])[1];
+  if (override) theme = override === 'sky' ? '' : override;
+  if (theme) document.documentElement.setAttribute('data-theme', theme);
+  window.__klaslyTheme = theme || 'sky';
+})();
+</script>
 </head>
 <body>
 
-<!-- Skip Link -->
-<a href="#main" class="skip-link">Skip to main content</a>
-
-<!-- ══════════ 1. Navigation ══════════ -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Klasly</a>
-    <div class="nav-links">
-      <a href="#retreats">Retreats</a>
-      <a href="#collective">Shared Studios</a>
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">K</span>
+      Klasly
+    </a>
+    <nav class="nav-links">
+      <a href="#mind">Why</a>
+      <a href="#how">How it works</a>
       <a href="#features">Features</a>
-      <a href="#compare">Compare</a>
-      <a href="#pricing" class="nav-price-chip">From $19/mo</a>
-      <a href="https://app.klasly.app/login" class="nav-ghost">Log in</a>
-      <a href="https://app.klasly.app/signup" class="nav-cta">Start free trial</a>
-    </div>
-    <a href="https://app.klasly.app/signup" class="nav-mobile-cta">Start free trial</a>
-    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="#pricing">Pricing</a>
+      <a href="https://app.klasly.app/login">Log in</a>
+    </nav>
+    <a class="nav-cta" href="https://app.klasly.app/signup">
+      Start free trial
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
   </div>
-  <!-- Mobile overlay -->
-  <div class="nav-mobile" role="menu">
-    <a href="#retreats" role="menuitem">Retreats</a>
-    <a href="#collective" role="menuitem">Shared Studios</a>
-    <a href="#features" role="menuitem">Features</a>
-    <a href="#compare" role="menuitem">Compare</a>
-    <a href="#pricing" role="menuitem">Pricing — from $19/mo</a>
-    <a href="https://app.klasly.app/login" role="menuitem">Log in</a>
-    <a href="https://app.klasly.app/signup" class="nav-cta" role="menuitem">Start free trial</a>
-  </div>
-</nav>
+</header>
 
-<!-- ══════════ 2. Hero ══════════ -->
-<main id="main">
+<!-- Hero -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-meta fade-up">
-        <span class="hero-meta-rule" aria-hidden="true"></span>
-        <span>Klasly &middot; Studio Software &middot; Est. 2024</span>
-      </div>
-      <p class="hero-badge fade-up fade-up-d1">Built for retreats, appointments &amp; shared studios</p>
-      <h1 class="fade-up fade-up-d1">Studio software for retreats, appointments, and <em>shared spaces</em>.</h1>
-      <p class="hero-desc fade-up fade-up-d2">Retreat landing pages with installment payments, 1-on-1 appointments, instructor-rent tracking, and class booking &mdash; at $19/mo, everything included.</p>
-      <div class="hero-cta-row fade-up fade-up-d3">
-        <a href="https://app.klasly.app/signup" class="hero-cta">Start your 30-day trial</a>
-        <a href="#demo" class="hero-cta-secondary"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 3 19 12 5 21 5 3"/></svg>Try the live demo</a>
-      </div>
-      <p class="hero-sub fade-up fade-up-d3">No credit card &middot; $19/mo after trial &middot; Cancel anytime</p>
-    </div>
-    <div class="hero-visual fade-up fade-up-d2" aria-hidden="true">
-      <div class="hero-visual-label">Today &middot; Tue, Apr 17</div>
-      <div class="hero-visual-mock">
-        <div class="hero-visual-mock-row"><span class="time">07:30</span><span class="title">Sunrise Vinyasa</span><span class="count">12/15</span></div>
-        <div class="hero-visual-mock-row"><span class="time">10:00</span><span class="title">Bali Retreat &mdash; Deposit</span><span class="count">3&times;</span></div>
-        <div class="hero-visual-mock-row"><span class="time">14:30</span><span class="title">1-on-1 w/ Sarah</span><span class="count">60m</span></div>
-        <div class="hero-visual-mock-row"><span class="time">18:00</span><span class="title">Studio B &middot; Pilates</span><span class="count">Rent</span></div>
-      </div>
-      <div class="hero-visual-price">
-        <div>
-          <div class="price-label">Klasly</div>
-          <div class="price-value">$19<small>/mo</small></div>
-        </div>
-        <div>
-          <div class="price-label">Mindbody</div>
-          <div class="price-value strike">$129</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-badge">
+        <span class="dot">★</span>
+        New &middot; Retreat installments &amp; collective mode
+      </span>
 
-<!-- ══════════ 3. What you won't find elsewhere ══════════ -->
-<div class="social-proof">
-  <div class="social-proof-item"><span class="social-proof-num" aria-hidden="true">01</span> <span>Retreat LP with 3-installment payments</span></div>
-  <div class="social-proof-item"><span class="social-proof-num" aria-hidden="true">02</span> <span>Instructor rent &amp; revenue-split tracking</span></div>
-  <div class="social-proof-item"><span class="social-proof-num" aria-hidden="true">03</span> <span>Every feature &mdash; from $19/mo flat</span></div>
-</div>
+      <h1 id="heroH1">
+        <span class="word"><span class="char">T</span><span class="char">e</span><span class="char">a</span><span class="char">c</span><span class="char">h</span><span class="char">i</span><span class="char">n</span><span class="char">g</span></span>
+        <span class="word"><span class="char">i</span><span class="char">s</span></span>
+        <span class="word"><span class="char">t</span><span class="char">h</span><span class="char">e</span></span>
+        <span class="word"><span class="char">w</span><span class="char">o</span><span class="char">r</span><span class="char">k</span><span class="char">.</span></span>
+        <br/>
+        <em>The rest should be quiet.</em>
+      </h1>
 
-<!-- ══════════ 3.5. Live Demo ══════════ -->
-<section class="demo-section" id="demo">
-  <p class="demo-lead">Your dashboard on day one &mdash; click around, it's fully interactive.</p>
-  <div class="demo-frame-wrapper reveal">
-    <div class="demo-frame-chrome">
-      <div class="demo-frame-dot frame-dot-r" aria-hidden="true"></div>
-      <div class="demo-frame-dot frame-dot-y" aria-hidden="true"></div>
-      <div class="demo-frame-dot frame-dot-g" aria-hidden="true"></div>
-      <div class="demo-frame-url">app.klasly.app/dashboard</div>
-    </div>
-    <iframe src="demo.html" class="demo-iframe" title="Klasly live demo" loading="lazy"></iframe>
-  </div>
-  <div class="demo-cta">
-    <a href="demo.html" target="_blank">Open full demo <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-  </div>
-</section>
+      <p class="hero-sub">
+        Studio software for small yoga, pilates, dance, and bodywork studios. Klasly handles classes, retreats, and instructor contracts in the background &mdash; so you spend the day on the mat, not in the software. <strong>$19/month, every feature on.</strong>
+      </p>
 
-<!-- ══════════ 4. Core Features ══════════ -->
-<section class="section" id="features">
-  <div class="section-label">Core Features</div>
-  <h2>The basics, done right.</h2>
-  <p class="section-sub">Solid primitives underneath. The real differentiators &mdash; retreats, shared studios, widgets &mdash; live below.</p>
-  <div class="features-grid">
-    <div class="feature-card reveal">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <h3>Class scheduling &amp; booking</h3>
-      <p>Set classes up once. Klasly auto-generates sessions for weeks ahead. Members book 24/7; waitlists auto-fill on cancellations.</p>
-    </div>
-    <div class="feature-card reveal reveal-d1">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-      <h3>Payments &amp; billing</h3>
-      <p>Stripe-powered automatic billing for subscriptions, packs, and drop-ins. Failure alerts included. No spreadsheets.</p>
-    </div>
-    <div class="feature-card reveal reveal-d2">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <h3>Member management</h3>
-      <p>Plans, credits, status, and visit history in one dashboard. CSV import for migration day.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
-      <h3>Digital waivers</h3>
-      <p>Email-based signatures with status tracking. Minor waivers go straight to parents &mdash; no extra account needed.</p>
-    </div>
-    <div class="feature-card reveal reveal-d1">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <h3>In-app messaging</h3>
-      <p>Message members inside the app with read receipts and email notifications. One less tool to switch to.</p>
-    </div>
-    <div class="feature-card reveal reveal-d2">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18L12 3 3 21z"/><path d="M8 21h8l-4-8-4 8z"/></svg></div>
-      <h3>Retreats &amp; events</h3>
-      <p>Auto-generated landing pages with gallery, daily schedule, map, early-bird pricing, group booking, waitlist, and 3-installment payments. <a href="#retreats" class="inline-link">See details &rarr;</a></p>
-    </div>
-  </div>
-</section>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="https://app.klasly.app/signup">
+          Start 30-day trial
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#demo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          See live demo
+        </a>
+      </div>
 
-<!-- ══════════ 4.1 Retreat Booking ══════════ -->
-<section class="diff-section alt-bg" id="retreats">
-  <div class="diff-inner">
-    <div class="diff-header">
-      <span class="only-badge">Only on Klasly</span>
-      <h2>Retreat booking &mdash; one page, end to end.</h2>
-      <p class="diff-lead">Auto-generated landing page with booking, payments, waitlist, and group reservations. No third-party tools.</p>
-    </div>
-    <div class="diff-layout">
-      <div class="diff-features-list">
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div><h4>Photo Gallery Landing Page</h4><p>Auto-generated retreat page with photo gallery, description, schedule, and booking — all in one link you can share.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><h4>Daily Timetable</h4><p>Accordion-style day-by-day schedule. Guests see exactly what happens each day of the retreat at a glance.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><h4>Google Maps + Packing List</h4><p>Embedded map with venue location and a custom packing list so guests come prepared.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <div><h4>Early Bird Pricing</h4><p>Set deadline-based automatic discounts. Price reverts to regular rate when the early bird window closes.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><h4>Group Booking + Waitlist</h4><p>Guests book for multiple people with member info management. Full? Waitlist auto-promotes when a spot opens.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-          <div><h4>3-Installment Payments</h4><p>Let guests split the retreat cost into 3 payments. Automatic billing on schedule — no manual follow-up.</p></div>
-        </div>
-      </div>
-      <div class="diff-visual reveal">
-        <div class="diff-visual-card">
-          <div class="label">Retreat Page Preview</div>
-          <div class="value">Bali Yoga Retreat 2026</div>
-        </div>
-        <div class="mock-gallery">
-          <div></div><div></div><div></div><div></div>
-        </div>
-        <div class="diff-visual-card">
-          <div class="label">Pricing</div>
-          <div class="value green">Early bird: $1,200 <span class="price-strike">$1,500</span></div>
-        </div>
-        <div class="diff-visual-card">
-          <div class="label">Payment Plan</div>
-          <div class="value brand">3 x $400 / month</div>
-        </div>
-        <div class="diff-visual-card">
-          <div class="label">Availability</div>
-          <div class="value">14 / 20 spots &middot; <span class="status-warn">Waitlist on</span></div>
-        </div>
+      <div class="hero-meta">
+        <span><svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 30-day trial</span>
+        <span><svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No card required</span>
+        <span><svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Switch in a weekend</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══════════ 4.2 Embeddable Widgets ══════════ -->
-<section class="diff-section" id="widgets">
-  <div class="diff-header">
-    <span class="only-badge">Only on Klasly</span>
-    <h2>3 widgets for your own site.</h2>
-    <p class="diff-lead">Drop on WordPress, Squarespace, or anywhere. Members book classes, buy passes, or reserve retreats without leaving your page.</p>
-  </div>
-  <div class="diff-layout">
-    <div class="diff-features-list">
-      <div class="diff-feature-item reveal">
-        <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <div><h4>Schedule Widget</h4><p>Embed your full class schedule. Members see availability and book directly from your website. Real-time sync.</p></div>
-      </div>
-      <div class="diff-feature-item reveal">
-        <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18L12 3 3 21z"/><path d="M8 21h8l-4-8-4 8z"/></svg></div>
-        <div><h4>Event Widget</h4><p>Showcase your retreats and workshops as a curated list. Each event links directly to its booking page.</p></div>
-      </div>
-      <div class="diff-feature-item reveal">
-        <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-        <div><h4>Pass Purchase Widget</h4><p>Sell memberships and class packs right on your site. Members can buy and activate without creating a separate account flow.</p></div>
-      </div>
-      <div class="diff-feature-item reveal">
-        <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg></div>
-        <div><h4>Fully Customizable</h4><p>Modern design with your brand colors. Subtle "Powered by Klasly" — not a giant logo plastered across the widget.</p></div>
-      </div>
-    </div>
-    <div class="diff-visual reveal">
-      <div class="widget-preview">
-        <div class="widget-tab">
-          <span class="active">Schedule</span>
-          <span>Events</span>
-          <span>Passes</span>
-        </div>
-        <div class="widget-mock-row">
-          <div class="dot"></div>
-          <div class="mock-text"><div class="mock-line mock-line-70"></div><div class="mock-line short"></div></div>
-          <div class="mock-btn">Book</div>
-        </div>
-        <div class="widget-mock-row">
-          <div class="dot"></div>
-          <div class="mock-text"><div class="mock-line mock-line-55"></div><div class="mock-line short"></div></div>
-          <div class="mock-btn">Book</div>
-        </div>
-        <div class="widget-mock-row">
-          <div class="dot warn"></div>
-          <div class="mock-text"><div class="mock-line mock-line-65"></div><div class="mock-line short"></div></div>
-          <div class="mock-btn warn">Waitlist</div>
-        </div>
-      </div>
-      <div class="diff-visual-card widget-code-card">
-        <div class="label">Embed code</div>
-        <code>&lt;script src="klasly.app/widget.js"&gt;&lt;/script&gt;</code>
-      </div>
-      <div class="widget-powered">Powered by Klasly</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ 4.3 1-on-1 Appointments ══════════ -->
-<section class="diff-section alt-bg" id="appointments">
-  <div class="diff-inner">
-    <div class="diff-header">
-      <span class="only-badge">Only on Klasly</span>
-      <h2>1-on-1 private sessions.</h2>
-      <p class="diff-lead">Members pick an instructor, choose a slot, and book instantly. For private yoga, personal training, massage, and therapy.</p>
-    </div>
-    <div class="diff-layout">
-      <div class="diff-features-list">
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div><h4>Instructor Selection</h4><p>Members browse available instructors and pick their preferred one. Each instructor manages their own availability.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div><h4>Smart Time Slots</h4><p>Real-time availability. Members see open slots and book instantly — no back-and-forth messaging required.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <div><h4>Flexible Pricing</h4><p>Charge per session, consume credits from a pack, or offer free sessions. Mix and match pricing models.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div>
-          <div><h4>SOAP Notes</h4><p>Clinical session records for therapists and bodyworkers. Document assessments and treatment plans per client.</p></div>
-        </div>
-        <div class="diff-feature-item reveal">
-          <div class="item-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-          <div><h4>Auto Reminders</h4><p>Push notification 1 hour before the session. Reduce no-shows without any manual effort.</p></div>
-        </div>
-      </div>
-      <div class="diff-visual reveal">
-        <div class="diff-visual-card">
-          <div class="label">Book a Private Session</div>
-          <div class="value">Select Instructor</div>
-        </div>
-        <div class="instructor-row">
-          <div class="instructor-chip selected">
-            <div class="emoji" aria-hidden="true">🧘</div>
-            <div class="name">Sarah M.</div>
-            <div class="role">Yoga</div>
+    <div class="hero-visual" aria-hidden="true">
+      <!-- Today's schedule -->
+      <div class="hv-card hv-main">
+        <div class="hv-head">
+          <div class="who">
+            <div class="name">Today &middot; Tue, Apr 17</div>
+            <div class="role">4 sessions &middot; 2 instructors</div>
           </div>
-          <div class="instructor-chip">
-            <div class="emoji" aria-hidden="true">💆</div>
-            <div class="name">James K.</div>
-            <div class="role">Massage</div>
+          <span class="pill">On track</span>
+        </div>
+        <div class="hv-row">
+          <div class="time">07:30</div>
+          <div class="body">
+            <div class="ttl">Sunrise Vinyasa</div>
+            <div class="meta">Studio A &middot; Sarah</div>
           </div>
-          <div class="instructor-chip">
-            <div class="emoji" aria-hidden="true">🏋️</div>
-            <div class="name">Mia T.</div>
-            <div class="role">Training</div>
+          <div class="stat">12 / 15</div>
+        </div>
+        <div class="hv-row">
+          <div class="time">10:00</div>
+          <div class="body">
+            <div class="ttl">Bali retreat &mdash; deposits due</div>
+            <div class="meta">12 guests &middot; installment 2 of 3</div>
+          </div>
+          <div class="stat full">$4,800</div>
+        </div>
+        <div class="hv-row">
+          <div class="time">14:30</div>
+          <div class="body">
+            <div class="ttl">Private with Sarah</div>
+            <div class="meta">60 min &middot; 1-on-1</div>
+          </div>
+          <div class="stat">Booked</div>
+        </div>
+        <div class="hv-row">
+          <div class="time">18:00</div>
+          <div class="body">
+            <div class="ttl">Studio B &middot; Pilates rental</div>
+            <div class="meta">James K. &middot; collective</div>
+          </div>
+          <div class="stat warn">Rent</div>
+        </div>
+      </div>
+
+      <!-- KPI -->
+      <div class="hv-card hv-kpi">
+        <div class="label-eyebrow">Active members</div>
+        <div class="num">284</div>
+        <div class="delta">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          +18 this month
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="hv-card hv-chart">
+        <div class="head">Revenue &middot; last 6 mo</div>
+        <div class="bars">
+          <div class="bar" style="height: 30%; animation-delay: 1.4s;"></div>
+          <div class="bar" style="height: 42%; animation-delay: 1.5s;"></div>
+          <div class="bar" style="height: 55%; animation-delay: 1.6s;"></div>
+          <div class="bar" style="height: 48%; animation-delay: 1.7s;"></div>
+          <div class="bar" style="height: 70%; animation-delay: 1.8s;"></div>
+          <div class="bar b" style="height: 92%; animation-delay: 1.9s;"></div>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div class="hv-card hv-toast">
+        <div class="icn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <div class="body-t">
+          <strong>Bali retreat &mdash; installment 2 succeeded</strong>
+          <span>12 guests charged &middot; reminders sent for Aug 15</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Statement (animated word reveal) -->
+<section class="statement">
+  <div class="wrap">
+    <p class="text" id="statementText">
+      You opened a studio to <em>teach</em>, not to chase late payments, dig through spreadsheets, or rebuild the schedule for the third time this week. Klasly puts every part of your studio in one calm place &mdash; so you can <em>get back on the mat.</em>
+    </p>
+  </div>
+</section>
+
+<!-- Demo (moved up) -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <span class="eyebrow-lp">Try it now</span>
+    <p class="lede">Your dashboard, on day one. Click around &mdash; it's fully interactive.</p>
+    <div class="demo-frame">
+      <div class="demo-chrome">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="url">app.klasly.app/dashboard</span>
+      </div>
+      <iframe src="demo.html" class="demo-iframe" title="Klasly live demo" loading="lazy"></iframe>
+    </div>
+    <div class="demo-cta">
+      <a href="demo.html" target="_blank">
+        Open the full demo
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Mind / three tenets -->
+<section class="mind" id="mind">
+  <div class="wrap">
+    <div class="mind-head">
+      <div>
+        <span class="eyebrow-lp">Why we built this</span>
+        <h2>Three quiet beliefs the whole product is built on.</h2>
+      </div>
+      <p class="lede">Klasly is shaped by feedback from real studio owners running real classes &mdash; what they actually need, and what they don't. The principles below decide every feature we ship, every line of pricing, every screen we say no to.</p>
+    </div>
+
+    <div class="tenet-grid">
+      <article class="tenet">
+        <span class="ix">01</span>
+        <h3>Teachers should <em>teach.</em></h3>
+        <p>Set Klasly up once and forget it's there. Sessions auto-generate four weeks ahead. Waitlists promote themselves. Reminders go out without you. Most days, you shouldn't need to open the app at all.</p>
+      </article>
+      <article class="tenet">
+        <span class="ix">02</span>
+        <h3>Money goes <em>where the work is.</em></h3>
+        <p>$19, not $129. The fewer dollars going to your software vendor, the more left for the people teaching, the space you rent, the community you're building. Instructors are paid directly via Stripe Connect &mdash; no middleman.</p>
+      </article>
+      <article class="tenet">
+        <span class="ix">03</span>
+        <h3>Less, <em>on purpose.</em></h3>
+        <p>We say no to features that don't serve a small studio. Every checkbox you don't have to tick, every screen you don't have to learn, is one less thing standing between you and the work.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky scrollytelling -->
+<section class="scrolly" id="how">
+  <div class="scrolly-inner">
+    <div class="scrolly-head">
+      <div>
+        <span class="eyebrow-lp">How Klasly works</span>
+        <h2>Four jobs, one console, <em>zero apps</em> to glue together.</h2>
+      </div>
+      <p class="lede">From morning class to retreat deposit to month-end payout, the same data flows everywhere. No reconciling four tools at 11 pm.</p>
+    </div>
+
+    <div class="scrolly-stack">
+      <div class="scrolly-copy" id="scrollyCopy">
+        <div class="scrolly-step is-active" data-step="0">
+          <div class="num">01 / SCHEDULE</div>
+          <h3>A class calendar that holds everything.</h3>
+          <p>Set classes once; Klasly auto-generates four weeks of sessions ahead. Members book, waitlists fill on cancellations, instructors swap with auto-notify. No double-booking, no Sunday-night spreadsheets.</p>
+        </div>
+        <div class="scrolly-step" data-step="1">
+          <div class="num">02 / RETREATS</div>
+          <h3>Retreat pages that handle <em>even the deposit.</em></h3>
+          <p>Photo gallery, daily schedule, map, packing list. Three-installment payments charged on schedule with reminders the day before each charge. Group bookings, waitlist that promotes itself.</p>
+        </div>
+        <div class="scrolly-step" data-step="2">
+          <div class="num">03 / COLLECTIVE</div>
+          <h3>Payouts that go straight to the teachers.</h3>
+          <p>Stripe Connect routes member payments directly to each instructor's account. Your studio fee is deducted automatically. Hour-tier memberships bill overage at month-end. Zero manual transfers.</p>
+        </div>
+        <div class="scrolly-step" data-step="3">
+          <div class="num">04 / COMMUNICATION</div>
+          <h3>One thread per member. Forever.</h3>
+          <p>In-app messages, studio-wide announcements, community board. Web push for one-hour-before reminders. Email campaigns to lists. Members reply in the app; you see every conversation in context.</p>
+        </div>
+      </div>
+
+      <div class="scrolly-stage" id="scrollyStage">
+        <!-- Panel 1: Schedule -->
+        <div class="panel panel-schedule is-active" data-panel="0">
+          <div class="ttl">Schedule &middot; this week</div>
+          <div class="day">April 2026</div>
+          <div class="grid">
+            <div></div><div class="d">Mon</div><div class="d">Tue</div><div class="d">Wed</div><div class="d">Thu</div><div class="d">Fri</div>
+            <div class="h">7 am</div><div class="cell booked pop">Sunrise Vinyasa</div><div class="cell"></div><div class="cell booked pop">Sunrise Vinyasa</div><div class="cell"></div><div class="cell booked pop">Sunrise Vinyasa</div>
+            <div class="h">10 am</div><div class="cell"></div><div class="cell booked pop">Pilates Mat</div><div class="cell"></div><div class="cell booked pop">Pilates Mat</div><div class="cell"></div>
+            <div class="h">12 pm</div><div class="cell booked pop alt">Lunch flow</div><div class="cell booked pop alt">Lunch flow</div><div class="cell booked pop alt">Lunch flow</div><div class="cell booked pop alt">Lunch flow</div><div class="cell booked pop alt">Lunch flow</div>
+            <div class="h">5 pm</div><div class="cell booked pop">Yin</div><div class="cell"></div><div class="cell booked pop">Yin</div><div class="cell"></div><div class="cell booked pop">Open studio</div>
+            <div class="h">7 pm</div><div class="cell booked pop">Power</div><div class="cell booked pop">All levels</div><div class="cell booked pop">Power</div><div class="cell booked pop">All levels</div><div class="cell"></div>
           </div>
         </div>
-        <div class="diff-visual-card">
-          <div class="label">Available slots &mdash; Mar 31</div>
-          <div class="slot-row">
-            <span class="slot-pill">9:00 AM</span>
-            <span class="slot-pill active">10:30 AM</span>
-            <span class="slot-pill">2:00 PM</span>
-            <span class="slot-pill">4:30 PM</span>
+
+        <!-- Panel 2: Retreat -->
+        <div class="panel panel-retreat" data-panel="1">
+          <div class="ttl">Retreat page &middot; preview</div>
+          <div class="day">Bali Yoga &middot; June 2026</div>
+          <div class="splash">
+            <div class="splash-label">14 / 20 spots booked</div>
+          </div>
+          <div class="price-row">
+            <div class="price-cell">
+              <div class="lbl">Early bird</div>
+              <div class="val"><span class="strike">$1,500</span>$1,200</div>
+            </div>
+            <div class="price-cell brand">
+              <div class="lbl">Or pay in</div>
+              <div class="val">3 &times; $400</div>
+            </div>
+          </div>
+          <div class="installments">
+            <div class="dots">
+              <span class="paid">1</span>
+              <span class="paid">2</span>
+              <span>3</span>
+            </div>
+            <span class="label">Installment 2 of 3 charged &middot; reminder sent for Aug 15</span>
+          </div>
+          <div class="waitlist">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Waitlist open &middot; 3 people queued
           </div>
         </div>
-        <div class="diff-visual-card">
-          <div class="label">Reminder</div>
-          <div class="value sm">🔔 Session with Sarah M. in 1 hour</div>
+
+        <!-- Panel 3: Collective payout -->
+        <div class="panel panel-collective" data-panel="2">
+          <div class="ttl">April payout &middot; collective mode</div>
+          <div class="day">$5,575 routed to teachers</div>
+          <div class="summary">
+            <div class="stat green"><div class="lbl">Direct to teachers</div><div class="val">$4,742</div></div>
+            <div class="stat brand"><div class="lbl">Studio fee (15%)</div><div class="val">$833</div></div>
+            <div class="stat"><div class="lbl">Sessions</div><div class="val">46</div></div>
+          </div>
+          <div class="timeline">
+            <div class="tline"><div class="who"><div class="nm">Sarah M.</div><div class="sub">Vinyasa &middot; 14 sessions</div></div><span class="amt">$1,840</span></div>
+            <div class="tline"><div class="who"><div class="nm">James K.</div><div class="sub">Bodywork &middot; 21 sessions</div></div><span class="amt">$2,310</span></div>
+            <div class="tline"><div class="who"><div class="nm">Mia T.</div><div class="sub">Pilates &middot; 11 sessions</div></div><span class="amt">$1,425</span></div>
+            <div class="tline fee"><div class="who"><div class="nm">Studio fee</div><div class="sub">Auto-deducted &middot; 15%</div></div><span class="amt">$833</span></div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Communication -->
+        <div class="panel panel-comms" data-panel="3">
+          <div class="ttl">Member &middot; Sarah K.</div>
+          <div class="day">Active conversation</div>
+          <div class="msg">
+            <div class="who">SARAH &middot; 6:42 PM</div>
+            Hey! Running 5 minutes late tonight, work meeting overran 🙏
+          </div>
+          <div class="msg sent">
+            <div class="who">YOU &middot; 6:43 PM</div>
+            All good &mdash; door's open, warm-up just started. See you in a bit.
+          </div>
+          <div class="msg">
+            <div class="who">SARAH &middot; 7:31 PM</div>
+            Thanks!! On the mat 💙
+          </div>
+          <div class="msg" style="background: rgba(255,255,255,0.02); padding: 10px 14px;">
+            <div class="typing"><span></span><span></span><span></span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ 5. Collective Mode ══════════ -->
-<section class="collective" id="collective">
-  <div class="collective-inner">
-    <div class="badge">Only on Klasly</div>
-    <div class="section-label">Shared Studio Mode</div>
-    <h2>For studios where instructors rent space and run <em>their own</em> business.</h2>
-    <p class="section-sub">If your studio works like an Airbnb for wellness &mdash; instructors pay rent, set prices, and collect their own payments &mdash; no other software was built for you.</p>
-    <div class="collective-grid">
-      <div class="collective-card reveal">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
-        <h3>Self-Scheduling</h3>
-        <p>Instructors book rooms and add classes themselves. No more back-and-forth. Double-booking is prevented automatically.</p>
-      </div>
-      <div class="collective-card reveal reveal-d1">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>Direct Payments + Studio Fee</h3>
-        <p>Student payments go directly to the instructor's Stripe. Your studio fee percentage is automatically deducted. Zero manual transfers.</p>
-      </div>
-      <div class="collective-card reveal reveal-d2">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3>Tier Memberships &amp; Hour Tracking</h3>
-        <p>Set up rent tiers with monthly hours. Usage is tracked in 15-minute increments. Overage fees are billed automatically.</p>
-      </div>
-      <div class="collective-card reveal reveal-d3">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.5a1.5 1.5 0 1 0 0 3V15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 1 0 0-3V9z"/></svg></div>
-        <h3>Studio Pass &amp; Revenue Split</h3>
-        <p>Sell a monthly pass for all classes. At month-end, revenue is automatically split among instructors based on participation.</p>
+<!-- Horizontal feature cards -->
+<section class="hscroll" id="features">
+  <div class="hscroll-head">
+    <div>
+      <span class="eyebrow-lp">Everything included</span>
+      <h2>Eight features that replace a wall of sticky notes.</h2>
+    </div>
+    <div>
+      <p class="lede" style="margin-bottom: 16px;">Drag, swipe, or use the arrows. Every feature here is on by default at $19.</p>
+      <div class="hscroll-controls">
+        <button id="hPrev" aria-label="Previous">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button id="hNext" aria-label="Next">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ══════════ 6. Comparison Table ══════════ -->
-<section class="compare-section" id="compare">
-  <div class="compare-inner">
-    <div class="section-label">Side by side</div>
-    <h2>Klasly vs. the legacy platforms.</h2>
-    <p class="section-sub">The features that matter for retreats and shared studios simply don't exist on Mindbody, Momence, or Vagaro.</p>
-
-    <!-- Desktop table -->
-    <div class="table-wrapper">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th class="klasly-col">Klasly</th>
-            <th>Mindbody</th>
-            <th>Momence</th>
-            <th>Vagaro</th>
-          </tr>
-        </thead>
-        <tbody class="compare-essentials">
-          <tr><td>Monthly price</td><td class="klasly-col"><strong>$19</strong> + 0.5% fee</td><td>$129+</td><td>$99+</td><td>$30+</td></tr>
-          <tr><td>Retreat LP + installments</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Shared-studio mode</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Studio pass + revenue split</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>3 embeddable widgets</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="limited">1 widget</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Early-bird pricing</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>In-app messaging</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>Digital waivers (included)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Add-on $</span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-        </tbody>
-        <tbody class="compare-more" hidden>
-          <tr><td>Booking &amp; scheduling</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Payments (Stripe)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Waitlist auto-promote</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Online classes (Zoom)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Group booking + waitlist</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Limited</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>1-on-1 appointments</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>Google Calendar sync</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td></tr>
-          <tr><td>SOAP notes (therapy)</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="limited">Add-on $</span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>PWA offline access</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-          <tr><td>UTM tracking</td><td class="klasly-col"><span class="check" aria-label="Yes"><span aria-hidden="true">✓</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td><td><span class="cross" aria-label="Not available"><span aria-hidden="true">✗</span></span></td></tr>
-        </tbody>
-      </table>
-      <button class="compare-toggle" type="button" id="compareToggle" aria-expanded="false" aria-controls="compareMore">
-        <span class="compare-toggle-label">Show 10 more rows</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <!-- Mobile cards -->
-    <div class="compare-cards">
-      <div class="compare-card-item">
-        <h4>Monthly Price</h4>
-        <div class="compare-card-row"><span>Klasly</span><span class="text-brand"><strong>$19</strong> + 0.5% fee</span></div>
-        <div class="compare-card-row"><span>Mindbody</span><span>$129+</span></div>
-        <div class="compare-card-row"><span>Momence</span><span>$99+</span></div>
-        <div class="compare-card-row"><span>Vagaro</span><span>$30+</span></div>
-      </div>
-      <div class="compare-card-item">
-        <h4>Klasly-Only Features</h4>
-        <div class="compare-card-row"><span>Retreat LP + Early Bird</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-        <div class="compare-card-row"><span>3 Embeddable Widgets</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-        <div class="compare-card-row"><span>In-App Messaging</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-        <div class="compare-card-row"><span>Shared Studio Mode</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-        <div class="compare-card-row"><span>Studio Pass + Revenue Split</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-        <div class="compare-card-row"><span>PWA Offline Access</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-        <div class="compare-card-row"><span>UTM Tracking</span><span class="check"><span aria-hidden="true">✓</span> Only Klasly</span></div>
-      </div>
-      <div class="compare-card-item">
-        <h4>Included Free (Others Charge Extra)</h4>
-        <div class="compare-card-row"><span>Digital Waivers</span><span class="check"><span aria-hidden="true">✓</span> Free</span></div>
-        <div class="compare-card-row"><span>SOAP Notes</span><span class="check"><span aria-hidden="true">✓</span> Free</span></div>
-        <div class="compare-card-row"><span>Retreat Booking + Installments</span><span class="check"><span aria-hidden="true">✓</span> Free</span></div>
-        <div class="compare-card-row"><span>1-on-1 Appointments</span><span class="check"><span aria-hidden="true">✓</span> Free</span></div>
-        <div class="compare-card-row"><span>Google Calendar Sync</span><span class="check"><span aria-hidden="true">✓</span> Free</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ 7. Additional Features ══════════ -->
-<section class="section">
-  <div class="section-label">Everything else</div>
-  <h2>All included. No add-on fees.</h2>
-  <p class="additional-intro">14 more features, standard at $19/mo</p>
-  <div class="additional-grid">
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Google Calendar Sync</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> PWA + Offline Access</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> Online &amp; Hybrid Classes</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Analytics Dashboard</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> UTM Tracking</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg> SOAP Notes</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Manager Permissions</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg> Minor Waiver</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> CSV Import / Export</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Referral Program</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Auto Email Notifications</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Room Management</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Instructor Direct Pay</div>
-    <div class="additional-item reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Feature ON/OFF Toggle</div>
-  </div>
-</section>
-
-<!-- ══════════ 8. Pricing ══════════ -->
-<section class="pricing-section" id="pricing">
-  <div class="pricing-inner">
-    <div class="section-label">Pricing</div>
-    <h2 class="pricing-heading">One plan. Every feature.</h2>
-    <p class="pricing-sub">No tiers, no add-ons, no surprise upsells. Early customers lock $19 in permanently.</p>
-    <div class="pricing-card reveal">
-      <span class="pricing-badge">Up to 30&times; cheaper than Mindbody</span>
-      <div class="pricing-amount"><sup>$</sup>19<span class="pricing-period">/month</span></div>
-      <p class="pricing-fee">+ 0.5% platform fee on member payments</p>
-      <ul class="pricing-list">
-        <li>All features included — no tiers, no add-ons</li>
-        <li>Retreat booking with LP, installments &amp; early bird</li>
-        <li>3 embeddable widgets for your website</li>
-        <li>1-on-1 appointment booking</li>
-        <li>Google Calendar sync</li>
-        <li>Unlimited members, classes &amp; instructors</li>
-        <li>30-day free trial — no credit card</li>
-        <li>Annual plan: $190/year (save 2 months)</li>
-        <li>Refer a studio → both get 1 month free</li>
+  <div class="hscroll-track" id="hscrollTrack">
+    <div class="hcard">
+      <div class="num">01</div>
+      <h3>Classes &amp; schedule</h3>
+      <p>Set a class once, get four weeks of sessions auto-generated. Edit one, this-and-future, or the whole series.</p>
+      <ul>
+        <li>Recurring with skip dates</li>
+        <li>Substitute instructor + auto-notify</li>
+        <li>Print-friendly weekly view</li>
       </ul>
-      <a href="https://app.klasly.app/signup" class="pricing-cta">Start your 30-day trial</a>
+      <div class="visual viz-cal">
+        <div></div><div class="b"></div><div></div><div class="b2"></div><div></div><div class="b"></div><div></div>
+        <div class="b"></div><div></div><div class="b"></div><div></div><div class="b2"></div><div></div><div></div>
+        <div></div><div class="b2"></div><div class="b"></div><div></div><div class="b"></div><div></div><div class="b"></div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">02</div>
+      <h3>Members &amp; passes</h3>
+      <p>Plans, credits, attendance, visit history. Sell monthly, 5- or 10-packs, drop-ins. Auto-distribute on the 1st.</p>
+      <ul>
+        <li>CSV import for migration day</li>
+        <li>Welcome email toggle</li>
+        <li>Attendance summary, streaks, ranks</li>
+      </ul>
+      <div class="visual viz-people">
+        <div class="row"><div class="av"></div><div class="nm">Sarah K.</div><div class="ck">✓</div></div>
+        <div class="row"><div class="av b"></div><div class="nm">James W.</div><div class="ck">✓</div></div>
+        <div class="row"><div class="av p"></div><div class="nm">Mia T.</div><div class="ck">✓</div></div>
+        <div class="row"><div class="av"></div><div class="nm">Aki H.</div><div class="ck">✓</div></div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">03</div>
+      <h3>Retreats with installments</h3>
+      <p>Auto-generated retreat page. Three-installment payments charged on schedule. Group booking + waitlist.</p>
+      <ul>
+        <li>Photo gallery, map, packing list</li>
+        <li>Early-bird with auto-revert</li>
+        <li>Reminders before each charge</li>
+      </ul>
+      <div class="visual viz-retreat">
+        <div class="pricetag">$1,200</div>
+        <div class="badge">Bali &middot; 14 / 20 spots</div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">04</div>
+      <h3>Collective mode (Stripe Connect)</h3>
+      <p>Member payments routed directly to each instructor's account. Studio fee deducted automatically. Hour-tier memberships with overage billing.</p>
+      <ul>
+        <li>Country-specific onboarding</li>
+        <li>Studio pass with revenue split</li>
+        <li>Self-scheduling for instructors</li>
+      </ul>
+      <div class="visual viz-pay">
+        <div class="stat"><span class="val">$4,742</span> <span class="delta">→ teachers</span></div>
+        <div class="lbl">April payout &middot; auto-routed</div>
+        <div class="bars">
+          <div class="bar" style="height: 40%"></div>
+          <div class="bar" style="height: 60%"></div>
+          <div class="bar" style="height: 50%"></div>
+          <div class="bar b" style="height: 90%"></div>
+          <div class="bar" style="height: 70%"></div>
+          <div class="bar b" style="height: 95%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">05</div>
+      <h3>Messaging &amp; community</h3>
+      <p>One thread per member, forever. Studio announcements with a feed. Community board members can post to.</p>
+      <ul>
+        <li>Web push + email + in-app</li>
+        <li>Email campaigns to lists</li>
+        <li>Read receipts &amp; unread badge</li>
+      </ul>
+      <div class="visual viz-msg">
+        <div class="b">Class moves to 7:45 tonight 👍</div>
+        <div class="b s">Got it, see you then</div>
+        <div class="b">Sarah's on her way too</div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">06</div>
+      <h3>Waivers, contracts &amp; forms</h3>
+      <p>Email-based digital signatures with status tracking. Multi-signature contracts. Custom intake forms.</p>
+      <ul>
+        <li>Public token links &mdash; no login</li>
+        <li>Minor waivers route to parents</li>
+        <li>SOAP notes for therapists</li>
+      </ul>
+      <div class="visual viz-doc">
+        <div class="doc-row"><div class="ic">W</div><div class="nm">Adult waiver</div><div class="st green">Signed</div></div>
+        <div class="doc-row"><div class="ic">M</div><div class="nm">Minor waiver</div><div class="st amber">Sent</div></div>
+        <div class="doc-row"><div class="ic">F</div><div class="nm">Intake form</div><div class="st green">Done</div></div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">07</div>
+      <h3>Rooms &amp; instructor portal</h3>
+      <p>Instructors get their own portal: today, schedule, room bookings, earnings. Owners prevent double-booking and bill overage.</p>
+      <ul>
+        <li>Hour-tier memberships</li>
+        <li>Self-scheduling for instructors</li>
+        <li>Manager role with 13 permissions</li>
+      </ul>
+      <div class="visual viz-room">
+        <div class="col"><div class="col-h">A</div><div class="blk b"></div><div class="blk dim"></div><div class="blk"></div></div>
+        <div class="col"><div class="col-h">B</div><div class="blk dim"></div><div class="blk b"></div><div class="blk b"></div></div>
+        <div class="col"><div class="col-h">C</div><div class="blk"></div><div class="blk dim"></div><div class="blk b"></div></div>
+      </div>
+    </div>
+
+    <div class="hcard">
+      <div class="num">08</div>
+      <h3>Member app (PWA)</h3>
+      <p>Members install it like a native app. Schedule and member info available offline. Push reminders before class.</p>
+      <ul>
+        <li>iOS + Android via PWA</li>
+        <li>Offline-tolerant schedule</li>
+        <li>Calendar feed (iCal)</li>
+      </ul>
+      <div class="visual viz-pwa">
+        <div class="phone">
+          <div class="screen">
+            <div class="lns"></div>
+            <div class="lns s"></div>
+            <div class="lns"></div>
+            <div class="lns s"></div>
+            <div class="lns b"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="hscroll-progress"><div class="bar" id="hscrollBar"></div></div>
 </section>
 
-<!-- ══════════ 9. Founder Story ══════════ -->
-<section class="founder-section">
-  <div class="founder-inner">
-    <aside class="founder-aside">
-      <div class="section-label">The developer</div>
-      <p class="founder-name">Yudai</p>
-      <p class="founder-role">Solo developer &middot; Indie studio software</p>
-      <dl class="founder-meta">
-        <div><dt>Based</dt><dd>Japan</dd></div>
-        <div><dt>Runs</dt><dd>Learning academy, 280 students</dd></div>
-        <div><dt>Writes</dt><dd>Every line of Klasly</dd></div>
-        <div><dt>Replies to</dt><dd>Every email personally</dd></div>
-      </dl>
-    </aside>
-    <div class="founder-main">
-      <h2>Built by a studio owner, for studio owners.</h2>
-      <blockquote class="founder-quote reveal">I run a learning academy in Japan with 280 students. I know the pain of managing a studio with spreadsheets. So I built something better &mdash; and priced it so any small studio can afford it.</blockquote>
-      <div class="founder-grid">
-        <article class="founder-card reveal">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <div>
-            <h4>Direct line to the developer</h4>
-            <p>Your feedback goes straight into the product. No support tickets into a void.</p>
-          </div>
-        </article>
-        <article class="founder-card reveal reveal-d1">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <div>
-            <h4>Features ship fast</h4>
-            <p>Send feedback before bed, wake up to see it implemented. Indie-dev advantage.</p>
-          </div>
-        </article>
-        <article class="founder-card reveal reveal-d2">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <div>
-            <h4>$19 forever</h4>
-            <p>Early customers lock in $19 permanently. No bait-and-switch. No price hikes.</p>
-          </div>
-        </article>
+<!-- Compare -->
+<section class="compare">
+  <div class="wrap">
+    <div class="compare-head">
+      <span class="eyebrow-lp">Before / After</span>
+      <h2>What an owner's Tuesday looks like.</h2>
+      <p class="lede">Same studio. Same 24 hours. Different software stack.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-col before" id="cmpBefore">
+        <span class="tag">Without Klasly</span>
+        <h3>11 tabs, 3 apps, one spreadsheet that crashes.</h3>
+        <div class="compare-list">
+          <div class="compare-item"><div class="time">7:00 am</div><div class="what">Open laptop. <strong>Reconcile</strong> Stripe payouts with Google Sheets attendance.</div></div>
+          <div class="compare-item"><div class="time">9:30 am</div><div class="what">Three guests text about retreat installments. <strong>Answer each</strong> one by one.</div></div>
+          <div class="compare-item"><div class="time">12:15 pm</div><div class="what">Two cards declined last night. <strong>Email</strong> the members, copy the link, hope they reply.</div></div>
+          <div class="compare-item"><div class="time">5:45 pm</div><div class="what">Chase the instructors for their session counts. <strong>Calculate splits</strong> by hand.</div></div>
+          <div class="compare-item"><div class="time">10:30 pm</div><div class="what">Manually wire each instructor their share. <strong>Reconcile</strong> in the spreadsheet again.</div></div>
+        </div>
+      </div>
+
+      <div class="compare-col after" id="cmpAfter">
+        <span class="tag">With Klasly</span>
+        <h3>One console. <em>Closed</em> by lunch.</h3>
+        <div class="compare-list">
+          <div class="compare-item"><div class="time">7:00 am</div><div class="what">Coffee. Open dashboard. <strong>$8,420 collected</strong>, retreat installment 2 succeeded for 12 guests.</div></div>
+          <div class="compare-item"><div class="time">7:08 am</div><div class="what">Send <strong>one announcement</strong> about studio closure next Monday. 284 members, done.</div></div>
+          <div class="compare-item"><div class="time">7:15 am</div><div class="what">Klasly already retried the 2 cards. <strong>Both succeeded</strong>. Move on.</div></div>
+          <div class="compare-item"><div class="time">5:30 pm</div><div class="what">Instructor opens portal. <strong>Earnings already routed</strong> directly via Stripe Connect.</div></div>
+          <div class="compare-item"><div class="time">9:00 pm</div><div class="what">Pull a saved report: <strong>retention 94%</strong>. Close the laptop.</div></div>
+        </div>
+        <div class="compare-stats">
+          <div class="compare-stat"><div class="lbl">Hours / week</div><div class="val">−9.4</div></div>
+          <div class="compare-stat"><div class="lbl">Late dues</div><div class="val">−72%</div></div>
+          <div class="compare-stat"><div class="lbl">$/yr saved</div><div class="val">$1,320</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ 9.5. FAQ ══════════ -->
-<section class="faq-section" id="faq">
-  <div class="section-label">FAQ</div>
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing-head">
+      <span class="eyebrow-lp">Pricing</span>
+      <h2>$19, so the rest goes to <em>teaching.</em></h2>
+      <p class="lede">The cheaper the software, the more left for the people in the room. That's the whole pricing philosophy.</p>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-card-inner">
+        <span class="pricing-flag">One plan &middot; every feature on</span>
+        <div class="pricing-amount"><sup>$</sup>19<span class="per">/ month</span></div>
+        <p class="pricing-fee">+ 0.5% on member payments. That's it.</p>
+        <ul>
+          <li>Every feature included &mdash; no tiers, no add-ons</li>
+          <li>Retreats with installment payments</li>
+          <li>Stripe Connect &amp; collective mode</li>
+          <li>Unlimited members, classes, instructors</li>
+          <li>30-day trial &middot; no credit card</li>
+          <li>Annual: $190 / year (save two months)</li>
+          <li>Refer a studio &mdash; both get a month free</li>
+        </ul>
+        <a href="https://app.klasly.app/signup" class="pricing-cta">Start your 30-day trial →</a>
+      </div>
+    </div>
+
+    <div class="savings">
+      <div class="label">If you switch from Mindbody</div>
+      <div class="h">An average studio &middot; 12 months</div>
+      <div class="row"><span class="who">Mindbody</span><span class="val">$1,548 / yr</span></div>
+      <div class="row us"><span class="who">Klasly</span><span class="val">$228 / yr</span></div>
+      <div class="row diff"><span class="who">Left for the studio</span><span class="val">+ $1,320 / yr</span></div>
+      <p class="foot">Roughly: a few extra teacher-hours each month, or a workshop a year, or a quiet upgrade to the room.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-wrap" id="faq">
+  <span class="eyebrow-lp">FAQ</span>
   <h2>Questions studio owners ask.</h2>
-  <p class="section-sub">If yours isn't here, email <a href="mailto:support@klasly.app" class="inline-link">support@klasly.app</a> &mdash; Yudai replies personally.</p>
+  <p class="lede">If yours isn't here, write to <a href="mailto:support@klasly.app" style="color: var(--brand-700); border-bottom: 1px solid currentColor;">support@klasly.app</a>. We read everything.</p>
   <div class="faq-list">
-    <details class="faq-item reveal">
-      <summary>Is the 30-day trial really free? Do I need a card?</summary>
-      <p>Yes &mdash; the trial is fully free and no credit card is required upfront. You only enter payment details if you decide to keep using Klasly after day 30.</p>
+    <details class="faq-item">
+      <summary>Is the trial really free? Do I need a card?</summary>
+      <p>Yes. Thirty days, no card upfront. You only enter payment details if you decide to keep using Klasly past day 30.</p>
     </details>
-    <details class="faq-item reveal">
-      <summary>Can I import my existing members and schedule?</summary>
-      <p>Yes. CSV import handles members; recurring classes are recreated in minutes. Klasly auto-generates sessions for weeks ahead, so each class is set up only once.</p>
+    <details class="faq-item">
+      <summary>Can I bring my members and schedule across?</summary>
+      <p>Yes. Members import via CSV; recurring classes are recreated in minutes. Klasly auto-generates four weeks of sessions, so you set each class up only once.</p>
     </details>
-    <details class="faq-item reveal">
+    <details class="faq-item">
       <summary>How does retreat booking actually work?</summary>
-      <p>Create a retreat and Klasly generates a dedicated landing page with gallery, daily schedule, map, early-bird pricing, waitlist, group booking, and 3-installment payments. Share one link &mdash; guests book end-to-end from there.</p>
+      <p>Create a retreat and Klasly assembles a public page with gallery, daily schedule, map, packing list, early-bird pricing, waitlist, group booking, and three-installment payments. You share one link &mdash; everything happens there.</p>
     </details>
-    <details class="faq-item reveal">
-      <summary>For shared studios: can instructors collect their own payments?</summary>
-      <p>Yes &mdash; that's Shared Studio Mode. Each instructor connects their own Stripe account, sets their own prices, and payments go straight to them. Your studio fee is deducted automatically. Zero manual transfers.</p>
+    <details class="faq-item">
+      <summary>For shared studios &mdash; can instructors collect their own payments?</summary>
+      <p>Yes. That's collective mode. Each instructor connects their own Stripe account. Member payments go straight to them; your studio fee is deducted automatically. No middleman, no monthly transfers.</p>
     </details>
-    <details class="faq-item reveal">
+    <details class="faq-item">
       <summary>What's the 0.5% platform fee?</summary>
-      <p>A flat 0.5% on member payments processed through Klasly (separate from Stripe's fee). That's how $19/mo covers every feature with no tiers.</p>
+      <p>A flat 0.5% on member payments processed through Klasly, separate from Stripe's processing fee. That's how $19 a month covers every feature with no tiers &mdash; and how we keep the bill small enough that the savings go back to your teachers.</p>
     </details>
-    <details class="faq-item reveal">
+    <details class="faq-item">
       <summary>Does it work on mobile?</summary>
       <p>Yes. Klasly is a PWA &mdash; members and instructors install it like a native app, and it works offline for viewing schedules and member info.</p>
     </details>
-    <details class="faq-item reveal">
-      <summary>Can I cancel anytime?</summary>
-      <p>Yes. Cancel from your dashboard, no friction. Annual ($190/yr) cancellations are refunded pro-rata for unused months.</p>
+    <details class="faq-item">
+      <summary>Can I cancel?</summary>
+      <p>Anytime, from your dashboard. Annual plans are refunded pro-rata for unused months.</p>
     </details>
   </div>
 </section>
 
-<!-- ══════════ 10. Final CTA ══════════ -->
+<!-- Final CTA -->
 <section class="final-cta">
-  <h2>Software that fits <em>your</em> studio.</h2>
-  <p>Set up in under 10 minutes. Import your members from CSV. Your first retreat page goes live the same day.</p>
-  <a href="https://app.klasly.app/signup" class="hero-cta">Try Klasly free for 30 days</a>
-  <p class="hero-sub">No credit card &middot; Keep everything you set up &middot; $19/mo after trial</p>
+  <div class="wrap">
+    <h2>Close the laptop. <em>Go teach.</em></h2>
+    <p class="lede">Set up takes ten minutes. Import members from a CSV. The first retreat page can be live the same day &mdash; and from then on, the software stays out of the way.</p>
+    <a class="btn btn-primary" href="https://app.klasly.app/signup" style="height: 56px; padding: 0 28px; font-size: 16px;">
+      Try Klasly for 30 days
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--fg-3);">No card &middot; Keep what you set up &middot; $19/mo after</p>
+  </div>
 </section>
-</main>
 
-<!-- ══════════ Sticky CTA ══════════ -->
-<div class="sticky-cta" id="stickyCta" role="complementary" aria-label="Quick sign up">
-  <span class="sticky-cta-text"><strong>$19/mo</strong> <span class="sticky-cta-text-long">&middot; all features &middot; no card</span></span>
-  <a href="https://app.klasly.app/signup" class="sticky-cta-action">Start free trial</a>
-</div>
-
-<!-- ══════════ 11. Footer ══════════ -->
+<!-- Footer -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">Klasly</div>
-    <div class="footer-links">
-      <a href="#features">Features</a>
-      <a href="#collective">Shared Studios</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="https://app.klasly.app/help">Help</a>
-      <a href="https://app.klasly.app/privacy">Privacy</a>
-      <a href="https://app.klasly.app/terms">Terms</a>
-      <a href="mailto:support@klasly.app">Contact</a>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="col about">
+        <a class="brand" href="#" style="color: var(--fg-1);">
+          <span class="brand-mark">K</span>
+          Klasly
+        </a>
+        <p>Studio software for small yoga, pilates, dance, and bodywork studios. So teachers stay on the mat &mdash; and money stays with the work.</p>
+      </div>
+      <div class="col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#demo">Live demo</a>
+      </div>
+      <div class="col">
+        <h4>Company</h4>
+        <a href="#mind">Why we built this</a>
+        <a href="https://app.klasly.app/help">Help</a>
+        <a href="mailto:support@klasly.app">Contact</a>
+      </div>
+      <div class="col">
+        <h4>Legal</h4>
+        <a href="https://app.klasly.app/privacy">Privacy</a>
+        <a href="https://app.klasly.app/terms">Terms</a>
+      </div>
     </div>
-    <p class="footer-copy">&copy; 2026 Klasly &middot; Built in Japan</p>
+    <div class="footer-bottom">
+      <span>© 2026 Klasly. Made for studios that teach the long way.</span>
+      <span>Built quietly &middot; Tokyo</span>
+    </div>
   </div>
 </footer>
 
-<!-- ══════════ Scripts ══════════ -->
 <script>
-// Intersection Observer for scroll-triggered animations
-(function() {
-  var els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    els.forEach(function(el) { el.classList.add('visible'); });
-    return;
-  }
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+/* 1. Hero letter fade-in */
+window.addEventListener('load', () => {
+  const h1 = document.getElementById('heroH1');
+  if (!h1) return;
+  const chars = h1.querySelectorAll('.char');
+  chars.forEach((c, i) => { c.style.transitionDelay = (0.08 + i * 0.012) + 's'; });
+  requestAnimationFrame(() => h1.classList.add('is-in'));
+});
+
+/* 2. Sticky nav border on scroll */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 16);
+}, { passive: true });
+
+/* 3. Hero parallax */
+const heroVisual = document.querySelector('.hero-visual');
+if (heroVisual && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const cards = heroVisual.querySelectorAll('.hv-card');
+  const factors = [0.15, -0.08, 0.06, -0.12];
+  let raf = null;
+  heroVisual.addEventListener('mousemove', (e) => {
+    const rect = heroVisual.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      cards.forEach((el, i) => {
+        const k = factors[i] || 0.1;
+        el.style.transform = `translate(${x * k * 18}px, ${y * k * 14}px)`;
+      });
+    });
+  });
+  heroVisual.addEventListener('mouseleave', () => {
+    cards.forEach(el => { el.style.transform = ''; });
+  });
+}
+
+/* 4. Statement word reveal on scroll */
+(function () {
+  const el = document.getElementById('statementText');
+  if (!el) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = el.innerHTML;
+  function wrapTextNode(node) {
+    const words = node.textContent.split(/(\s+)/);
+    const frag = document.createDocumentFragment();
+    words.forEach(w => {
+      if (/^\s+$/.test(w)) {
+        frag.appendChild(document.createTextNode(w));
+      } else if (w.length) {
+        const s = document.createElement('span');
+        s.className = 'word-reveal';
+        s.textContent = w;
+        frag.appendChild(s);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(function(el) { observer.observe(el); });
-})();
-
-// Compare table expander
-(function() {
-  var btn = document.getElementById('compareToggle');
-  var more = document.querySelector('.compare-more');
-  if (!btn || !more) return;
-  var label = btn.querySelector('.compare-toggle-label');
-  btn.addEventListener('click', function() {
-    var expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', !expanded);
-    more.hidden = expanded;
-    if (label) label.textContent = expanded ? 'Show 10 more rows' : 'Hide extra rows';
-  });
-})();
-
-// Sticky CTA — show after scrolling past hero, hide when pricing section is in view
-(function() {
-  var cta = document.getElementById('stickyCta');
-  var hero = document.querySelector('.hero');
-  var pricing = document.getElementById('pricing');
-  var finalCta = document.querySelector('.final-cta');
-  if (!cta || !hero) return;
-  var heroBottom = 0;
-  var pricingTop = Infinity;
-  var finalCtaTop = Infinity;
-  function measure() {
-    heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
-    if (pricing) pricingTop = pricing.getBoundingClientRect().top + window.scrollY;
-    if (finalCta) finalCtaTop = finalCta.getBoundingClientRect().top + window.scrollY;
+    node.parentNode.replaceChild(frag, node);
   }
-  measure();
-  window.addEventListener('resize', measure);
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    window.requestAnimationFrame(function() {
-      var y = window.scrollY + window.innerHeight * 0.85;
-      var past = y > heroBottom;
-      var atPricing = y > pricingTop && window.scrollY < finalCtaTop;
-      cta.classList.toggle('show', past && !atPricing);
-      ticking = false;
+  function walk(n) {
+    [...n.childNodes].forEach(c => {
+      if (c.nodeType === 3) wrapTextNode(c);
+      else if (c.nodeType === 1 && c.tagName === 'EM') {
+        const s = document.createElement('span');
+        s.className = 'word-reveal';
+        s.appendChild(c.cloneNode(true));
+        c.parentNode.replaceChild(s, c);
+      } else if (c.nodeType === 1) walk(c);
     });
-    ticking = true;
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  walk(tmp);
+  el.innerHTML = tmp.innerHTML;
+
+  const words = el.querySelectorAll('.word-reveal');
+  function update() {
+    const rect = el.getBoundingClientRect();
+    const winH = window.innerHeight;
+    const start = winH * 0.85;
+    const end = winH * 0.2;
+    const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end + rect.height * 0.5)));
+    const lit = Math.floor(progress * words.length);
+    words.forEach((w, i) => w.classList.toggle('is-lit', i < lit));
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 
-// Deferred analytics — loaded after main content to avoid render blocking
-(function() {
-  function loadAnalytics() {
-    // Microsoft Clarity
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "vrf6v2xv0y");
-    // Google Analytics 4
-    var ga = document.createElement('script');
-    ga.async = true;
-    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-9GJSR0FN74';
-    document.head.appendChild(ga);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-9GJSR0FN74');
-  }
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadAnalytics, { timeout: 2500 });
-  } else {
-    window.addEventListener('load', function() { setTimeout(loadAnalytics, 1500); });
-  }
-})();
-
-// Hamburger menu toggle
-(function() {
-  var btn = document.querySelector('.nav-hamburger');
-  var menu = document.querySelector('.nav-mobile');
-  var mobileCta = document.querySelector('.nav-mobile-cta');
-  if (!btn || !menu) return;
-  // Show mobile CTA next to hamburger
-  if (mobileCta && window.innerWidth <= 768) mobileCta.style.display = 'inline-block';
-  window.addEventListener('resize', function() {
-    if (mobileCta) mobileCta.style.display = window.innerWidth <= 768 ? 'inline-block' : 'none';
-    if (window.innerWidth > 768) {
-      menu.classList.remove('open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-  });
-  btn.addEventListener('click', function() {
-    var isOpen = menu.classList.toggle('open');
-    btn.classList.toggle('active');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-  // Close menu on link click
-  menu.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      menu.classList.remove('open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+/* 5. Sticky scrollytelling */
+(function () {
+  const steps = document.querySelectorAll('.scrolly-step');
+  const panels = document.querySelectorAll('.scrolly-stage .panel');
+  if (!steps.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = parseInt(e.target.dataset.step, 10);
+        steps.forEach(s => s.classList.toggle('is-active', s === e.target));
+        panels.forEach(p => p.classList.toggle('is-active', parseInt(p.dataset.panel, 10) === idx));
+      }
     });
-  });
+  }, { rootMargin: '-40% 0% -40% 0%', threshold: 0 });
+  steps.forEach(s => io.observe(s));
+})();
+
+/* 6. Horizontal scroll arrows + progress */
+(function () {
+  const track = document.getElementById('hscrollTrack');
+  const prev = document.getElementById('hPrev');
+  const next = document.getElementById('hNext');
+  const bar = document.getElementById('hscrollBar');
+  if (!track) return;
+  function step() { return Math.min(track.clientWidth * 0.7, 420); }
+  function update() {
+    const max = track.scrollWidth - track.clientWidth;
+    const pct = max > 0 ? track.scrollLeft / max : 0;
+    bar.style.width = (15 + pct * 85) + '%';
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft >= max - 4;
+  }
+  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* 7. Compare reveal on scroll */
+(function () {
+  const before = document.getElementById('cmpBefore');
+  const after = document.getElementById('cmpAfter');
+  if (!before) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-in'); });
+  }, { threshold: 0.2 });
+  io.observe(before);
+  io.observe(after);
 })();
 </script>
 </body>
