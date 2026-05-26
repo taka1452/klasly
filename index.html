@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Klasly — So you can spend the day teaching, not on the software</title>
-<meta name="description" content="Studio management for small yoga, pilates, dance, and bodywork studios. Classes, retreats with installment payments, collective mode for shared spaces — $19/month, every feature included.">
+<meta name="description" content="Studio management for small yoga, pilates, dance, and bodywork studios. Classes, retreats with installment payments, collective mode for shared spaces — $190/year (two months free), every feature included.">
 <link rel="canonical" href="https://klasly.app/"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230074C5'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>K</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -1404,15 +1404,74 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .pricing-head .lede { color: var(--fg-3); max-width: 540px; margin: 0 auto; font-size: 16px; }
 
-.pricing-card {
-  max-width: 540px;
+.pricing-grid {
+  max-width: 980px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+@media (max-width: 760px) {
+  .pricing-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+
+.pricing-card {
   background: var(--gray-900);
   color: #fff;
   border-radius: 24px;
   padding: 44px 40px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card--alt {
+  background: var(--bg-card);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  padding: 44px 36px;
+}
+.pricing-card--alt::before { display: none; }
+.pricing-card--alt .pricing-flag {
+  background: var(--gray-100);
+  color: var(--fg-2);
+}
+.pricing-card--alt .pricing-amount sup,
+.pricing-card--alt .pricing-amount .per { color: var(--fg-3); }
+.pricing-card--alt .pricing-fee { color: var(--fg-3); }
+.pricing-card--alt ul li { color: var(--fg-2); }
+.pricing-card--alt ul li::before { color: var(--brand-500); }
+.pricing-card--alt .pricing-cta {
+  background: transparent;
+  color: var(--gray-900);
+  border: 1px solid var(--gray-900);
+}
+.pricing-card--alt .pricing-cta:hover { background: var(--gray-900); color: #fff; }
+.pricing-card--alt .pricing-alt { color: var(--fg-3); }
+.pricing-card--alt .pricing-alt strong { color: var(--fg); }
+
+.pricing-recommend {
+  position: absolute;
+  top: 14px; right: 14px;
+  z-index: 2;
+  background: var(--brand-300);
+  color: var(--brand-950);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.pricing-save {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-300);
+  letter-spacing: 0.04em;
 }
 .pricing-card::before {
   content: '';
@@ -1497,6 +1556,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-family: inherit;
 }
 .pricing-cta:hover { background: var(--brand-50); transform: translateY(-2px); }
+.pricing-alt {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+.pricing-alt strong { color: rgba(255,255,255,0.9); font-weight: 600; }
 
 /* Savings table */
 .savings {
@@ -1729,7 +1795,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
       </h1>
 
       <p class="hero-sub">
-        Studio software for small yoga, pilates, dance, and bodywork studios. Klasly handles classes, retreats, and instructor contracts in the background &mdash; so you spend the day on the mat, not in the software. <strong>$19/month, every feature on.</strong>
+        Studio software for small yoga, pilates, dance, and bodywork studios. Klasly handles classes, retreats, and instructor contracts in the background &mdash; so you spend the day on the mat, not in the software. <strong>$190 a year &mdash; two months free, every feature on.</strong>
       </p>
 
       <div class="hero-cta-row">
@@ -1881,7 +1947,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
       <article class="tenet">
         <span class="ix">02</span>
         <h3>Money goes <em>where the work is.</em></h3>
-        <p>$19, not $129. The fewer dollars going to your software vendor, the more left for the people teaching, the space you rent, the community you're building. Instructors are paid directly via Stripe Connect &mdash; no middleman.</p>
+        <p>$190 a year, not $1,548. The fewer dollars going to your software vendor, the more left for the people teaching, the space you rent, the community you're building. And no end-of-month payroll: Stripe Connect splits every payment as it happens, so instructors get their share the moment a member books.</p>
       </article>
       <article class="tenet">
         <span class="ix">03</span>
@@ -2023,7 +2089,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
       <h2>Eight features that replace a wall of sticky notes.</h2>
     </div>
     <div>
-      <p class="lede" style="margin-bottom: 16px;">Drag, swipe, or use the arrows. Every feature here is on by default at $19.</p>
+      <p class="lede" style="margin-bottom: 16px;">Drag, swipe, or use the arrows. Every feature here is on by default &mdash; $190 a year, no tiers.</p>
       <div class="hscroll-controls">
         <button id="hPrev" aria-label="Previous">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -2086,12 +2152,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
     <div class="hcard">
       <div class="num">04</div>
-      <h3>Collective mode (Stripe Connect)</h3>
-      <p>Member payments routed directly to each instructor's account. Studio fee deducted automatically. Hour-tier memberships with overage billing.</p>
+      <h3>Goodbye, payroll night.</h3>
+      <p>Stripe Connect splits every booking the moment it's paid &mdash; instructor's share lands in their account, your studio cut stays in yours. No spreadsheet, no monthly wire transfers, no end-of-month reconcile.</p>
       <ul>
-        <li>Country-specific onboarding</li>
+        <li>Hour-tier memberships with auto overage billing</li>
+        <li>Country-specific onboarding for each instructor</li>
         <li>Studio pass with revenue split</li>
-        <li>Self-scheduling for instructors</li>
       </ul>
       <div class="visual viz-pay">
         <div class="stat"><span class="val">$4,742</span> <span class="delta">→ teachers</span></div>
@@ -2215,7 +2281,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
         <div class="compare-stats">
           <div class="compare-stat"><div class="lbl">Hours / week</div><div class="val">−9.4</div></div>
           <div class="compare-stat"><div class="lbl">Late dues</div><div class="val">−72%</div></div>
-          <div class="compare-stat"><div class="lbl">$/yr saved</div><div class="val">$1,320</div></div>
+          <div class="compare-stat"><div class="lbl">$/yr saved</div><div class="val">$1,358</div></div>
         </div>
       </div>
     </div>
@@ -2227,25 +2293,46 @@ button { font: inherit; color: inherit; cursor: pointer; }
   <div class="wrap">
     <div class="pricing-head">
       <span class="eyebrow-lp">Pricing</span>
-      <h2>$19, so the rest goes to <em>teaching.</em></h2>
+      <h2>$190 a year, so the rest goes to <em>teaching.</em></h2>
       <p class="lede">The cheaper the software, the more left for the people in the room. That's the whole pricing philosophy.</p>
     </div>
 
-    <div class="pricing-card">
-      <div class="pricing-card-inner">
-        <span class="pricing-flag">One plan &middot; every feature on</span>
-        <div class="pricing-amount"><sup>$</sup>19<span class="per">/ month</span></div>
-        <p class="pricing-fee">+ 0.5% on member payments. That's it.</p>
-        <ul>
-          <li>Every feature included &mdash; no tiers, no add-ons</li>
-          <li>Retreats with installment payments</li>
-          <li>Stripe Connect &amp; collective mode</li>
-          <li>Unlimited members, classes, instructors</li>
-          <li>30-day trial &middot; no credit card</li>
-          <li>Annual: $190 / year (save two months)</li>
-          <li>Refer a studio &mdash; both get a month free</li>
-        </ul>
-        <a href="https://app.klasly.app/signup" class="pricing-cta">Start your 30-day trial →</a>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <span class="pricing-recommend">Recommended</span>
+        <div class="pricing-card-inner">
+          <span class="pricing-flag">Annual &middot; pay once a year</span>
+          <div class="pricing-amount"><sup>$</sup>190<span class="per">/ year</span></div>
+          <span class="pricing-save">Save $38 &mdash; two months on the house</span>
+          <p class="pricing-fee">Works out to about $15.83 a month. + 0.5% on member payments. That's it.</p>
+          <ul>
+            <li>Every feature included &mdash; no tiers, no add-ons</li>
+            <li>Retreats with installment payments</li>
+            <li>Stripe Connect &mdash; instructors paid direct, no payroll</li>
+            <li>Unlimited members, classes, instructors</li>
+            <li>30-day trial &middot; no credit card</li>
+            <li>Pro-rata refund if you cancel mid-year</li>
+            <li>Refer a studio &mdash; both get a month free</li>
+          </ul>
+          <a href="https://app.klasly.app/signup?plan=annual" class="pricing-cta">Start with annual &mdash; 30-day trial →</a>
+        </div>
+      </div>
+
+      <div class="pricing-card pricing-card--alt">
+        <div class="pricing-card-inner">
+          <span class="pricing-flag">Monthly &middot; cancel anytime</span>
+          <div class="pricing-amount"><sup>$</sup>19<span class="per">/ month</span></div>
+          <p class="pricing-fee">Same features, billed monthly. + 0.5% on member payments.</p>
+          <ul>
+            <li>Every feature included &mdash; no tiers, no add-ons</li>
+            <li>Retreats with installment payments</li>
+            <li>Stripe Connect &mdash; instructors paid direct, no payroll</li>
+            <li>Unlimited members, classes, instructors</li>
+            <li>30-day trial &middot; no credit card</li>
+            <li>Cancel anytime, no commitment</li>
+          </ul>
+          <a href="https://app.klasly.app/signup?plan=monthly" class="pricing-cta">Start with monthly &mdash; 30-day trial →</a>
+        </div>
       </div>
     </div>
 
@@ -2253,8 +2340,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
       <div class="label">If you switch from Mindbody</div>
       <div class="h">An average studio &middot; 12 months</div>
       <div class="row"><span class="who">Mindbody</span><span class="val">$1,548 / yr</span></div>
-      <div class="row us"><span class="who">Klasly</span><span class="val">$228 / yr</span></div>
-      <div class="row diff"><span class="who">Left for the studio</span><span class="val">+ $1,320 / yr</span></div>
+      <div class="row us"><span class="who">Klasly (annual)</span><span class="val">$190 / yr</span></div>
+      <div class="row diff"><span class="who">Left for the studio</span><span class="val">+ $1,358 / yr</span></div>
       <p class="foot">Roughly: a few extra teacher-hours each month, or a workshop a year, or a quiet upgrade to the room.</p>
     </div>
   </div>
@@ -2284,7 +2371,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
     </details>
     <details class="faq-item">
       <summary>What's the 0.5% platform fee?</summary>
-      <p>A flat 0.5% on member payments processed through Klasly, separate from Stripe's processing fee. That's how $19 a month covers every feature with no tiers &mdash; and how we keep the bill small enough that the savings go back to your teachers.</p>
+      <p>A flat 0.5% on member payments processed through Klasly, separate from Stripe's processing fee. That's how $190 a year covers every feature with no tiers &mdash; and how we keep the bill small enough that the savings go back to your teachers.</p>
     </details>
     <details class="faq-item">
       <summary>Does it work on mobile?</summary>
@@ -2306,7 +2393,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
       Try Klasly for 30 days
       <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
-    <p style="margin-top: 20px; font-size: 13px; color: var(--fg-3);">No card &middot; Keep what you set up &middot; $19/mo after</p>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--fg-3);">No card &middot; Keep what you set up &middot; $190/yr after (or $19/mo)</p>
   </div>
 </section>
 
